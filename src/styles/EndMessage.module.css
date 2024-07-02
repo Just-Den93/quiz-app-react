@@ -1,0 +1,77 @@
+.endMessage {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.endMessageContent {
+  width: calc(100% - 690px);
+  text-align: center;
+  padding: 40px;
+  height: 350px;
+  font-size: 32px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #7958af;
+  border: 10px solid #fff;
+  border-radius: 30px;
+  color: #fff;
+}
+
+.greetings {
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.restartCircle {
+  background-color: white;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -60px;
+  left: calc(50% - 60px);
+}
+
+.restartCircle img {
+  width: 70px;
+  height: 70px;
+}
+
+.restartButton {
+  font-size: 24px;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #7958af;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.restartButton.show {
+  visibility: visible;
+  opacity: 1;
+}

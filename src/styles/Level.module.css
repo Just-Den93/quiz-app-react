@@ -1,0 +1,29 @@
+.level {
+  text-align: center;
+  background-color: #a18ac7;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 10px;
+  margin-left: 22px;
+  width: 250px;
+}
+
+#light {
+  margin-left: 157px;
+  width: 250px;
+}
+
+#medium {
+  margin-left: 22px;
+  width: 250px;
+}
+
+#heavy {
+  margin-left: 22px;
+  width: 250px;
+}

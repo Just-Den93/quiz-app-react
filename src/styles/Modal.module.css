@@ -1,0 +1,141 @@
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  opacity: 1;
+}
+
+.modalContent {
+  background-color: #fed86b;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 60%;
+  max-width: 800px;
+  height: 100%; /* Full height of the screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 10px;
+}
+
+.selectedInfo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.infoCategoryName {
+  background-color: transparent;
+  color: #7958af;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 5px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.selectedNumber {
+  width: 30px;
+  height: 30px;
+  background-color: #7958af;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.content {
+  text-align: center;
+  margin: 20px 0;
+  padding: 40px;
+  font-size: 20px;
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  max-width: 80%;
+}
+
+.closeButton {
+  color: #aaa;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.startTimerButton,
+.showAnswerButton {
+  font-size: 24px;
+  padding: 10px 20px;
+  background-color: #fed86b; /* Yellow background */
+  font-weight: 700;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.startButtonIcon {
+  width: 40px;
+  height: 40px;
+}
+
+.selectCategoryButton {
+  font-size: 24px;
+  padding: 10px 20px;
+  background-color: #7958af;
+  font-weight: 700;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+  margin-top: 20px;
+}
+
+.answer {
+  margin: 20px 0;
+}
+
+.subAnswer {
+  margin: 20px 0;
+}
