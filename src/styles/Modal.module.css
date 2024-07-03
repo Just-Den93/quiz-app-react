@@ -24,13 +24,12 @@
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 80%;
-  height: 100%;
+  height: 100%; /* Full height */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between; /* Space between content and timer block */
   align-items: center;
   position: relative;
-  /* border-radius: 10px; */
 }
 
 .selectedInfo {
@@ -67,7 +66,7 @@
 
 .content {
   text-align: center;
-  margin: 20px 0;
+  margin: 80px 0 20px 0; /* Add top margin to avoid contact with category info */
   padding: 40px;
   font-size: 20px;
   background-color: #7958af;
@@ -75,9 +74,14 @@
   border: 10px solid #fff;
   line-height: 1.5;
   color: #fff;
-  height: 350px;
+  flex: 1; /* Allow content to grow and center */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: calc(100% - 288px);
-  /* max-width: 80%; */
+  height: 60%;
+  max-height: 60%;
 }
 
 .closeButton {
@@ -96,6 +100,12 @@
   cursor: pointer;
 }
 
+.timerBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .startTimerButton,
 .showAnswerButton {
   font-size: 24px;
@@ -111,10 +121,6 @@
   margin-top: 20px;
   display: flex;
   align-items: center;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .startButtonIcon {
@@ -156,10 +162,6 @@
   border-radius: 10px;
   padding: 10px 20px;
   margin-top: 20px;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .digit,
