@@ -33,29 +33,6 @@ function Modal({ block, onClose }) {
         </div>
         <div className={styles.content}>
           <h2>{!showAnswer ? block.question : block.answer}</h2>
-          {!showAnswer && !timerStarted && (
-            <button
-              className={styles.startTimerButton}
-              onClick={() => setTimerStarted(true)}
-            >
-              <img
-                src="./images/refresh-ccw-clock-svgrepo-com.svg"
-                alt="Start Timer"
-                className={styles.startButtonIcon}
-              />
-            </button>
-          )}
-          {!showAnswer && timerStarted && !timerEnded && (
-            <Timer duration={30} onEnd={handleTimerEnd} />
-          )}
-          {timerEnded && !showAnswer && (
-            <button
-              className={styles.showAnswerButton}
-              onClick={handleShowAnswer}
-            >
-              Показати відповідь
-            </button>
-          )}
           {showAnswer && (
             <>
               <p className={styles.answer}>{block.answer}</p>
@@ -67,6 +44,31 @@ function Modal({ block, onClose }) {
                 Обрати категорію
               </button>
             </>
+          )}
+        </div>
+        <div className={styles.timerBlock}>
+          {!timerStarted ? (
+            <button
+              className={styles.startTimerButton}
+              onClick={() => setTimerStarted(true)}
+            >
+              <img
+                src="./images/refresh-ccw-clock-svgrepo-com.svg"
+                alt="Start Timer"
+                className={styles.startButtonIcon}
+              />
+            </button>
+          ) : !timerEnded ? (
+            <Timer duration={30} onEnd={handleTimerEnd} />
+          ) : (
+            !showAnswer && (
+              <button
+                className={styles.showAnswerButton}
+                onClick={handleShowAnswer}
+              >
+                Показати відповідь
+              </button>
+            )
           )}
         </div>
       </div>
