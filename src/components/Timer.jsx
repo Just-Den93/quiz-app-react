@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/Timer.module.css';
 
-function Timer({ duration, onEnd }) {
+function Timer({ duration, onEnd, onForceStop }) {
   const [seconds, setSeconds] = useState(duration);
-  const [blink, setBlink] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -14,26 +14,33 @@ function Timer({ duration, onEnd }) {
   }, []);
 
   useEffect(() => {
-    if (seconds <= 3 && seconds > 0) {
-      setBlink(true);
-    } else {
-      setBlink(false);
-    }
     if (seconds <= 0) {
       onEnd();
     }
   }, [seconds, onEnd]);
 
-  const minutes = String(Math.floor(seconds / 60)).padStart(2, '0');
-  const remainingSeconds = String(seconds % 60).padStart(2, '0');
+  const handleForceStop = () => {
+    onForceStop();
+  };
 
   return (
-    <div className={`${styles.timer} ${blink ? styles.blink : ''}`}>
-      <span className={styles.digit}>{minutes.charAt(0)}</span>
-      <span className={styles.digit}>{minutes.charAt(1)}</span>
-      <span className={styles.colon}>:</span>
-      <span className={styles.digit}>{remainingSeconds.charAt(0)}</span>
-      <span className={styles.digit}>{remainingSeconds.charAt(1)}</span>
+    <div 
+      className={styles.timerContainer}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div className={styles.timer}>
+        <span className={styles.digit}>{String(Math.floor(seconds / 60)).padStart(2, '0').charAt(0)}</span>
+        <span className={styles.digit}>{String(Math.floor(seconds / 60)).padStart(2, '0').charAt(1)}</span>
+        <span className={styles.colon}>:</span>
+        <span className={styles.digit}>{String(seconds % 60).padStart(2, '0').charAt(0)}</span>
+        <span className={styles.digit}>{String(seconds % 60).padStart(2, '0').charAt(1)}</span>
+      </div>
+      {hovered && (
+        <button className={styles.forceStopButton} onClick={handleForceStop}>
+          Спинити
+        </button>
+      )}
     </div>
   );
 }

@@ -21,7 +21,7 @@ function ControlBlock({ onClose, showAnswer, setShowAnswer }) {
   const handleForceStop = () => {
     setTimerStarted(false);
     setTimerEnded(true);
-    setShowAnswer(false);
+    setShowAnswer(true);
   };
 
   return (
@@ -38,14 +38,7 @@ function ControlBlock({ onClose, showAnswer, setShowAnswer }) {
           />
         </button>
       ) : !timerEnded ? (
-        <>
-          <div className={styles.timerContainer}>
-            <Timer duration={30} onEnd={handleTimerEnd} />
-          </div>
-          <button className={styles.stopTimerButton} onClick={handleForceStop}>
-            Force Stop Timer
-          </button>
-        </>
+        <Timer duration={30} onEnd={handleTimerEnd} onForceStop={handleForceStop} />
       ) : (
         !showAnswer && (
           <button

@@ -31,9 +31,32 @@
   
   .timerContainer {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .timerContainer:hover .forceStopButton {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .timer {
+    font-size: 72px;
+    transition: opacity 0.3s ease;
+    font-weight: 800;
+    color: #7958af;
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px; /* Add bottom margin for spacing */
+    background-color: #fed86b; /* Yellow background */
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   .blink {
@@ -50,5 +73,20 @@
     100% {
       opacity: 1;
     }
+  }
+  
+  .forceStopButton {
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: #7958af;
+    font-weight: 700;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
   
