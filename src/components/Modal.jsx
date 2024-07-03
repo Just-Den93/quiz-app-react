@@ -1,13 +1,32 @@
 import React, { useState } from 'react';
+import Timer from './Timer';
 import styles from '../styles/Modal.module.css';
-import ControlBlock from './ControlBlock';
 
 function Modal({ block, onClose }) {
+  const [timerStarted, setTimerStarted] = useState(false);
+  const [timerEnded, setTimerEnded] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
 
   if (!block) {
     return null;
   }
+
+  const handleTimerEnd = () => {
+    setTimerEnded(true);
+  };
+
+  const handleShowAnswer = () => {
+    setShowAnswer(true);
+  };
+
+  const handleSelectCategory = () => {
+    onClose();
+  };
+
+  const handleForceStop = () => {
+    setTimerEnded(true);
+    setShowAnswer(true);
+  };
 
   return (
     <div className={`${styles.modal} ${styles.show}`} onClick={onClose}>
@@ -18,7 +37,7 @@ function Modal({ block, onClose }) {
           <div className={styles.selectedNumber}>{block.id + 1}</div>
         </div>
         <div className={styles.content}>
-          <h2>{!showAnswer ? block.question : block.answer}</h2>
+          <h2>{block.question}</h2>
           {showAnswer && (
             <>
               <p className={styles.answer}>{block.answer}</p>
@@ -26,11 +45,39 @@ function Modal({ block, onClose }) {
             </>
           )}
         </div>
-        <ControlBlock
-          onClose={onClose}
-          showAnswer={showAnswer}
-          setShowAnswer={setShowAnswer}
-        />
+        <div className={styles.controlBlock}>
+          {!timerStarted ? (
+            <button
+              className={styles.startTimerButton}
+              onClick={() => setTimerStarted(true)}
+            >
+              <img
+                src="./images/refresh-ccw-clock-svgrepo-com.svg"
+                alt="Start Timer"
+                className={styles.startButtonIcon}
+              />
+            </button>
+          ) : !timerEnded ? (
+            <Timer duration={30} onEnd={handleTimerEnd} onForceStop={handleForceStop} />
+          ) : (
+            !showAnswer && (
+              <button
+                className={styles.showAnswerButton}
+                onClick={handleShowAnswer}
+              >
+                Показати відповідь
+              </button>
+            )
+          )}
+          {showAnswer && (
+            <button
+              className={styles.selectCategoryButton}
+              onClick={handleSelectCategory}
+            >
+              Обрати категорію
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

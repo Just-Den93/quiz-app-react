@@ -1,3 +1,12 @@
+.timerContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 50px; /* Add bottom margin to avoid overlapping */
+}
+
 .timer {
   font-size: 72px;
   transition: opacity 0.3s ease;
@@ -10,25 +19,46 @@
   border-radius: 10px;
   padding: 10px 20px;
   margin-top: 20px;
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
 }
 
-.timer .digit,
-.timer .colon {
+.digit,
+.colon {
   background: rgba(255, 255, 255, 0.7); /* Translucent white background */
   border-radius: 10px;
-  padding: 10px 0; /* Adjusted for consistent width */
+  padding: 10px 0;
   margin: 0 5px;
   display: inline-block;
-  width: 80px; /* Fixed width for digits */
-  text-align: center; /* Center align digits */
+  width: 80px;
+  text-align: center;
 }
 
-.timer .colon {
+.colon {
   background: transparent; /* No background for the colon */
-  width: auto; /* Let colon have auto width */
+  width: auto;
   padding: 0 10px;
+}
+
+.forceStopButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 80%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.timerContainer:hover .forceStopButton {
+  opacity: 1;
 }

@@ -24,12 +24,13 @@
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 80%;
-  height: 100%; /* Full height */
+  height: 100%; /* Ensure the modal content does not exceed the height */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Space between content and control block */
+  justify-content: space-between;
   align-items: center;
-  position: relative; /* Ensure absolutely positioned elements are contained */
+  position: relative;
+  overflow-y: auto;
 }
 
 .selectedInfo {
@@ -104,7 +105,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50px; /* Add bottom margin for spacing */
+  margin-top: 20px; /* Add top margin for spacing */
 }
 
 .startTimerButton,
@@ -112,6 +113,7 @@
 .selectCategoryButton {
   font-size: 24px;
   padding: 10px 20px;
+  margin-bottom: 50px;
   background-color: #fed86b; /* Yellow background */
   font-weight: 700;
   color: white;
@@ -148,4 +150,69 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 50px; /* Add bottom margin for spacing */
+}
+
+.timerContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 50px; /* Add bottom margin to avoid overlapping */
+}
+
+.timer {
+  font-size: 72px;
+  transition: opacity 0.3s ease;
+  font-weight: 800;
+  color: #7958af;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fed86b; /* Yellow background */
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.digit,
+.colon {
+  background: rgba(255, 255, 255, 0.7); /* Translucent white background */
+  border-radius: 10px;
+  padding: 10px 0;
+  margin: 0 5px;
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+}
+
+.colon {
+  background: transparent; /* No background for the colon */
+  width: auto;
+  padding: 0 10px;
+}
+
+.forceStopButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 80%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  border: none;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.timerContainer:hover .forceStopButton {
+  opacity: 1;
 }
