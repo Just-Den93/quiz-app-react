@@ -27,9 +27,8 @@
   height: 100%; /* Full height */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Space between content and timer block */
+  justify-content: space-between; /* Space between content and control block */
   align-items: center;
-  position: relative;
 }
 
 .selectedInfo {
@@ -66,7 +65,7 @@
 
 .content {
   text-align: center;
-  margin: 80px 0 20px 0; /* Add top margin to avoid contact with category info */
+  margin: 60px 0 20px 0; /* Add top margin to avoid contact with category info */
   padding: 40px;
   font-size: 20px;
   background-color: #7958af;
@@ -100,14 +99,16 @@
   cursor: pointer;
 }
 
-.timerBlock {
+.controlBlock {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 50px; /* Add bottom margin for spacing */
 }
 
 .startTimerButton,
-.showAnswerButton {
+.showAnswerButton,
+.selectCategoryButton {
   font-size: 24px;
   padding: 10px 20px;
   background-color: #fed86b; /* Yellow background */
@@ -129,17 +130,7 @@
 }
 
 .selectCategoryButton {
-  font-size: 24px;
-  padding: 10px 20px;
   background-color: #7958af;
-  font-weight: 700;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-  opacity: 1;
-  margin-top: 20px;
 }
 
 .answer {
@@ -150,6 +141,13 @@
   margin: 20px 0;
 }
 
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px; /* Add bottom margin for spacing */
+}
+
 .timer {
   font-size: 72px;
   transition: opacity 0.3s ease;
@@ -158,14 +156,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fed86b; /* Yellow background */
-  border-radius: 10px;
-  padding: 10px 20px;
-  margin-top: 20px;
 }
 
-.digit,
-.colon {
+.timer .digit,
+.timer .colon {
   background: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   padding: 10px 0;
@@ -175,7 +169,7 @@
   text-align: center;
 }
 
-.colon {
+.timer .colon {
   background: transparent;
   width: auto;
   padding: 0 10px;

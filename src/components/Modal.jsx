@@ -37,16 +37,10 @@ function Modal({ block, onClose }) {
             <>
               <p className={styles.answer}>{block.answer}</p>
               <p className={styles.subAnswer}>{block.subAnswer}</p>
-              <button
-                className={styles.selectCategoryButton}
-                onClick={handleSelectCategory}
-              >
-                Обрати категорію
-              </button>
             </>
           )}
         </div>
-        <div className={styles.timerBlock}>
+        <div className={styles.controlBlock}>
           {!timerStarted ? (
             <button
               className={styles.startTimerButton}
@@ -59,7 +53,9 @@ function Modal({ block, onClose }) {
               />
             </button>
           ) : !timerEnded ? (
-            <Timer duration={30} onEnd={handleTimerEnd} />
+            <div className={styles.timerContainer}>
+              <Timer duration={30} onEnd={handleTimerEnd} />
+            </div>
           ) : (
             !showAnswer && (
               <button
@@ -69,6 +65,14 @@ function Modal({ block, onClose }) {
                 Показати відповідь
               </button>
             )
+          )}
+          {showAnswer && (
+            <button
+              className={styles.selectCategoryButton}
+              onClick={handleSelectCategory}
+            >
+              Обрати категорію
+            </button>
           )}
         </div>
       </div>
