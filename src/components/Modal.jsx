@@ -32,8 +32,8 @@ function Modal({ block, onClose }) {
           <div className={styles.selectedNumber}>{block.id + 1}</div>
         </div>
         <div className={styles.content}>
-          <h2>{block.question}</h2>
-          {!timerStarted ? (
+          <h2>{!showAnswer ? block.question : block.answer}</h2>
+          {!showAnswer && !timerStarted && (
             <button
               className={styles.startTimerButton}
               onClick={() => setTimerStarted(true)}
@@ -44,17 +44,17 @@ function Modal({ block, onClose }) {
                 className={styles.startButtonIcon}
               />
             </button>
-          ) : !timerEnded ? (
+          )}
+          {!showAnswer && timerStarted && !timerEnded && (
             <Timer duration={30} onEnd={handleTimerEnd} />
-          ) : (
-            !showAnswer && (
-              <button
-                className={styles.showAnswerButton}
-                onClick={handleShowAnswer}
-              >
-                Показати відповідь
-              </button>
-            )
+          )}
+          {timerEnded && !showAnswer && (
+            <button
+              className={styles.showAnswerButton}
+              onClick={handleShowAnswer}
+            >
+              Показати відповідь
+            </button>
           )}
           {showAnswer && (
             <>
