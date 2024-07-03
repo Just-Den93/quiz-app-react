@@ -29,14 +29,15 @@
   flex-direction: column;
   justify-content: space-between; /* Space between content and control block */
   align-items: center;
+  position: relative; /* Ensure absolutely positioned elements are contained */
 }
 
 .selectedInfo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
   display: flex;
   align-items: center;
+  position: absolute;
+  top: 20px;
+  left: 20px; /* Align to the left edge */
 }
 
 .infoCategoryName {
@@ -63,6 +64,22 @@
   border-radius: 10px;
 }
 
+.closeButton {
+  color: #aaa;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .content {
   text-align: center;
   margin: 60px 0 20px 0; /* Add top margin to avoid contact with category info */
@@ -81,22 +98,6 @@
   width: calc(100% - 288px);
   height: 60%;
   max-height: 60%;
-}
-
-.closeButton {
-  color: #aaa;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 36px;
-  font-weight: bold;
-}
-
-.closeButton:hover,
-.closeButton:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .controlBlock {
@@ -124,13 +125,14 @@
   align-items: center;
 }
 
+.showAnswerButton,
+.selectCategoryButton {
+  background-color: #7958af;
+}
+
 .startButtonIcon {
   width: 40px;
   height: 40px;
-}
-
-.selectCategoryButton {
-  background-color: #7958af;
 }
 
 .answer {
