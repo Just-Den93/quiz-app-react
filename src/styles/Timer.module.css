@@ -16,19 +16,19 @@
   transform: translateX(-50%);
 }
 
-.digit,
-.colon {
-  background: rgba(255, 255, 255, 0.7);
+.timer .digit,
+.timer .colon {
+  background: rgba(255, 255, 255, 0.7); /* Translucent white background */
   border-radius: 10px;
-  padding: 10px 0;
+  padding: 10px 0; /* Adjusted for consistent width */
   margin: 0 5px;
   display: inline-block;
-  width: 80px;
-  text-align: center;
+  width: 80px; /* Fixed width for digits */
+  text-align: center; /* Center align digits */
 }
 
-.colon {
-  background: transparent;
-  width: auto;
+.timer .colon {
+  background: transparent; /* No background for the colon */
+  width: auto; /* Let colon have auto width */
   padding: 0 10px;
 }

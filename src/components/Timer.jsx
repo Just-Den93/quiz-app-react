@@ -3,6 +3,7 @@ import styles from '../styles/Timer.module.css';
 
 function Timer({ duration, onEnd }) {
   const [seconds, setSeconds] = useState(duration);
+  const [blink, setBlink] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -13,6 +14,11 @@ function Timer({ duration, onEnd }) {
   }, []);
 
   useEffect(() => {
+    if (seconds <= 3 && seconds > 0) {
+      setBlink(true);
+    } else {
+      setBlink(false);
+    }
     if (seconds <= 0) {
       onEnd();
     }
@@ -22,7 +28,7 @@ function Timer({ duration, onEnd }) {
   const remainingSeconds = String(seconds % 60).padStart(2, '0');
 
   return (
-    <div className={styles.timer}>
+    <div className={`${styles.timer} ${blink ? styles.blink : ''}`}>
       <span className={styles.digit}>{minutes.charAt(0)}</span>
       <span className={styles.digit}>{minutes.charAt(1)}</span>
       <span className={styles.colon}>:</span>

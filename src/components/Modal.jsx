@@ -1,27 +1,13 @@
 import React, { useState } from 'react';
 import styles from '../styles/Modal.module.css';
-import Timer from './Timer';
+import ControlBlock from './ControlBlock';
 
 function Modal({ block, onClose }) {
-  const [timerStarted, setTimerStarted] = useState(false);
-  const [timerEnded, setTimerEnded] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
 
   if (!block) {
     return null;
   }
-
-  const handleTimerEnd = () => {
-    setTimerEnded(true);
-  };
-
-  const handleShowAnswer = () => {
-    setShowAnswer(true);
-  };
-
-  const handleSelectCategory = () => {
-    onClose();
-  };
 
   return (
     <div className={`${styles.modal} ${styles.show}`} onClick={onClose}>
@@ -40,41 +26,11 @@ function Modal({ block, onClose }) {
             </>
           )}
         </div>
-        <div className={styles.controlBlock}>
-          {!timerStarted ? (
-            <button
-              className={styles.startTimerButton}
-              onClick={() => setTimerStarted(true)}
-            >
-              <img
-                src="./images/refresh-ccw-clock-svgrepo-com.svg"
-                alt="Start Timer"
-                className={styles.startButtonIcon}
-              />
-            </button>
-          ) : !timerEnded ? (
-            <div className={styles.timerContainer}>
-              <Timer duration={30} onEnd={handleTimerEnd} />
-            </div>
-          ) : (
-            !showAnswer && (
-              <button
-                className={styles.showAnswerButton}
-                onClick={handleShowAnswer}
-              >
-                Показати відповідь
-              </button>
-            )
-          )}
-          {showAnswer && (
-            <button
-              className={styles.selectCategoryButton}
-              onClick={handleSelectCategory}
-            >
-              Обрати категорію
-            </button>
-          )}
-        </div>
+        <ControlBlock
+          onClose={onClose}
+          showAnswer={showAnswer}
+          setShowAnswer={setShowAnswer}
+        />
       </div>
     </div>
   );
