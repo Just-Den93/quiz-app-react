@@ -1,17 +1,13 @@
-/project-root
+/quiz-app
 │
 ├── /public
 │ ├── index.html
-│ ├── award-svgrepo-com.svg
-│ ├── lightbulb-exclamation-svgrepo-com.svg
-│ ├── refresh-ccw-clock-svgrepo-com.svg
-│
 ├── /src
-│ ├── /assets
+│ ├── /images
 │ │ └── award-svgrepo-com.svg
 │ │ └── lightbulb-exclamation-svgrepo-com.svg
 │ │ └── refresh-ccw-clock-svgrepo-com.svg
-│ │
+│ │ └── horizontal_lines_black.svg
 │ ├── /components
 │ │ ├── App.js
 │ │ ├── Header.js
