@@ -46,29 +46,31 @@ function Modal({ block, onClose }) {
           )}
         </div>
         <div className={styles.controlBlock}>
-          {!timerStarted ? (
-            <button
-              className={styles.startTimerButton}
-              onClick={() => setTimerStarted(true)}
-            >
-              <img
-                src="./images/refresh-ccw-clock-svgrepo-com.svg"
-                alt="Start Timer"
-                className={styles.startButtonIcon}
-              />
-            </button>
-          ) : !timerEnded ? (
-            <Timer duration={30} onEnd={handleTimerEnd} onForceStop={handleForceStop} />
-          ) : (
-            !showAnswer && (
+          <div className={styles.timerContainer}>
+            {!timerStarted ? (
               <button
-                className={styles.showAnswerButton}
-                onClick={handleShowAnswer}
+                className={styles.startTimerButton}
+                onClick={() => setTimerStarted(true)}
               >
-                Показати відповідь
+                <img
+                  src="./images/refresh-ccw-clock-svgrepo-com.svg"
+                  alt="Start Timer"
+                  className={styles.startButtonIcon}
+                />
               </button>
-            )
-          )}
+            ) : !timerEnded ? (
+              <Timer duration={30} onEnd={handleTimerEnd} onForceStop={handleForceStop} />
+            ) : (
+              !showAnswer && (
+                <button
+                  className={styles.showAnswerButton}
+                  onClick={handleShowAnswer}
+                >
+                  Показати відповідь
+                </button>
+              )
+            )}
+          </div>
           {showAnswer && (
             <button
               className={styles.selectCategoryButton}
