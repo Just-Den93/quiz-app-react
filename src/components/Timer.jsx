@@ -24,7 +24,7 @@ function Timer({ duration, onEnd, onForceStop }) {
   };
 
   return (
-    <div 
+    <div
       className={styles.timerContainer}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
