@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import styles from '../styles/Modal.module.css';
 import Timer from './Timer';
+import styles from '../styles/Modal.module.css';
 
 function Modal({ block, onClose }) {
   const [timerStarted, setTimerStarted] = useState(false);
@@ -23,6 +23,11 @@ function Modal({ block, onClose }) {
     onClose();
   };
 
+  const handleForceStop = () => {
+    setTimerEnded(true);
+    setShowAnswer(true);
+  };
+
   return (
     <div className={`${styles.modal} ${styles.show}`} onClick={onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
@@ -32,7 +37,7 @@ function Modal({ block, onClose }) {
           <div className={styles.selectedNumber}>{block.id + 1}</div>
         </div>
         <div className={styles.content}>
-          <h2>{!showAnswer ? block.question : block.answer}</h2>
+          <h2>{block.question}</h2>
           {showAnswer && (
             <>
               <p className={styles.answer}>{block.answer}</p>
@@ -41,31 +46,31 @@ function Modal({ block, onClose }) {
           )}
         </div>
         <div className={styles.controlBlock}>
-          {!timerStarted ? (
-            <button
-              className={styles.startTimerButton}
-              onClick={() => setTimerStarted(true)}
-            >
-              <img
-                src="./images/refresh-ccw-clock-svgrepo-com.svg"
-                alt="Start Timer"
-                className={styles.startButtonIcon}
-              />
-            </button>
-          ) : !timerEnded ? (
-            <div className={styles.timerContainer}>
-              <Timer duration={30} onEnd={handleTimerEnd} />
-            </div>
-          ) : (
-            !showAnswer && (
+          <div className={styles.timerContainer}>
+            {!timerStarted ? (
               <button
-                className={styles.showAnswerButton}
-                onClick={handleShowAnswer}
+                className={styles.startTimerButton}
+                onClick={() => setTimerStarted(true)}
               >
-                Показати відповідь
+                <img
+                  src="./images/refresh-ccw-clock-svgrepo-com.svg"
+                  alt="Start Timer"
+                  className={styles.startButtonIcon}
+                />
               </button>
-            )
-          )}
+            ) : !timerEnded ? (
+              <Timer duration={30} onEnd={handleTimerEnd} onForceStop={handleForceStop} />
+            ) : (
+              !showAnswer && (
+                <button
+                  className={styles.showAnswerButton}
+                  onClick={handleShowAnswer}
+                >
+                  Показати відповідь
+                </button>
+              )
+            )}
+          </div>
           {showAnswer && (
             <button
               className={styles.selectCategoryButton}
