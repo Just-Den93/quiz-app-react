@@ -36,13 +36,8 @@ function Modal({ block, onClose }) {
           <div className={styles.selectedNumber}>{block.id + 1}</div>
         </div>
         <div className={styles.content}>
-          <h2>{block.question}</h2>
-          {showAnswer && (
-            <>
-              <p className={styles.answer}>{block.answer}</p>
-              <p className={styles.subAnswer}>{block.subAnswer}</p>
-            </>
-          )}
+          <h2>{showAnswer ? block.answer : block.question}</h2>
+          {showAnswer && <p className={styles.subAnswer}>{block.subAnswer}</p>}
         </div>
         <div className={styles.controlBlock}>
           <div className={styles.timerContainer}>
