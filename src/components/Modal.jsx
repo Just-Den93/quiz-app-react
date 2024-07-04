@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import Timer from './Timer';
+import ModalContent from './ModalContent';
+import ShowAnswerButton from './ShowAnswerButton';
+import SelectCategoryButton from './SelectCategoryButton';
 import styles from '../styles/Modal.module.css';
 
 function Modal({ block, onClose, markBlockAsUsed }) {
@@ -36,10 +39,12 @@ function Modal({ block, onClose, markBlockAsUsed }) {
           <span className={styles.infoCategoryName}>{block.categoryName}</span>
           <div className={styles.selectedNumber}>{block.id + 1}</div>
         </div>
-        <div className={styles.content}>
-          <h2>{showAnswer ? block.answer : block.question}</h2>
-          {showAnswer && <p className={styles.subAnswer}>{block.subAnswer}</p>}
-        </div>
+        <ModalContent
+          question={block.question}
+          answer={block.answer}
+          subAnswer={block.subAnswer}
+          showAnswer={showAnswer}
+        />
         <div className={styles.controlBlock}>
           <div className={styles.timerContainer}>
             {!timerStarted ? (
@@ -57,22 +62,12 @@ function Modal({ block, onClose, markBlockAsUsed }) {
               <Timer duration={30} onEnd={handleTimerEnd} onForceStop={handleForceStop} />
             ) : (
               !showAnswer && (
-                <button
-                  className={styles.showAnswerButton}
-                  onClick={handleShowAnswer}
-                >
-                  Показати відповідь
-                </button>
+                <ShowAnswerButton onClick={handleShowAnswer} />
               )
             )}
           </div>
           {showAnswer && (
-            <button
-              className={styles.selectCategoryButton}
-              onClick={handleSelectCategory}
-            >
-              Обрати категорію
-            </button>
+            <SelectCategoryButton onClick={handleSelectCategory} />
           )}
         </div>
       </div>
