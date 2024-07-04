@@ -25,7 +25,6 @@ function Modal({ block, onClose }) {
 
   const handleForceStop = () => {
     setTimerEnded(true);
-    setShowAnswer(true);
   };
 
   return (
