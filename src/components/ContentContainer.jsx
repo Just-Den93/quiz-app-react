@@ -4,7 +4,7 @@ import styles from '../styles/ContentContainer.module.css';
 import data from '../data';
 import Modal from './Modal';
 
-function ContentContainer() {
+function ContentContainer({ usedBlocks, markBlockAsUsed }) {
   const [selectedBlock, setSelectedBlock] = useState(null);
 
   const handleItemClick = (block, categoryName) => {
@@ -17,11 +17,16 @@ function ContentContainer() {
 
   return (
     <div id="content-container" className={styles.contentContainer}>
-      {data.map(category => (
-        <CategoryRow key={category.id} category={category} onItemClick={(block) => handleItemClick(block, category.name)} />
+      {data.map((category) => (
+        <CategoryRow
+          key={category.id}
+          category={category}
+          usedBlocks={usedBlocks}
+          onItemClick={(block) => handleItemClick(block, category.name)}
+        />
       ))}
       {selectedBlock && (
-        <Modal block={selectedBlock} onClose={closeModal} />
+        <Modal block={selectedBlock} onClose={closeModal} markBlockAsUsed={markBlockAsUsed} />
       )}
     </div>
   );
