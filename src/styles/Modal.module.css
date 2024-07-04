@@ -113,7 +113,7 @@
 .selectCategoryButton {
   font-size: 24px;
   padding: 10px 20px;
-  /* margin-bottom: 50px; */
+  margin-bottom: 50px;
   background-color: #fed86b; /* Yellow background */
   font-weight: 700;
   color: white;
@@ -122,7 +122,7 @@
   cursor: pointer;
   transition: opacity 0.3s ease;
   opacity: 1;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   display: flex;
   align-items: center;
 }
@@ -157,7 +157,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   /* margin-bottom: 50px; */
 }
 
@@ -172,7 +172,8 @@
   background-color: #fed86b; /* Yellow background */
   border-radius: 10px;
   padding: 10px 20px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  margin-bottom: 50px;
   position: relative;
 }
 

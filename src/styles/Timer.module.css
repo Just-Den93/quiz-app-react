@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   /* margin-bottom: 50px; */
 }
 
@@ -17,16 +17,9 @@
   align-items: center;
   background-color: #fed86b; /* Yellow background */
   border-radius: 10px;
-  padding: 10px 20px;
-<<<<<<< HEAD
-  margin-top: 20px;
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-=======
+  /* padding: 10px 20px; */
+  margin-bottom: 30px;
   position: relative;
->>>>>>> e405ab0dc11f3102bdfab243eb0379da98519d41
 }
 
 .digit,
@@ -50,9 +43,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* Match the width of the timer */
-  height: 100%; /* Match the height of the timer */
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  width: 100%;
+  height: 78%;
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
   font-size: 24px;
