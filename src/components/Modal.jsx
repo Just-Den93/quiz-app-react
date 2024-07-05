@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Timer from './Timer';
-import ModalContent from './ModalContent';
+import QAMode from './QAMode';
 import ShowAnswerButton from './ShowAnswerButton';
 import SelectCategoryButton from './SelectCategoryButton';
 import styles from '../styles/Modal.module.css';
@@ -39,7 +39,7 @@ function Modal({ block, onClose, markBlockAsUsed }) {
           <span className={styles.infoCategoryName}>{block.categoryName}</span>
           <div className={styles.selectedNumber}>{block.id + 1}</div>
         </div>
-        <ModalContent
+        <QAMode
           question={block.question}
           answer={block.answer}
           subAnswer={block.subAnswer}
