@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/MenuModal.module.css';
 
-function MenuModal() {
+function MenuModal({ showSettings }) {
   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        if (isVisible) {
-          closeMenuModal();
-        } else {
-          showMenuModal();
-        }
+  const handleKeyDown = (event) => {
+    if (event.key === 'Escape') {
+      if (isVisible) {
+        closeMenuModal();
+      } else {
+        showMenuModal();
       }
-    };
+    }
+  };
 
+  useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
@@ -47,6 +47,9 @@ function MenuModal() {
         </button>
         <button id="continue-button" className={styles.menuButton} onClick={closeMenuModal}>
           Продовжити
+        </button>
+        <button id="settings-button" className={styles.menuButton} onClick={showSettings}>
+          Налаштування
         </button>
       </div>
     </div>

@@ -3,6 +3,7 @@ import Header from './Header';
 import ContentContainer from './ContentContainer';
 import EndMessage from './EndMessage';
 import MenuModal from './MenuModal';
+import Settings from './Settings';
 import styles from '../styles/App.module.css';
 
 function App() {
@@ -10,6 +11,8 @@ function App() {
     const saved = localStorage.getItem('usedBlocks');
     return saved ? JSON.parse(saved) : {};
   });
+
+  const [isSettingsVisible, setIsSettingsVisible] = useState(false);
 
   const markBlockAsUsed = (categoryName, blockId) => {
     setUsedBlocks((prevUsedBlocks) => {
@@ -28,12 +31,21 @@ function App() {
     localStorage.setItem('usedBlocks', JSON.stringify(usedBlocks));
   }, [usedBlocks]);
 
+  const showSettings = () => {
+    setIsSettingsVisible(true);
+  };
+
+  const hideSettings = () => {
+    setIsSettingsVisible(false);
+  };
+
   return (
     <div className={styles.app}>
       <Header />
       <ContentContainer usedBlocks={usedBlocks} markBlockAsUsed={markBlockAsUsed} />
       <EndMessage />
-      <MenuModal />
+      <MenuModal showSettings={showSettings} />
+      {isSettingsVisible && <Settings onClose={hideSettings} />}
     </div>
   );
 }
