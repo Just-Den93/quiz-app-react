@@ -22,7 +22,11 @@ function App() {
       if (!updatedUsedBlocks[categoryName]) {
         updatedUsedBlocks[categoryName] = [];
       }
-      updatedUsedBlocks[categoryName].push(blockId);
+      if (!updatedUsedBlocks[categoryName].includes(blockId)) {
+        updatedUsedBlocks[categoryName].push(blockId);
+      }
+
+      console.log('Updated usedBlocks:', updatedUsedBlocks); // Debug log
 
       localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
       return updatedUsedBlocks;
@@ -48,10 +52,10 @@ function App() {
       <EndMessage />
       <MenuModal showSettings={showSettings} />
       {isSettingsVisible && (
-        <Settings 
-          onClose={hideSettings} 
+        <Settings
+          onClose={hideSettings}
           selectedMode={selectedMode}
-          setSelectedMode={setSelectedMode} 
+          setSelectedMode={setSelectedMode}
         />
       )}
     </div>

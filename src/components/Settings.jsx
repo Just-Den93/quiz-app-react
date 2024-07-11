@@ -1,5 +1,5 @@
 // src/components/Settings.jsx
-import React, { useState } from 'react';
+import React from 'react'; // Remove `useState`
 import styles from '../styles/Settings.module.css';
 
 function Settings({ onClose, selectedMode, setSelectedMode }) {
