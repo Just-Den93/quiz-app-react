@@ -1,10 +1,11 @@
+// src/components/ContentContainer.jsx
 import React, { useState } from 'react';
 import CategoryRow from './CategoryRow';
 import styles from '../styles/ContentContainer.module.css';
 import data from '../data';
 import Modal from './Modal';
 
-function ContentContainer({ usedBlocks, markBlockAsUsed }) {
+function ContentContainer({ usedBlocks, markBlockAsUsed, selectedMode }) {
   const [selectedBlock, setSelectedBlock] = useState(null);
 
   const handleItemClick = (block, categoryName) => {
@@ -26,7 +27,12 @@ function ContentContainer({ usedBlocks, markBlockAsUsed }) {
         />
       ))}
       {selectedBlock && (
-        <Modal block={selectedBlock} onClose={closeModal} markBlockAsUsed={markBlockAsUsed} />
+        <Modal 
+          block={selectedBlock} 
+          onClose={closeModal} 
+          markBlockAsUsed={markBlockAsUsed} 
+          selectedMode={selectedMode}
+        />
       )}
     </div>
   );
