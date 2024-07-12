@@ -26,9 +26,6 @@ function App() {
         updatedUsedBlocks[categoryId].push(blockId);
       }
 
-      console.log('Marking block as used:', { categoryId, blockId });
-      console.log('Updated usedBlocks:', updatedUsedBlocks);
-
       localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
       return updatedUsedBlocks;
     });
@@ -46,12 +43,17 @@ function App() {
     setIsSettingsVisible(false);
   };
 
+  const resetGame = () => {
+    setUsedBlocks({});
+    localStorage.removeItem('usedBlocks');
+  };
+
   return (
     <div className={styles.app}>
       <Header />
       <ContentContainer usedBlocks={usedBlocks} markBlockAsUsed={markBlockAsUsed} selectedMode={selectedMode} />
       <EndMessage />
-      <MenuModal showSettings={showSettings} />
+      <MenuModal showSettings={showSettings} resetGame={resetGame} />
       {isSettingsVisible && (
         <Settings
           onClose={hideSettings}
