@@ -1,3 +1,4 @@
+// src/components/App.jsx
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import ContentContainer from './ContentContainer';
@@ -13,6 +14,7 @@ function App() {
   });
 
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
+  const [selectedMode, setSelectedMode] = useState('QAMode');
 
   const markBlockAsUsed = (categoryName, blockId) => {
     setUsedBlocks((prevUsedBlocks) => {
@@ -20,7 +22,11 @@ function App() {
       if (!updatedUsedBlocks[categoryName]) {
         updatedUsedBlocks[categoryName] = [];
       }
-      updatedUsedBlocks[categoryName].push(blockId);
+      if (!updatedUsedBlocks[categoryName].includes(blockId)) {
+        updatedUsedBlocks[categoryName].push(blockId);
+      }
+
+      console.log('Updated usedBlocks:', updatedUsedBlocks); // Debug log
 
       localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
       return updatedUsedBlocks;
@@ -42,10 +48,16 @@ function App() {
   return (
     <div className={styles.app}>
       <Header />
-      <ContentContainer usedBlocks={usedBlocks} markBlockAsUsed={markBlockAsUsed} />
+      <ContentContainer usedBlocks={usedBlocks} markBlockAsUsed={markBlockAsUsed} selectedMode={selectedMode} />
       <EndMessage />
       <MenuModal showSettings={showSettings} />
-      {isSettingsVisible && <Settings onClose={hideSettings} />}
+      {isSettingsVisible && (
+        <Settings
+          onClose={hideSettings}
+          selectedMode={selectedMode}
+          setSelectedMode={setSelectedMode}
+        />
+      )}
     </div>
   );
 }
