@@ -1,11 +1,13 @@
+// src/components/Modal.jsx
 import React, { useState } from 'react';
 import Timer from './Timer';
 import QAMode from './QAMode';
+import SelectionMode from './SelectionMode';
 import ShowAnswerButton from './ShowAnswerButton';
 import SelectCategoryButton from './SelectCategoryButton';
 import styles from '../styles/Modal.module.css';
 
-function Modal({ block, onClose, markBlockAsUsed }) {
+function Modal({ block, onClose, markBlockAsUsed, selectedMode }) {
   const [timerStarted, setTimerStarted] = useState(false);
   const [timerEnded, setTimerEnded] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -39,12 +41,16 @@ function Modal({ block, onClose, markBlockAsUsed }) {
           <span className={styles.infoCategoryName}>{block.categoryName}</span>
           <div className={styles.selectedNumber}>{block.id + 1}</div>
         </div>
-        <QAMode
-          question={block.question}
-          answer={block.answer}
-          subAnswer={block.subAnswer}
-          showAnswer={showAnswer}
-        />
+        {selectedMode === 'QAMode' ? (
+          <QAMode
+            question={block.question}
+            answer={block.answer}
+            subAnswer={block.subAnswer}
+            showAnswer={showAnswer}
+          />
+        ) : (
+          <SelectionMode />
+        )}
         <div className={styles.controlBlock}>
           <div className={styles.timerContainer}>
             {!timerStarted ? (
