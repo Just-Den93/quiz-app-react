@@ -1,11 +1,11 @@
 // src/components/MenuModal.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styles from '../styles/MenuModal.module.css';
 
-function MenuModal({ showSettings, resetGame }) {
+function MenuModal({ showSettings, handleNewGame }) {
   const [isVisible, setIsVisible] = useState(false);
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = useCallback((event) => {
     if (event.key === 'Escape') {
       if (isVisible) {
         closeMenuModal();
@@ -13,14 +13,14 @@ function MenuModal({ showSettings, resetGame }) {
         showMenuModal();
       }
     }
-  };
+  }, [isVisible]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isVisible]);
+  }, [handleKeyDown]);
 
   const showMenuModal = () => {
     setIsVisible(true);
@@ -28,11 +28,6 @@ function MenuModal({ showSettings, resetGame }) {
 
   const closeMenuModal = () => {
     setIsVisible(false);
-  };
-
-  const handleNewGame = () => {
-    resetGame();
-    closeMenuModal();
   };
 
   return (

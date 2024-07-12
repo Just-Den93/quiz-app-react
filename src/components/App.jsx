@@ -14,7 +14,10 @@ function App() {
   });
 
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
-  const [selectedMode, setSelectedMode] = useState('QAMode');
+  const [selectedMode, setSelectedMode] = useState(() => {
+    const savedMode = localStorage.getItem('selectedMode');
+    return savedMode ? savedMode : 'QAMode';
+  });
 
   const markBlockAsUsed = (categoryId, blockId) => {
     setUsedBlocks((prevUsedBlocks) => {
@@ -22,16 +25,8 @@ function App() {
       if (!updatedUsedBlocks[categoryId]) {
         updatedUsedBlocks[categoryId] = [];
       }
-      if (!updatedUsedBlocks[categoryId].includes(blockId)) {
-        updatedUsedBlocks[categoryId].push(blockId);
-      }
+      updatedUsedBlocks[categoryId].push(blockId);
 
-<<<<<<< HEAD
-      console.log('Marking block as used:', { categoryName, blockId });
-      console.log('Updated usedBlocks:', updatedUsedBlocks);
-
-=======
->>>>>>> 57748d87285c891bcf419fef01e8bda92cb6c605
       localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
       return updatedUsedBlocks;
     });
@@ -41,6 +36,10 @@ function App() {
     localStorage.setItem('usedBlocks', JSON.stringify(usedBlocks));
   }, [usedBlocks]);
 
+  useEffect(() => {
+    localStorage.setItem('selectedMode', selectedMode);
+  }, [selectedMode]);
+
   const showSettings = () => {
     setIsSettingsVisible(true);
   };
@@ -49,9 +48,10 @@ function App() {
     setIsSettingsVisible(false);
   };
 
-  const resetGame = () => {
-    setUsedBlocks({});
+  const handleNewGame = () => {
     localStorage.removeItem('usedBlocks');
+    setUsedBlocks({});
+    window.location.reload();
   };
 
   return (
@@ -59,7 +59,7 @@ function App() {
       <Header />
       <ContentContainer usedBlocks={usedBlocks} markBlockAsUsed={markBlockAsUsed} selectedMode={selectedMode} />
       <EndMessage />
-      <MenuModal showSettings={showSettings} resetGame={resetGame} />
+      <MenuModal showSettings={showSettings} handleNewGame={handleNewGame} />
       {isSettingsVisible && (
         <Settings
           onClose={hideSettings}
