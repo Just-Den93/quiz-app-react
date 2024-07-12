@@ -1,7 +1,8 @@
+// src/components/MenuModal.jsx
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/MenuModal.module.css';
 
-function MenuModal({ showSettings }) {
+function MenuModal({ showSettings, resetGame }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleKeyDown = (event) => {
@@ -30,9 +31,8 @@ function MenuModal({ showSettings }) {
   };
 
   const handleNewGame = () => {
-    localStorage.clear();
+    resetGame();
     closeMenuModal();
-    window.location.reload();
   };
 
   return (
