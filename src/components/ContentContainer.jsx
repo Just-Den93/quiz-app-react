@@ -8,8 +8,10 @@ import Modal from './Modal';
 function ContentContainer({ usedBlocks, markBlockAsUsed, selectedMode }) {
   const [selectedBlock, setSelectedBlock] = useState(null);
 
-  const handleItemClick = (block, categoryName) => {
-    setSelectedBlock({ ...block, categoryName });
+  const handleItemClick = (block, categoryId) => {
+    console.log('Clicked block:', block);
+    console.log('Category:', categoryId);
+    setSelectedBlock({ ...block, categoryId });
   };
 
   const closeModal = () => {
@@ -23,14 +25,14 @@ function ContentContainer({ usedBlocks, markBlockAsUsed, selectedMode }) {
           key={category.id}
           category={category}
           usedBlocks={usedBlocks}
-          onItemClick={(block) => handleItemClick(block, category.name)}
+          onItemClick={(block) => handleItemClick(block, category.id)}
         />
       ))}
       {selectedBlock && (
-        <Modal 
-          block={selectedBlock} 
-          onClose={closeModal} 
-          markBlockAsUsed={markBlockAsUsed} 
+        <Modal
+          block={selectedBlock}
+          onClose={closeModal}
+          markBlockAsUsed={markBlockAsUsed}
           selectedMode={selectedMode}
         />
       )}

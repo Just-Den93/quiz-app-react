@@ -16,17 +16,18 @@ function App() {
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
   const [selectedMode, setSelectedMode] = useState('QAMode');
 
-  const markBlockAsUsed = (categoryName, blockId) => {
+  const markBlockAsUsed = (categoryId, blockId) => {
     setUsedBlocks((prevUsedBlocks) => {
       const updatedUsedBlocks = { ...prevUsedBlocks };
-      if (!updatedUsedBlocks[categoryName]) {
-        updatedUsedBlocks[categoryName] = [];
+      if (!updatedUsedBlocks[categoryId]) {
+        updatedUsedBlocks[categoryId] = [];
       }
-      if (!updatedUsedBlocks[categoryName].includes(blockId)) {
-        updatedUsedBlocks[categoryName].push(blockId);
+      if (!updatedUsedBlocks[categoryId].includes(blockId)) {
+        updatedUsedBlocks[categoryId].push(blockId);
       }
 
-      console.log('Updated usedBlocks:', updatedUsedBlocks); // Debug log
+      console.log('Marking block as used:', { categoryId, blockId });
+      console.log('Updated usedBlocks:', updatedUsedBlocks);
 
       localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
       return updatedUsedBlocks;
