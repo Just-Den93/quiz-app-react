@@ -1,6 +1,6 @@
 const data = [
 	{
-	  "id": 0,
+	  "id": "category-1",
 	  "name": "Lorem ipsum",
 	  "blocks": [
 		 {
@@ -60,7 +60,7 @@ const data = [
 	  ]
 	},
 	{
-	 "id": 1,
+	 "id": "category-2",
 	 "name": "Lorem Ipsum",
 	 "blocks": [
 		{
@@ -120,7 +120,7 @@ const data = [
 	 ]
   },
   {
-	 "id": 2,
+	 "id": "category-3",
 	 "name": "Lorem Ipsum",
 	 "blocks": [
 		{
@@ -180,7 +180,7 @@ const data = [
 	 ]
   },
   {
-	 "id": 3,
+	 "id": "category-4",
 	 "name": "Lorem Ipsum",
 	 "blocks": [
 		{
@@ -240,7 +240,7 @@ const data = [
 	 ]
   },
   {
-	 "id": 4,
+	 "id": "category-5",
 	 "name": "Lorem Ipsum",
 	 "blocks": [
 		{

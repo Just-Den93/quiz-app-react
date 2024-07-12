@@ -4,7 +4,7 @@ import Item from './Item';
 import styles from '../styles/CategoryRow.module.css';
 
 function CategoryRow({ category, usedBlocks, onItemClick }) {
-  const categoryUsed = usedBlocks[category.name] && usedBlocks[category.name].length === category.blocks.length;
+  const categoryUsed = usedBlocks[category.id] && usedBlocks[category.id].length === category.blocks.length;
 
   return (
     <div className={styles.categoryRow} style={{ backgroundColor: categoryUsed ? 'lightgray' : '' }}>
@@ -12,10 +12,14 @@ function CategoryRow({ category, usedBlocks, onItemClick }) {
       <div className={styles.items}>
         {category.blocks.map((block) => (
           <Item
+<<<<<<< HEAD
             key={`${category.name}-${block.id}`} // Ensure unique key
+=======
+            key={`${category.id}-${block.id}`} // Ensure unique key
+>>>>>>> 57748d87285c891bcf419fef01e8bda92cb6c605
             block={block}
-            onClick={() => onItemClick(block, category.name)}
-            used={usedBlocks[category.name] && usedBlocks[category.name].includes(block.id)}
+            onClick={() => onItemClick(block, category.id)}
+            used={usedBlocks[category.id] && usedBlocks[category.id].includes(block.id)}
           />
         ))}
       </div>
