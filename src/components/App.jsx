@@ -26,7 +26,8 @@ function App() {
         updatedUsedBlocks[categoryName].push(blockId);
       }
 
-      console.log('Updated usedBlocks:', updatedUsedBlocks); // Debug log
+      console.log('Marking block as used:', { categoryName, blockId });
+      console.log('Updated usedBlocks:', updatedUsedBlocks);
 
       localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
       return updatedUsedBlocks;

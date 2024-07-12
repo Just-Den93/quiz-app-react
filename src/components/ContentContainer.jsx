@@ -9,6 +9,8 @@ function ContentContainer({ usedBlocks, markBlockAsUsed, selectedMode }) {
   const [selectedBlock, setSelectedBlock] = useState(null);
 
   const handleItemClick = (block, categoryName) => {
+    console.log('Clicked block:', block);
+    console.log('Category:', categoryName);
     setSelectedBlock({ ...block, categoryName });
   };
 
@@ -27,10 +29,10 @@ function ContentContainer({ usedBlocks, markBlockAsUsed, selectedMode }) {
         />
       ))}
       {selectedBlock && (
-        <Modal 
-          block={selectedBlock} 
-          onClose={closeModal} 
-          markBlockAsUsed={markBlockAsUsed} 
+        <Modal
+          block={selectedBlock}
+          onClose={closeModal}
+          markBlockAsUsed={markBlockAsUsed}
           selectedMode={selectedMode}
         />
       )}
