@@ -25,7 +25,7 @@ function Modal({ block, onClose, markBlockAsUsed, selectedMode }) {
   };
 
   const handleSelectCategory = () => {
-    markBlockAsUsed(block.categoryName, block.id);
+    markBlockAsUsed(block.categoryId, block.id);
     onClose();
   };
 
@@ -38,7 +38,7 @@ function Modal({ block, onClose, markBlockAsUsed, selectedMode }) {
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <span className={styles.closeButton} onClick={onClose}>&times;</span>
         <div className={styles.selectedInfo}>
-          <span className={styles.infoCategoryName}>{block.categoryName}</span>
+          <span className={styles.infoCategoryName}>{block.categoryId}</span>
           <div className={styles.selectedNumber}>{block.id + 1}</div>
         </div>
         {selectedMode === 'QAMode' ? (
