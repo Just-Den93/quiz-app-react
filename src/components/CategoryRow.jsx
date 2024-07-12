@@ -12,7 +12,7 @@ function CategoryRow({ category, usedBlocks, onItemClick }) {
       <div className={styles.items}>
         {category.blocks.map((block) => (
           <Item
-            key={`${category.id}-${block.id}`} // Ensure unique key by combining category.id and block.id
+            key={`${category.name}-${block.id}`} // Ensure unique key
             block={block}
             onClick={() => onItemClick(block, category.name)}
             used={usedBlocks[category.name] && usedBlocks[category.name].includes(block.id)}
