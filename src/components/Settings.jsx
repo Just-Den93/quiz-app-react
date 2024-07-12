@@ -1,5 +1,5 @@
 // src/components/Settings.jsx
-import React from 'react'; // Remove `useState`
+import React from 'react';
 import styles from '../styles/Settings.module.css';
 
 function Settings({ onClose, selectedMode, setSelectedMode }) {
@@ -21,7 +21,7 @@ function Settings({ onClose, selectedMode, setSelectedMode }) {
             <input
               type="radio"
               value="QAMode"
-              checked={selectedMode === "QAMode"}
+              checked={selectedMode === 'QAMode'}
               onChange={handleModeChange}
             />
             QAMode
@@ -30,7 +30,7 @@ function Settings({ onClose, selectedMode, setSelectedMode }) {
             <input
               type="radio"
               value="SelectionMode"
-              checked={selectedMode === "SelectionMode"}
+              checked={selectedMode === 'SelectionMode'}
               onChange={handleModeChange}
             />
             SelectionMode

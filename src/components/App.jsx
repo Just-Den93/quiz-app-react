@@ -16,19 +16,22 @@ function App() {
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
   const [selectedMode, setSelectedMode] = useState('QAMode');
 
-  const markBlockAsUsed = (categoryName, blockId) => {
+  const markBlockAsUsed = (categoryId, blockId) => {
     setUsedBlocks((prevUsedBlocks) => {
       const updatedUsedBlocks = { ...prevUsedBlocks };
-      if (!updatedUsedBlocks[categoryName]) {
-        updatedUsedBlocks[categoryName] = [];
+      if (!updatedUsedBlocks[categoryId]) {
+        updatedUsedBlocks[categoryId] = [];
       }
-      if (!updatedUsedBlocks[categoryName].includes(blockId)) {
-        updatedUsedBlocks[categoryName].push(blockId);
+      if (!updatedUsedBlocks[categoryId].includes(blockId)) {
+        updatedUsedBlocks[categoryId].push(blockId);
       }
 
+<<<<<<< HEAD
       console.log('Marking block as used:', { categoryName, blockId });
       console.log('Updated usedBlocks:', updatedUsedBlocks);
 
+=======
+>>>>>>> 57748d87285c891bcf419fef01e8bda92cb6c605
       localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
       return updatedUsedBlocks;
     });
@@ -46,12 +49,17 @@ function App() {
     setIsSettingsVisible(false);
   };
 
+  const resetGame = () => {
+    setUsedBlocks({});
+    localStorage.removeItem('usedBlocks');
+  };
+
   return (
     <div className={styles.app}>
       <Header />
       <ContentContainer usedBlocks={usedBlocks} markBlockAsUsed={markBlockAsUsed} selectedMode={selectedMode} />
       <EndMessage />
-      <MenuModal showSettings={showSettings} />
+      <MenuModal showSettings={showSettings} resetGame={resetGame} />
       {isSettingsVisible && (
         <Settings
           onClose={hideSettings}
