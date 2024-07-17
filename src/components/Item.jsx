@@ -3,6 +3,8 @@ import React from 'react';
 import styles from '../styles/Item.module.css';
 
 function Item({ block, onClick, used }) {
+  console.log('Rendering item:', { block, used });
+
   return (
     <button
       className={`${styles.item} ${used ? styles.used : ''}`}
