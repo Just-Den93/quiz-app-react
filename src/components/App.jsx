@@ -26,6 +26,12 @@ function App() {
         updatedUsedBlocks[categoryId].push(blockId);
       }
 
+<<<<<<< HEAD
+      console.log('Marking block as used:', { categoryName, blockId });
+      console.log('Updated usedBlocks:', updatedUsedBlocks);
+
+=======
+>>>>>>> 57748d87285c891bcf419fef01e8bda92cb6c605
       localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
       return updatedUsedBlocks;
     });
