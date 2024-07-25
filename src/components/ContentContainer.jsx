@@ -1,4 +1,3 @@
-// src/components/ContentContainer.jsx
 import React, { useState } from 'react';
 import CategoryRow from './CategoryRow';
 import styles from '../styles/ContentContainer.module.css';
@@ -8,17 +7,8 @@ import Modal from './Modal';
 function ContentContainer({ usedBlocks, markBlockAsUsed, selectedMode }) {
   const [selectedBlock, setSelectedBlock] = useState(null);
 
-<<<<<<< HEAD
-  const handleItemClick = (block, categoryName) => {
-    console.log('Clicked block:', block);
-    console.log('Category:', categoryName);
-    setSelectedBlock({ ...block, categoryName });
-=======
   const handleItemClick = (block, categoryId) => {
-    console.log('Clicked block:', block);
-    console.log('Category:', categoryId);
     setSelectedBlock({ ...block, categoryId });
->>>>>>> 57748d87285c891bcf419fef01e8bda92cb6c605
   };
 
   const closeModal = () => {
