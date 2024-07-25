@@ -12,7 +12,7 @@ function CategoryRow({ category, usedBlocks, onItemClick }) {
       <div className={styles.items}>
         {category.blocks.map((block) => (
           <Item
-            key={`${category.name}-${block.id}`} 
+            key={`${category.name}-${block.id}`}
             key={`${category.id}-${block.id}`}
             block={block}
             onClick={() => onItemClick(block, category.id)}
