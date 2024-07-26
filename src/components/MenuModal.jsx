@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 // src/components/MenuModal.jsx
 import React, { useState, useEffect, useCallback } from 'react';
 import styles from '../styles/MenuModal.module.css';
 
 function MenuModal({ showSettings, handleNewGame }) {
+=======
+import React, { useState, useEffect, useCallback } from 'react';
+import styles from '../styles/MenuModal.module.css';
+
+function MenuModal({ showSettings, resetGame, showMainMenu }) {
+>>>>>>> 65fc46519fb339387afc23b276b36f2af036c8e6
   const [isVisible, setIsVisible] = useState(false);
 
   const handleKeyDown = useCallback((event) => {
@@ -45,6 +52,9 @@ function MenuModal({ showSettings, handleNewGame }) {
         </button>
         <button id="settings-button" className={styles.menuButton} onClick={showSettings}>
           Налаштування
+        </button>
+        <button id="main-menu-button" className={styles.menuButton} onClick={showMainMenu}>
+          Головне меню
         </button>
       </div>
     </div>
