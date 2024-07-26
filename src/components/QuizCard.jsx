@@ -1,18 +1,20 @@
+// src/components/QuizCard.jsx
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from '../styles/QuizCard.module.css';
 
-function QuizCard() {
-  const history = useHistory();
+function QuizCard({ showQuizPage }) {
+  const navigate = useNavigate();
 
-  const startGame = () => {
-    history.push('/categories');
+  const handleStartQuiz = () => {
+    showQuizPage();
+    navigate('/quiz');
   };
 
   return (
-    <div className={styles.quizCard}>
-      <img src="https://via.placeholder.com/150" alt="Placeholder" className={styles.image} />
-      <button className={styles.startButton} onClick={startGame}>Провести наживо</button>
+    <div className={styles.container}>
+      <h2>Quiz Card</h2>
+      <button onClick={handleStartQuiz}>Start Quiz</button>
     </div>
   );
 }
