@@ -1,61 +1,53 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import styles from '../styles/MenuModal.module.css';
+import React, { useState, useEffect } from 'react';
+import Header from './Header';
+import ContentContainer from './ContentContainer';
+import EndMessage from './EndMessage';
+import MenuModal from './MenuModal';
+import Settings from './Settings';
+import styles from '../styles/QuizPage.module.css';
 
-function MenuModal({ showSettings, resetGame, showMainMenu }) {
-  const [isVisible, setIsVisible] = useState(false);
+function QuizPage({ showMainMenu }) {
+  const [usedBlocks, setUsedBlocks] = useState(() => {
+    const saved = localStorage.getItem('usedBlocks');
+    return saved ? JSON.parse(saved) : {};
+  });
 
-  const handleKeyDown = useCallback((event) => {
-    if (event.key === 'Escape') {
-      if (isVisible) {
-        closeMenuModal();
-      } else {
-        showMenuModal();
+  const [isSettingsVisible, setIsSettingsVisible] = useState(false);
+
+  const markBlockAsUsed = (categoryName, blockId) => {
+    setUsedBlocks((prevUsedBlocks) => {
+      const updatedUsedBlocks = { ...prevUsedBlocks };
+      if (!updatedUsedBlocks[categoryName]) {
+        updatedUsedBlocks[categoryName] = [];
       }
-    }
-  }, [isVisible]);
+      updatedUsedBlocks[categoryName].push(blockId);
+
+      localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
+      return updatedUsedBlocks;
+    });
+  };
 
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [handleKeyDown]);
+    localStorage.setItem('usedBlocks', JSON.stringify(usedBlocks));
+  }, [usedBlocks]);
 
-  const showMenuModal = () => {
-    setIsVisible(true);
+  const showSettings = () => {
+    setIsSettingsVisible(true);
   };
 
-  const closeMenuModal = () => {
-    setIsVisible(false);
-  };
-
-  const handleNewGame = () => {
-    resetGame();
-    closeMenuModal();
+  const hideSettings = () => {
+    setIsSettingsVisible(false);
   };
 
   return (
-    <div
-      id="menu-modal"
-      className={styles.menuModal}
-      style={{ display: isVisible ? 'flex' : 'none', opacity: isVisible ? 1 : 0 }}
-    >
-      <div className={styles.menuModalContent}>
-        <button id="new-game-button" className={styles.menuButton} onClick={handleNewGame}>
-          Нова гра
-        </button>
-        <button id="continue-button" className={styles.menuButton} onClick={closeMenuModal}>
-          Продовжити
-        </button>
-        <button id="settings-button" className={styles.menuButton} onClick={showSettings}>
-          Налаштування
-        </button>
-        <button id="main-menu-button" className={styles.menuButton} onClick={showMainMenu}>
-          Головне меню
-        </button>
-      </div>
+    <div className={styles.app}>
+      <Header />
+      <ContentContainer usedBlocks={usedBlocks} markBlockAsUsed={markBlockAsUsed} />
+      <EndMessage />
+      <MenuModal showSettings={showSettings} showMainMenu={showMainMenu} />
+      {isSettingsVisible && <Settings onClose={hideSettings} />}
     </div>
   );
 }
 
-export default MenuModal;
+export default QuizPage;
