@@ -12,8 +12,7 @@ function CategoryRow({ category, usedBlocks, onItemClick }) {
       <div className={styles.items}>
         {category.blocks.map((block) => (
           <Item
-            key={`${category.name}-${block.id}`}
-            key={`${category.id}-${block.id}`}
+            key={`${category.id}-${block.id}`}  // Keep this key prop
             block={block}
             onClick={() => onItemClick(block, category.id)}
             used={usedBlocks[category.id] && usedBlocks[category.id].includes(block.id)}
