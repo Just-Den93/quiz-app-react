@@ -1,4 +1,3 @@
-// src/components/ContentContainer.jsx
 import React, { useState } from 'react';
 import CategoryRow from './CategoryRow';
 import styles from '../styles/ContentContainer.module.css';
@@ -9,8 +8,6 @@ function ContentContainer({ usedBlocks, markBlockAsUsed, selectedMode }) {
   const [selectedBlock, setSelectedBlock] = useState(null);
 
   const handleItemClick = (block, categoryId) => {
-    console.log('Clicked block:', block);
-    console.log('Category:', categoryId);
     setSelectedBlock({ ...block, categoryId });
   };
 
