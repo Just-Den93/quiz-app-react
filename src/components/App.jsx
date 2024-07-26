@@ -1,18 +1,14 @@
-// src/components/App.jsx
-import React, { useState, useEffect } from 'react';
-import Header from './Header';
-import ContentContainer from './ContentContainer';
-import EndMessage from './EndMessage';
-import MenuModal from './MenuModal';
-import Settings from './Settings';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import QuizPage from './QuizPage';
+import QuizCard from './QuizCard';
+import Sidebar from './Sidebar';
 import styles from '../styles/App.module.css';
 
 function App() {
-  const [usedBlocks, setUsedBlocks] = useState(() => {
-    const saved = localStorage.getItem('usedBlocks');
-    return saved ? JSON.parse(saved) : {};
-  });
+  const [showQuizPage, setShowQuizPage] = useState(false);
 
+<<<<<<< HEAD
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
   const [selectedMode, setSelectedMode] = useState(() => {
     const savedMode = localStorage.getItem('selectedMode');
@@ -68,6 +64,34 @@ function App() {
         />
       )}
     </div>
+=======
+  const handleShowQuizPage = () => {
+    setShowQuizPage(true);
+  };
+
+  const handleShowMainMenu = () => {
+    setShowQuizPage(false);
+  };
+
+  return (
+    <Router>
+      <div className={styles.container}>
+        {!showQuizPage && <Sidebar />}
+        <Routes>
+          <Route
+            path="/quiz"
+            element={
+              !showQuizPage ? (
+                <QuizCard startQuiz={handleShowQuizPage} />
+              ) : (
+                <QuizPage showMainMenu={handleShowMainMenu} />
+              )
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
+>>>>>>> 65fc46519fb339387afc23b276b36f2af036c8e6
   );
 }
 
