@@ -1,4 +1,3 @@
-// src/components/MenuModal.jsx
 import React, { useState, useEffect, useCallback } from 'react';
 import styles from '../styles/MenuModal.module.css';
 
