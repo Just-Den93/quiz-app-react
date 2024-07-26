@@ -7,7 +7,7 @@ import MenuModal from './MenuModal';
 import Settings from './Settings';
 import styles from '../styles/QuizPage.module.css';
 
-function QuizPage() {
+function QuizPage({ showMainMenu }) {
   const [usedBlocks, setUsedBlocks] = useState(() => {
     const saved = localStorage.getItem('usedBlocks');
     return saved ? JSON.parse(saved) : {};
@@ -45,7 +45,7 @@ function QuizPage() {
       <Header />
       <ContentContainer usedBlocks={usedBlocks} markBlockAsUsed={markBlockAsUsed} />
       <EndMessage />
-      <MenuModal showSettings={showSettings} />
+      <MenuModal showSettings={showSettings} showMainMenu={showMainMenu} />
       {isSettingsVisible && <Settings onClose={hideSettings} />}
     </div>
   );
