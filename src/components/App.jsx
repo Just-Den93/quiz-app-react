@@ -6,71 +6,27 @@ import Sidebar from './Sidebar';
 import styles from '../styles/App.module.css';
 
 function App() {
-  const [showQuizPage, setShowQuizPage] = useState(false);
-
-<<<<<<< HEAD
-  const [isSettingsVisible, setIsSettingsVisible] = useState(false);
-  const [selectedMode, setSelectedMode] = useState(() => {
-    const savedMode = localStorage.getItem('selectedMode');
-    return savedMode ? savedMode : 'QAMode';
+  const [showQuizPage, setShowQuizPage] = useState(() => {
+    const savedState = localStorage.getItem('showQuizPage');
+    return savedState === 'true';
   });
 
-  const markBlockAsUsed = (categoryId, blockId) => {
-    setUsedBlocks((prevUsedBlocks) => {
-      const updatedUsedBlocks = { ...prevUsedBlocks };
-      if (!updatedUsedBlocks[categoryId]) {
-        updatedUsedBlocks[categoryId] = [];
-      }
-      updatedUsedBlocks[categoryId].push(blockId);
-
-      localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
-      return updatedUsedBlocks;
-    });
-  };
-
-  useEffect(() => {
-    localStorage.setItem('usedBlocks', JSON.stringify(usedBlocks));
-  }, [usedBlocks]);
-
-  useEffect(() => {
-    localStorage.setItem('selectedMode', selectedMode);
-  }, [selectedMode]);
-
-  const showSettings = () => {
-    setIsSettingsVisible(true);
-  };
-
-  const hideSettings = () => {
-    setIsSettingsVisible(false);
-  };
-
-  const handleNewGame = () => {
-    localStorage.removeItem('usedBlocks');
-    setUsedBlocks({});
-    window.location.reload();
-  };
-
-  return (
-    <div className={styles.app}>
-      <Header />
-      <ContentContainer usedBlocks={usedBlocks} markBlockAsUsed={markBlockAsUsed} selectedMode={selectedMode} />
-      <EndMessage />
-      <MenuModal showSettings={showSettings} handleNewGame={handleNewGame} />
-      {isSettingsVisible && (
-        <Settings
-          onClose={hideSettings}
-          selectedMode={selectedMode}
-          setSelectedMode={setSelectedMode}
-        />
-      )}
-    </div>
-=======
   const handleShowQuizPage = () => {
     setShowQuizPage(true);
+    localStorage.setItem('showQuizPage', 'true');
   };
 
   const handleShowMainMenu = () => {
     setShowQuizPage(false);
+    localStorage.setItem('showQuizPage', 'false');
+  };
+
+  const handleNewGame = () => {
+    localStorage.removeItem('usedBlocks');
+    setShowQuizPage(false);
+    setTimeout(() => {
+      setShowQuizPage(true);
+    }, 0);
   };
 
   return (
@@ -79,19 +35,18 @@ function App() {
         {!showQuizPage && <Sidebar />}
         <Routes>
           <Route
-            path="/quiz"
+            path="/"
             element={
               !showQuizPage ? (
                 <QuizCard startQuiz={handleShowQuizPage} />
               ) : (
-                <QuizPage showMainMenu={handleShowMainMenu} />
+                <QuizPage showMainMenu={handleShowMainMenu} handleNewGame={handleNewGame} />
               )
             }
           />
         </Routes>
       </div>
     </Router>
->>>>>>> 65fc46519fb339387afc23b276b36f2af036c8e6
   );
 }
 
