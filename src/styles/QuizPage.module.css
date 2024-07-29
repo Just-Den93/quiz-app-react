@@ -9,9 +9,10 @@
 }
 
 .miniature {
-  width: 100%;
+  width: 100%; /* Ensures the miniature scales correctly */
   height: 100%;
-  transform: scale(0.2); /* Scale down the component */
+  transform: scale(0.2); /* Adjust scaling as needed */
   transform-origin: top left;
   overflow: hidden;
+  position: relative; /* Ensure correct positioning */
 }
