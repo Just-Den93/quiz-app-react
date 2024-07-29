@@ -7,12 +7,3 @@
   background-color: #fed86b;
   overflow-y: auto;
 }
-
-.miniature {
-  width: 100%; /* Ensures the miniature scales correctly */
-  height: 100%;
-  transform: scale(0.2); /* Adjust scaling as needed */
-  transform-origin: top left;
-  overflow: hidden;
-  position: relative; /* Ensure correct positioning */
-}
