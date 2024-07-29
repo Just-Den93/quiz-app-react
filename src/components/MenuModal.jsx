@@ -1,15 +1,7 @@
-<<<<<<< HEAD
-// src/components/MenuModal.jsx
 import React, { useState, useEffect, useCallback } from 'react';
 import styles from '../styles/MenuModal.module.css';
 
-function MenuModal({ showSettings, handleNewGame }) {
-=======
-import React, { useState, useEffect, useCallback } from 'react';
-import styles from '../styles/MenuModal.module.css';
-
-function MenuModal({ showSettings, resetGame, showMainMenu }) {
->>>>>>> 65fc46519fb339387afc23b276b36f2af036c8e6
+function MenuModal({ showSettings, handleNewGame, showMainMenu }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleKeyDown = useCallback((event) => {
