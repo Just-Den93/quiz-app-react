@@ -1,12 +1,50 @@
-import React from 'react';
-import styles from '../styles/QuizCard.module.css';
+import React, { useState } from 'react';
+import Frame from 'react-frame-component';
 import QuizPage from './QuizPage';
+import styles from '../styles/QuizCard.module.css';
 
 function QuizCard({ startQuiz, showMainMenu, handleNewGame }) {
+  const [usedBlocks, setUsedBlocks] = useState(() => {
+    const saved = localStorage.getItem('usedBlocks');
+    return saved ? JSON.parse(saved) : {};
+  });
+
+  const markBlockAsUsed = (categoryName, blockId) => {
+    setUsedBlocks((prevUsedBlocks) => {
+      const updatedUsedBlocks = { ...prevUsedBlocks };
+      if (!updatedUsedBlocks[categoryName]) {
+        updatedUsedBlocks[categoryName] = [];
+      }
+      updatedUsedBlocks[categoryName].push(blockId);
+
+      localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
+      return updatedUsedBlocks;
+    });
+  };
+
   return (
     <div className={styles.card}>
       <div className={styles.image}>
-        <QuizPage miniature={true} showMainMenu={showMainMenu} handleNewGame={handleNewGame} />
+        <Frame
+          initialContent={`
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <style>
+                  body { margin: 0; }
+                  .scalable { transform: scale(0.2); transform-origin: top left; width: 500%; height: 500%; }
+                </style>
+              </head>
+              <body>
+                <div id="thumbnail-root" class="scalable"></div>
+              </body>
+            </html>
+          `}
+        >
+          <div id="thumbnail-root">
+            <QuizPage usedBlocks={usedBlocks} markBlockAsUsed={markBlockAsUsed} miniature />
+          </div>
+        </Frame>
       </div>
       <div className={styles.details}>
         <h2>Вікторина Південна</h2>
