@@ -33,18 +33,23 @@ function App() {
     <Router>
       <div className={styles.container}>
         {!showQuizPage && <Sidebar />}
-        <Routes>
-          <Route
-            path="/"
-            element={
-              !showQuizPage ? (
-                <QuizCard startQuiz={handleShowQuizPage} />
-              ) : (
-                <QuizPage showMainMenu={handleShowMainMenu} handleNewGame={handleNewGame} />
-              )
-            }
-          />
-        </Routes>
+        <div className={showQuizPage ? styles.hidden : styles.content}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                !showQuizPage ? (
+                  <QuizCard startQuiz={handleShowQuizPage} showMainMenu={handleShowMainMenu} handleNewGame={handleNewGame} />
+                ) : null
+              }
+            />
+          </Routes>
+        </div>
+        {showQuizPage && (
+          <div className={styles.fullscreen}>
+            <QuizPage showMainMenu={handleShowMainMenu} handleNewGame={handleNewGame} />
+          </div>
+        )}
       </div>
     </Router>
   );
