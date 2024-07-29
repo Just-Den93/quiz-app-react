@@ -1,16 +1,52 @@
-.quizCard {
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 20px 20px 30px;
+  width: 100%;
+  max-width: 1150px;
+}
+
+.image {
+  width: 250px;
+  height: 210px;
+  margin: 3px 20px 3px 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.bottomRow {
+  display: flex;
   align-items: center;
-  padding: 20px;
+  justify-content: space-between;
 }
-.image {
-  width: 150px;
-  height: 150px;
-  margin-bottom: 20px;
+
+.games {
+  margin-right: 20px;
 }
+
 .startButton {
-  padding: 10px 20px;
   font-size: 16px;
+  padding: 10px 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  align-self: flex-end;
+  margin: 0 10px 10px 0;
 }

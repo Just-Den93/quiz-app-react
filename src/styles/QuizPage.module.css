@@ -1,13 +1,17 @@
-/* src/styles/QuizPage.module.css */
 .quiz_page {
   font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; /* Ensure it takes full width */
   height: 100vh;
   background-color: #fed86b;
   overflow-y: auto;
-  margin: 0;
-  padding: 0;
+}
+
+.miniature {
+  width: 100%;
+  height: 100%;
+  transform: scale(0.2); /* Scale down the component */
+  transform-origin: top left;
+  overflow: hidden;
 }
