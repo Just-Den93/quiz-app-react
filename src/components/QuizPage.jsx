@@ -21,7 +21,6 @@ function QuizPage({ showMainMenu, handleNewGame, miniature = false }) {
         updatedUsedBlocks[categoryName] = [];
       }
       updatedUsedBlocks[categoryName].push(blockId);
-
       localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
       return updatedUsedBlocks;
     });
