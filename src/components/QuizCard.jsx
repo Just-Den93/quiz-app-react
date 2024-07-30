@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Frame from 'react-frame-component';
-import QuizPage from './QuizPage';
+import QuizThumbnail from './QuizThumbnail';
 import styles from '../styles/QuizCard.module.css';
 
 function QuizCard({ startQuiz, showMainMenu, handleNewGame }) {
@@ -16,7 +15,6 @@ function QuizCard({ startQuiz, showMainMenu, handleNewGame }) {
         updatedUsedBlocks[categoryName] = [];
       }
       updatedUsedBlocks[categoryName].push(blockId);
-
       localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
       return updatedUsedBlocks;
     });
@@ -25,26 +23,7 @@ function QuizCard({ startQuiz, showMainMenu, handleNewGame }) {
   return (
     <div className={styles.card}>
       <div className={styles.image}>
-        <Frame
-          initialContent={`
-            <!DOCTYPE html>
-            <html>
-              <head>
-                <style>
-                  body { margin: 0; }
-                  .scalable { transform: scale(0.2); transform-origin: top left; width: 500%; height: 500%; }
-                </style>
-              </head>
-              <body>
-                <div id="thumbnail-root" class="scalable"></div>
-              </body>
-            </html>
-          `}
-        >
-          <div id="thumbnail-root">
-            <QuizPage usedBlocks={usedBlocks} markBlockAsUsed={markBlockAsUsed} miniature />
-          </div>
-        </Frame>
+        <QuizThumbnail usedBlocks={usedBlocks} markBlockAsUsed={markBlockAsUsed} />
       </div>
       <div className={styles.details}>
         <h2>Вікторина Південна</h2>
