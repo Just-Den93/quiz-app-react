@@ -1,4 +1,3 @@
-// src/components/CategoryRow.jsx
 import React from 'react';
 import Item from './Item';
 import styles from '../styles/CategoryRow.module.css';
@@ -12,7 +11,11 @@ function CategoryRow({ category, usedBlocks, onItemClick }) {
       <div className={styles.items}>
         {category.blocks.map((block) => (
           <Item
+<<<<<<< HEAD
             key={`${category.id}-${block.id}`} // Ensure unique key
+=======
+            key={`${category.id}-${block.id}`}
+>>>>>>> 6ac6f2e5b8d44f22b622c255be38cea7678719ac
             block={block}
             onClick={() => onItemClick(block, category.id)}
             used={usedBlocks[category.id] && usedBlocks[category.id].includes(block.id)}

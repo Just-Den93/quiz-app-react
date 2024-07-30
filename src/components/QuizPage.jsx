@@ -6,7 +6,11 @@ import MenuModal from './MenuModal';
 import Settings from './Settings';
 import styles from '../styles/QuizPage.module.css';
 
+<<<<<<< HEAD
 function QuizPage({ showMainMenu, handleNewGame }) {
+=======
+function QuizPage({ showMainMenu, handleNewGame, miniature = false }) {
+>>>>>>> 6ac6f2e5b8d44f22b622c255be38cea7678719ac
   const [usedBlocks, setUsedBlocks] = useState(() => {
     const saved = localStorage.getItem('usedBlocks');
     return saved ? JSON.parse(saved) : {};
@@ -44,7 +48,11 @@ function QuizPage({ showMainMenu, handleNewGame }) {
   };
 
   return (
+<<<<<<< HEAD
     <div className={styles.quiz_page}>
+=======
+    <div className={`${styles.quiz_page} ${miniature ? styles.miniature : ''}`}>
+>>>>>>> 6ac6f2e5b8d44f22b622c255be38cea7678719ac
       <Header />
       <ContentContainer usedBlocks={usedBlocks} markBlockAsUsed={markBlockAsUsed} />
       <EndMessage />
