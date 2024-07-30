@@ -3,7 +3,7 @@ import QAMode from './QAMode';
 import Timer from './Timer';
 import styles from '../styles/Modal.module.css';
 
-function Modal({ block, onClose }) {
+function Modal({ block, onClose, markBlockAsUsed }) {
   const [timerStarted, setTimerStarted] = useState(false);
   const [timerEnded, setTimerEnded] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -21,6 +21,7 @@ function Modal({ block, onClose }) {
   };
 
   const handleSelectCategory = () => {
+    markBlockAsUsed(block.categoryId, block.id);
     onClose();
   };
 

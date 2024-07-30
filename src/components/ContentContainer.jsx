@@ -4,7 +4,7 @@ import styles from '../styles/ContentContainer.module.css';
 import data from '../data';
 import Modal from './Modal';
 
-function ContentContainer({ usedBlocks, markBlockAsUsed, selectedMode }) {
+function ContentContainer({ usedBlocks, markBlockAsUsed }) {
   const [selectedBlock, setSelectedBlock] = useState(null);
 
   const handleItemClick = (block, categoryId) => {
@@ -30,7 +30,6 @@ function ContentContainer({ usedBlocks, markBlockAsUsed, selectedMode }) {
           block={selectedBlock}
           onClose={closeModal}
           markBlockAsUsed={markBlockAsUsed}
-          selectedMode={selectedMode}
         />
       )}
     </div>
