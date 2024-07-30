@@ -6,7 +6,7 @@ import MenuModal from './MenuModal';
 import Settings from './Settings';
 import styles from '../styles/QuizPage.module.css';
 
-function QuizPage({ showMainMenu }) {
+function QuizPage({ showMainMenu, handleNewGame }) {
   const [usedBlocks, setUsedBlocks] = useState(() => {
     const saved = localStorage.getItem('usedBlocks');
     return saved ? JSON.parse(saved) : {};
@@ -21,10 +21,14 @@ function QuizPage({ showMainMenu }) {
         updatedUsedBlocks[categoryName] = [];
       }
       updatedUsedBlocks[categoryName].push(blockId);
-
       localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
       return updatedUsedBlocks;
     });
+  };
+
+  const resetUsedBlocks = () => {
+    setUsedBlocks({});
+    localStorage.removeItem('usedBlocks');
   };
 
   useEffect(() => {
@@ -40,11 +44,18 @@ function QuizPage({ showMainMenu }) {
   };
 
   return (
-    <div className={styles.app}>
+    <div className={styles.quiz_page}>
       <Header />
       <ContentContainer usedBlocks={usedBlocks} markBlockAsUsed={markBlockAsUsed} />
       <EndMessage />
-      <MenuModal showSettings={showSettings} showMainMenu={showMainMenu} />
+      <MenuModal
+        showSettings={showSettings}
+        showMainMenu={showMainMenu}
+        handleNewGame={() => {
+          handleNewGame();
+          resetUsedBlocks();
+        }}
+      />
       {isSettingsVisible && <Settings onClose={hideSettings} />}
     </div>
   );
