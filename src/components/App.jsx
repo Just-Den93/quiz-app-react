@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import QuizPage from './QuizPage';
 import QuizCard from './QuizCard';
 import Sidebar from './Sidebar';
 import styles from '../styles/App.module.css';
-import data from '../data/mode1'; // Corrected the import path
+import { loadData } from '../utils/loadData';
 
 function App() {
   const [showQuizPage, setShowQuizPage] = useState(() => {
     const savedState = localStorage.getItem('showQuizPage');
     return savedState === 'true';
   });
+
+  const [quizData, setQuizData] = useState([]);
+
+  useEffect(() => {
+    const data = loadData();
+    setQuizData(data);
+  }, []);
 
   const handleShowQuizPage = () => {
     setShowQuizPage(true);
@@ -39,8 +46,14 @@ function App() {
             <Route
               path="/"
               element={
-                !showQuizPage && data.length > 0 ? (
-                  <QuizCard startQuiz={handleShowQuizPage} showMainMenu={handleShowMainMenu} handleNewGame={handleNewGame} />
+                !showQuizPage ? (
+                  quizData.map((quiz, index) => (
+                    <QuizCard
+                      key={index}
+                      data={quiz}
+                      startQuiz={handleShowQuizPage}
+                    />
+                  ))
                 ) : null
               }
             />
