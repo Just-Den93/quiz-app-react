@@ -5,6 +5,7 @@ import QuizCard from './QuizCard';
 import Sidebar from './Sidebar';
 import styles from '../styles/App.module.css';
 import { loadData } from '../utils/loadData';
+import { handleShowQuizPage, handleShowMainMenu, handleNewGame } from '../utils/appUtils';
 
 function App() {
   const [showQuizPage, setShowQuizPage] = useState(() => {
@@ -19,24 +20,6 @@ function App() {
     setFileCount(data.length);
   }, []);
 
-  const handleShowQuizPage = () => {
-    setShowQuizPage(true);
-    localStorage.setItem('showQuizPage', 'true');
-  };
-
-  const handleShowMainMenu = () => {
-    setShowQuizPage(false);
-    localStorage.setItem('showQuizPage', 'false');
-  };
-
-  const handleNewGame = () => {
-    localStorage.removeItem('usedBlocks');
-    setShowQuizPage(false);
-    setTimeout(() => {
-      setShowQuizPage(true);
-    }, 0);
-  };
-
   return (
     <Router>
       <div className={styles.container}>
@@ -50,7 +33,7 @@ function App() {
                   Array.from({ length: fileCount }).map((_, index) => (
                     <QuizCard
                       key={index}
-                      startQuiz={handleShowQuizPage}
+                      startQuiz={() => handleShowQuizPage(setShowQuizPage)}
                     />
                   ))
                 ) : null
@@ -60,7 +43,10 @@ function App() {
         </div>
         {showQuizPage && (
           <div className={styles.fullscreen}>
-            <QuizPage showMainMenu={handleShowMainMenu} handleNewGame={handleNewGame} />
+            <QuizPage
+              showMainMenu={() => handleShowMainMenu(setShowQuizPage)}
+              handleNewGame={() => handleNewGame(setShowQuizPage)}
+            />
           </div>
         )}
       </div>
