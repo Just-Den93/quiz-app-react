@@ -15,7 +15,7 @@ function QuizCard({ startQuiz }) {
         <div className={styles.bottomRow}>
           <p className={styles.games}>Games: 0</p>
           <button className={styles.startButton} onClick={startQuiz}>
-            Start Live
+            Почати наживо
           </button>
         </div>
       </div>
