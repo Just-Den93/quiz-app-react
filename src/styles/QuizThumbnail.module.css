@@ -1,12 +1,12 @@
 .quiz_thumbnail {
-  width: 1020px;
+  width: 1000px;
+  height: 1000px;
   transform: scale(0.2);
   transform-origin: top left;
   overflow: hidden;
   pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 40px 5px 25px 21px;
-  background-color: #fed86b; /* Add the background color here */
+  background-color: #fed86b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

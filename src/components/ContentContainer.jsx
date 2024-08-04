@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CategoryRow from './CategoryRow';
 import styles from '../styles/ContentContainer.module.css';
-import data from '../data';
+import data from '../data/mode1';
 import Modal from './Modal';
 
 function ContentContainer({ usedBlocks, markBlockAsUsed }) {

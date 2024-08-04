@@ -12,4 +12,4 @@ function QuizThumbnail({ usedBlocks, markBlockAsUsed }) {
   );
 }
 
-export default QuizThumbnail;
+// export default QuizThumbnail;
