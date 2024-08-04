@@ -4,6 +4,7 @@ import QuizPage from './QuizPage';
 import QuizCard from './QuizCard';
 import Sidebar from './Sidebar';
 import styles from '../styles/App.module.css';
+import data from '../data/mode1'; // Corrected the import path
 
 function App() {
   const [showQuizPage, setShowQuizPage] = useState(() => {
@@ -38,7 +39,7 @@ function App() {
             <Route
               path="/"
               element={
-                !showQuizPage ? (
+                !showQuizPage && data.length > 0 ? (
                   <QuizCard startQuiz={handleShowQuizPage} showMainMenu={handleShowMainMenu} handleNewGame={handleNewGame} />
                 ) : null
               }
