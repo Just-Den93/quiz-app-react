@@ -12,11 +12,11 @@ function App() {
     return savedState === 'true';
   });
 
-  const [quizData, setQuizData] = useState([]);
+  const [fileCount, setFileCount] = useState(0);
 
   useEffect(() => {
     const data = loadData();
-    setQuizData(data);
+    setFileCount(data.length);
   }, []);
 
   const handleShowQuizPage = () => {
@@ -47,10 +47,9 @@ function App() {
               path="/"
               element={
                 !showQuizPage ? (
-                  quizData.map((quiz, index) => (
+                  Array.from({ length: fileCount }).map((_, index) => (
                     <QuizCard
                       key={index}
-                      data={quiz}
                       startQuiz={handleShowQuizPage}
                     />
                   ))
