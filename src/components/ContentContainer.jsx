@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import CategoryRow from './CategoryRow';
-import styles from '../styles/ContentContainer.module.css';
-import data from '../data/mode1';
 import Modal from './Modal';
 import { handleItemClick, closeModal } from '../utils/contentContainerUtils';
+import styles from '../styles/ContentContainer.module.css';
 
-function ContentContainer({ usedBlocks, markBlockAsUsed }) {
+function ContentContainer({ usedBlocks, markBlockAsUsed, data, mode }) {
   const [selectedBlock, setSelectedBlock] = useState(null);
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div id="content-container" className={styles.contentContainer}>
@@ -23,6 +26,7 @@ function ContentContainer({ usedBlocks, markBlockAsUsed }) {
           block={selectedBlock}
           onClose={() => closeModal(setSelectedBlock)}
           markBlockAsUsed={markBlockAsUsed}
+          mode={mode} // Передача режима в Modal
         />
       )}
     </div>
