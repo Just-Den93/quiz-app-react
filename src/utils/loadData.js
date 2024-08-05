@@ -1,5 +1,4 @@
-export function loadData() {
-  const context = require.context('../data', false, /\.js$/);
-  const data = context.keys().map(key => context(key).default);
-  return data;
+export function loadFileCount() {
+  const context = require.context('../data', false, /\.json$/);
+  return context.keys().length;
 }

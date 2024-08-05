@@ -1,10 +1,11 @@
 import React from 'react';
 import QAMode from './QAMode';
+import SelectionMode from './SelectionMode';
 import Timer from './Timer';
 import styles from '../styles/Modal.module.css';
 import { useModalLogic } from '../utils/modalUtils';
 
-function Modal({ block, onClose, markBlockAsUsed }) {
+function Modal({ block, onClose, markBlockAsUsed, mode }) {
   const {
     timerStarted,
     timerEnded,
@@ -29,7 +30,11 @@ function Modal({ block, onClose, markBlockAsUsed }) {
           <div className={styles.selectedNumber}>{block.id + 1}</div>
         </div>
         <div className={styles.content}>
-          <QAMode question={block.question} answer={block.answer} subAnswer={block.subAnswer} showAnswer={showAnswer} />
+          {mode === 1 ? (
+            <QAMode question={block.question} answer={block.answer} subAnswer={block.subAnswer} showAnswer={showAnswer} />
+          ) : (
+            <SelectionMode question={block.question} options={block.options} />
+          )}
         </div>
         <div className={styles.controlBlock}>
           {!timerStarted ? (
