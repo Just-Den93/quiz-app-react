@@ -1,33 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 import styles from '../styles/MenuModal.module.css';
+import { useMenuModal } from '../utils/menuModalUtils';
 
 function MenuModal({ showSettings, handleNewGame, showMainMenu }) {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleKeyDown = useCallback((event) => {
-    if (event.key === 'Escape') {
-      if (isVisible) {
-        closeMenuModal();
-      } else {
-        showMenuModal();
-      }
-    }
-  }, [isVisible]);
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [handleKeyDown]);
-
-  const showMenuModal = () => {
-    setIsVisible(true);
-  };
-
-  const closeMenuModal = () => {
-    setIsVisible(false);
-  };
+  const { isVisible, showMenuModal, closeMenuModal } = useMenuModal();
 
   return (
     <div

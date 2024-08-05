@@ -1,34 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import QAMode from './QAMode';
 import Timer from './Timer';
 import styles from '../styles/Modal.module.css';
+import { useModalLogic } from '../utils/modalUtils';
 
 function Modal({ block, onClose, markBlockAsUsed }) {
-  const [timerStarted, setTimerStarted] = useState(false);
-  const [timerEnded, setTimerEnded] = useState(false);
-  const [showAnswer, setShowAnswer] = useState(false);
+  const {
+    timerStarted,
+    timerEnded,
+    showAnswer,
+    setTimerStarted,
+    handleTimerEnd,
+    handleShowAnswer,
+    handleSelectCategory,
+    handleForceStop,
+  } = useModalLogic(block, markBlockAsUsed, onClose);
 
   if (!block) {
     return null;
   }
-
-  const handleTimerEnd = () => {
-    setTimerEnded(true);
-  };
-
-  const handleShowAnswer = () => {
-    setShowAnswer(true);
-  };
-
-  const handleSelectCategory = () => {
-    markBlockAsUsed(block.categoryId, block.id);
-    onClose();
-  };
-
-  const handleForceStop = () => {
-    setTimerEnded(true);
-    setShowAnswer(true);
-  };
 
   return (
     <div className={`${styles.modal} ${styles.show}`} onClick={onClose}>
