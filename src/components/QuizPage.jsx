@@ -5,7 +5,7 @@ import EndMessage from './EndMessage';
 import MenuModal from './MenuModal';
 import Settings from './Settings';
 import styles from '../styles/QuizPage.module.css';
-import { loadJsonDataByMode } from '../utils/loadJsonData'; // Модифицированный импорт
+import { loadJsonDataByMode } from '../utils/loadJsonData'; // Измененный импорт
 
 function QuizPage({ showMainMenu, handleNewGame, mode }) {
   const [usedBlocks, setUsedBlocks] = useState(() => {
@@ -15,11 +15,16 @@ function QuizPage({ showMainMenu, handleNewGame, mode }) {
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
   const [data, setData] = useState(null);
 
+  // Используем useEffect для загрузки данных по режиму
   useEffect(() => {
     if (mode) {
-      const selectedData = loadJsonDataByMode(mode); // Загрузка данных по режимам
+      console.log('Загрузка данных для режима:', mode); // Лог для проверки режима
+      const selectedData = loadJsonDataByMode(mode); // Загрузка данных по режиму
       if (selectedData) {
+        console.log('Данные загружены:', selectedData); // Лог для проверки загруженных данных
         setData(selectedData.categories);
+      } else {
+        console.log('Данные не найдены для режима:', mode); // Лог для случая, если данные не найдены
       }
     }
   }, [mode]);
