@@ -1,4 +1,35 @@
-/* src/styles/SelectionMode.module.css */
+.selectedInfo {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.infoCategoryName {
+  background-color: transparent;
+  color: #7958af;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 5px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.selectedNumber {
+  width: 30px;
+  height: 30px;
+  background-color: #7958af;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
 .wrapper {
   display: flex;
   justify-content: center;
