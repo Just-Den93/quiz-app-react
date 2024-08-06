@@ -7,9 +7,13 @@ import styles from '../styles/ContentContainer.module.css';
 function ContentContainer({ usedBlocks, markBlockAsUsed, data, mode }) {
   const [selectedBlock, setSelectedBlock] = useState(null);
 
+  // Проверка на наличие данных
   if (!data) {
+    console.log('Данные не загружены');
     return <div>Loading...</div>;
   }
+
+  console.log('Данные для отображения:', data);
 
   return (
     <div id="content-container" className={styles.contentContainer}>

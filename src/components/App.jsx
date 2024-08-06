@@ -20,6 +20,7 @@ function App() {
     setFileCount(count);
   }, []);
 
+  // Функция для начала викторины с указанным режимом
   const startQuiz = (mode) => {
     setSelectedMode(mode);
     handleShowQuizPage(setShowQuizPage);
@@ -38,7 +39,7 @@ function App() {
                   Array.from({ length: fileCount }).map((_, index) => (
                     <QuizCard
                       key={index}
-                      startQuiz={() => startQuiz(index + 1)} // Начните викторину с соответствующего режима
+                      startQuiz={() => startQuiz(index + 1)} // Начало викторины с соответствующим режимом
                       mode={index + 1} // Передача режима в QuizCard для отображения (если необходимо)
                     />
                   ))

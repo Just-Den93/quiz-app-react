@@ -6,13 +6,13 @@ function QuizCard({ startQuiz, mode }) {
   return (
     <div className={styles.card}>
       <div className={styles.image}>
-        {/* Placeholder for image */}
+        {/* Заполнитель для изображения */}
       </div>
       <div className={styles.details}>
-        <h2>Quiz Title</h2>
-        <p>Affiliation</p>
+        <h2>Режим Викторины {mode}</h2> {/* Отображение режима */}
+        <p>Принадлежность</p>
         <div className={styles.bottomRow}>
-          <p className={styles.games}>Games: 0</p>
+          <p className={styles.games}>Игры: 0</p>
           <button className={styles.startButton} onClick={startQuiz}>
             Почати наживо
           </button>
@@ -24,7 +24,7 @@ function QuizCard({ startQuiz, mode }) {
 
 QuizCard.propTypes = {
   startQuiz: PropTypes.func.isRequired,
-  mode: PropTypes.number.isRequired, // Добавлен тип реквизита для режима
+  mode: PropTypes.number.isRequired, // Добавлено prop тип для режима
 };
 
 export default QuizCard;
