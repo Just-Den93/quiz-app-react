@@ -3,7 +3,7 @@ import styles from '../styles/MenuModal.module.css';
 import { useMenuModal } from '../utils/menuModalUtils';
 
 function MenuModal({ showSettings, handleNewGame, showMainMenu }) {
-  const { isVisible, showMenuModal, closeMenuModal } = useMenuModal();
+  const { isVisible, closeMenuModal } = useMenuModal(); // Removed showMenuModal
 
   return (
     <div
