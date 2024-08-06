@@ -1,17 +1,22 @@
-export function handleShowQuizPage(setShowQuizPage) {
+export const startQuiz = (setShowQuizPage, mode) => {
+  handleShowQuizPage(setShowQuizPage);
+  // Other logic for starting the quiz can be added here if needed
+};
+
+export const handleShowQuizPage = (setShowQuizPage) => {
   setShowQuizPage(true);
   localStorage.setItem('showQuizPage', 'true');
-}
+};
 
-export function handleShowMainMenu(setShowQuizPage) {
+export const handleShowMainMenu = (setShowQuizPage) => {
   setShowQuizPage(false);
   localStorage.setItem('showQuizPage', 'false');
-}
+};
 
-export function handleNewGame(setShowQuizPage) {
+export const handleNewGame = (setShowQuizPage) => {
   localStorage.removeItem('usedBlocks');
   setShowQuizPage(false);
   setTimeout(() => {
     setShowQuizPage(true);
   }, 0);
-}
+};
