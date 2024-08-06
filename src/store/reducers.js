@@ -1,7 +1,7 @@
-// Начальное состояние
+// src/store/reducers.js
+
 const initialState = {};
 
-// Редуктор для управления состоянием викторины
 const quizReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_QUIZ_STATE':
@@ -13,15 +13,20 @@ const quizReducer = (state = initialState, action) => {
         },
       };
     case 'MARK_BLOCK_AS_USED':
+      const { mode, categoryName, blockId } = action.payload;
+      // Ensure the mode and usedBlocks exist in the state
+      const modeState = state[mode] || {};
+      const usedBlocks = modeState.usedBlocks || {};
+
       return {
         ...state,
-        [action.payload.mode]: {
-          ...state[action.payload.mode],
+        [mode]: {
+          ...modeState,
           usedBlocks: {
-            ...state[action.payload.mode].usedBlocks,
-            [action.payload.categoryName]: [
-              ...(state[action.payload.mode].usedBlocks[action.payload.categoryName] || []),
-              action.payload.blockId,
+            ...usedBlocks,
+            [categoryName]: [
+              ...(usedBlocks[categoryName] || []),
+              blockId,
             ],
           },
         },
