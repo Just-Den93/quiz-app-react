@@ -12,13 +12,18 @@ function App() {
     const savedState = localStorage.getItem('showQuizPage');
     return savedState === 'true';
   });
-
   const [fileCount, setFileCount] = useState(0);
+  const [selectedMode, setSelectedMode] = useState(null);
 
   useEffect(() => {
     const count = loadFileCount();
     setFileCount(count);
   }, []);
+
+  const startQuiz = (mode) => {
+    setSelectedMode(mode);
+    handleShowQuizPage(setShowQuizPage);
+  };
 
   return (
     <Router>
@@ -33,7 +38,8 @@ function App() {
                   Array.from({ length: fileCount }).map((_, index) => (
                     <QuizCard
                       key={index}
-                      startQuiz={() => handleShowQuizPage(setShowQuizPage)}
+                      startQuiz={() => startQuiz(index + 1)} // Начните викторину с соответствующего режима
+                      mode={index + 1} // Передача режима в QuizCard для отображения (если необходимо)
                     />
                   ))
                 ) : null
@@ -44,6 +50,7 @@ function App() {
         {showQuizPage && (
           <div className={styles.fullscreen}>
             <QuizPage
+              mode={selectedMode} // Передача выбранного режима в QuizPage
               showMainMenu={() => handleShowMainMenu(setShowQuizPage)}
               handleNewGame={() => handleNewGame(setShowQuizPage)}
             />
