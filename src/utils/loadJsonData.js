@@ -1,4 +1,3 @@
-// src/utils/loadJsonData.js
 export function loadJsonFileCount() {
     const context = require.context('../data', false, /\.json$/);
     return context.keys().length;
