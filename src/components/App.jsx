@@ -4,7 +4,7 @@ import QuizPage from './QuizPage';
 import QuizCard from './QuizCard';
 import Sidebar from './Sidebar';
 import styles from '../styles/App.module.css';
-import { loadData } from '../utils/loadData';
+import { loadFileCount } from '../utils/loadData';
 import { handleShowQuizPage, handleShowMainMenu, handleNewGame } from '../utils/appUtils';
 
 function App() {
@@ -16,8 +16,8 @@ function App() {
   const [fileCount, setFileCount] = useState(0);
 
   useEffect(() => {
-    const data = loadData();
-    setFileCount(data.length);
+    const count = loadFileCount();
+    setFileCount(count);
   }, []);
 
   return (
