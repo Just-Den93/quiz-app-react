@@ -9,11 +9,7 @@ function QuizCard({ startQuiz, mode }) {
         {/* Placeholder for image */}
       </div>
       <div className={styles.details}>
-<<<<<<< HEAD
         <h2>Quiz Title</h2>
-=======
-        <h2>Quiz Mode {mode}</h2> {/* Displaying mode */}
->>>>>>> 03b1859d05dbccf6df34d2614aa7cf4a5ac3baf5
         <p>Affiliation</p>
         <div className={styles.bottomRow}>
           <p className={styles.games}>Games: 0</p>
