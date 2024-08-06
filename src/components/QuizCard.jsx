@@ -10,8 +10,7 @@ function QuizCard({ startQuiz }) {
       </div>
       <div className={styles.details}>
         <h2>Quiz Title</h2>
-        <p>Number of questions: Unknown</p>
-        <p>Just_Dens</p>
+        <p>Affiliation</p>
         <div className={styles.bottomRow}>
           <p className={styles.games}>Games: 0</p>
           <button className={styles.startButton} onClick={startQuiz}>
