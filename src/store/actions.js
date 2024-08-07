@@ -1,4 +1,15 @@
-// Действия для установки состояния викторины и отметки блока как использованного
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { loadJsonDataByMode } from '../utils/loadJsonData';
+
+// Thunk for fetching quiz data
+export const fetchQuizData = createAsyncThunk(
+  'quiz/fetchQuizData',
+  async (mode) => {
+    const data = await loadJsonDataByMode(mode);
+    return { mode, data };
+  }
+);
+
 export const setQuizState = (mode, state) => ({
   type: 'SET_QUIZ_STATE',
   payload: { mode, state },

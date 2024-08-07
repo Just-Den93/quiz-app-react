@@ -1,28 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Header from './Header';
 import ContentContainer from './ContentContainer';
 import EndMessage from './EndMessage';
 import MenuModal from './MenuModal';
 import Settings from './Settings';
 import styles from '../styles/QuizPage.module.css';
-import { loadJsonDataByMode } from '../utils/loadJsonData';
-import { setQuizState, markBlockAsUsed } from '../store/actions';
+import { fetchQuizData, markBlockAsUsed } from '../store/actions';
 
-const QuizPage = ({ quizState, setQuizState, markBlockAsUsed, showMainMenu, handleNewGame, mode }) => {
+const QuizPage = ({ showMainMenu, handleNewGame }) => {
+  const { mode } = useParams();
+  const dispatch = useDispatch();
+  const quizState = useSelector((state) => state.quiz[mode]);
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
-  const [data, setData] = useState(null);
 
   useEffect(() => {
     if (mode) {
-      const selectedData = loadJsonDataByMode(parseInt(mode, 10));
-      if (selectedData) {
-        setData(selectedData.categories);
-        setQuizState(mode, { categories: selectedData.categories });
-      }
+      dispatch(fetchQuizData(mode));
     }
-  }, [mode, setQuizState]);
+  }, [mode, dispatch]);
 
   const showSettings = () => {
     setIsSettingsVisible(true);
@@ -32,13 +29,17 @@ const QuizPage = ({ quizState, setQuizState, markBlockAsUsed, showMainMenu, hand
     setIsSettingsVisible(false);
   };
 
+  const markBlock = (categoryName, blockId) => {
+    dispatch(markBlockAsUsed({ mode, categoryName, blockId }));
+  };
+
   return (
     <div className={styles.quiz_page}>
       <Header />
       <ContentContainer
-        usedBlocks={quizState[mode]?.usedBlocks || {}}
-        markBlockAsUsed={(categoryName, blockId) => markBlockAsUsed(mode, categoryName, blockId)}
-        data={data}
+        usedBlocks={quizState?.usedBlocks || {}}
+        markBlockAsUsed={markBlock}
+        data={quizState?.categories}
         mode={mode}
       />
       <EndMessage />
@@ -48,13 +49,4 @@ const QuizPage = ({ quizState, setQuizState, markBlockAsUsed, showMainMenu, hand
   );
 };
 
-const mapStateToProps = (state) => ({
-  quizState: state.quiz,
-});
-
-const mapDispatchToProps = {
-  setQuizState,
-  markBlockAsUsed,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(QuizPage);
+export default QuizPage;
