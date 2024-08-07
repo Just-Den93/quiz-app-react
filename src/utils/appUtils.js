@@ -1,8 +1,3 @@
-export const startQuiz = (setShowQuizPage, mode) => {
-  handleShowQuizPage(setShowQuizPage);
-  // Other logic for starting the quiz can be added here if needed
-};
-
 export const handleShowQuizPage = (setShowQuizPage) => {
   setShowQuizPage(true);
   localStorage.setItem('showQuizPage', 'true');
