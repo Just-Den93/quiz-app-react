@@ -1,3 +1,5 @@
+// src/components/AppRoutes.jsx
+
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import QuizPage from './QuizPage';
@@ -19,7 +21,7 @@ const AppRoutes = ({ fileCount, showQuizPage, startQuiz, handleShowMainMenu, han
             ))
           ) : (
             <QuizPage
-              mode={selectedMode} // Pass selectedMode to QuizPage
+              mode={selectedMode}
               showMainMenu={handleShowMainMenu}
               handleNewGame={handleNewGame}
             />
