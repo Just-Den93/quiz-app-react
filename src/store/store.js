@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { thunk } from 'redux-thunk'; // Named import for thunk
 import quizReducer from './reducers';
 
-// Комбинирование всех редукторов (если у вас их больше)
+// Configure the Redux store
 const store = configureStore({
   reducer: {
     quiz: quizReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });
 
 export default store;

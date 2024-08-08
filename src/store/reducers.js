@@ -1,5 +1,3 @@
-// src/store/reducers.js
-
 const initialState = {};
 
 const quizReducer = (state = initialState, action) => {
@@ -13,22 +11,28 @@ const quizReducer = (state = initialState, action) => {
         },
       };
     case 'MARK_BLOCK_AS_USED':
-      const { mode, categoryName, blockId } = action.payload;
-      // Ensure the mode and usedBlocks exist in the state
-      const modeState = state[mode] || {};
-      const usedBlocks = modeState.usedBlocks || {};
-
+      if (!state[action.payload.mode]) {
+        return state;
+      }
       return {
         ...state,
-        [mode]: {
-          ...modeState,
+        [action.payload.mode]: {
+          ...state[action.payload.mode],
           usedBlocks: {
-            ...usedBlocks,
-            [categoryName]: [
-              ...(usedBlocks[categoryName] || []),
-              blockId,
+            ...state[action.payload.mode].usedBlocks,
+            [action.payload.categoryName]: [
+              ...(state[action.payload.mode].usedBlocks[action.payload.categoryName] || []),
+              action.payload.blockId,
             ],
           },
+        },
+      };
+    case 'quiz/fetchQuizData/fulfilled':
+      return {
+        ...state,
+        [action.payload.mode]: {
+          ...state[action.payload.mode],
+          categories: action.payload.data.categories,
         },
       };
     default:
