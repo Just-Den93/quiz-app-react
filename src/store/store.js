@@ -1,8 +1,8 @@
+// store.js
 import { configureStore } from '@reduxjs/toolkit';
 import { thunk } from 'redux-thunk';
-import quizReducer from './reducer'; // Ensure this path is correct
+import quizReducer from './reducer';
 
-// Configure the Redux store
 const store = configureStore({
   reducer: {
     quiz: quizReducer,

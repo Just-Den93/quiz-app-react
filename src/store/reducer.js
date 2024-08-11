@@ -1,11 +1,16 @@
 const initialState = {
   showQuizPage: false,
   selectedMode: null,
-  // Other initial states if necessary
+  categories: {},
 };
 
 const quizReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'SET_SHOW_QUIZ_PAGE':
+      return {
+        ...state,
+        showQuizPage: action.payload,
+      };
     case 'SET_SELECTED_MODE':
       return {
         ...state,

@@ -1,12 +1,12 @@
-// src/components/App.jsx
-
+// App.jsx
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import QuizPage from './QuizPage';
+import QuizCard from './QuizCard';
 import styles from '../styles/App.module.css';
 import { loadFileCount } from '../utils/loadData';
 import { handleShowQuizPage, handleShowMainMenu, handleNewGame } from '../utils/appUtils';
-import AppRoutes from './AppRoutes';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedMode } from '../store/actions';
 
@@ -22,6 +22,7 @@ function App() {
   }, []);
 
   const startQuiz = (mode) => {
+    console.log('Starting quiz with mode:', mode);
     dispatch(setSelectedMode(mode));
     handleShowQuizPage(dispatch);
   };
@@ -31,14 +32,28 @@ function App() {
       <div className={styles.container}>
         {!showQuizPage && <Sidebar />}
         <div className={showQuizPage ? styles.hidden : styles.content}>
-          <AppRoutes
-            fileCount={fileCount}
-            showQuizPage={showQuizPage}
-            startQuiz={startQuiz}
-            handleShowMainMenu={() => handleShowMainMenu(dispatch)}
-            handleNewGame={() => handleNewGame(dispatch)}
-            selectedMode={selectedMode}
-          />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                !showQuizPage ? (
+                  Array.from({ length: fileCount }).map((_, index) => (
+                    <QuizCard
+                      key={index}
+                      mode={index + 1}
+                      startQuiz={() => startQuiz(index + 1)}
+                    />
+                  ))
+                ) : (
+                  <QuizPage
+                    mode={selectedMode}
+                    showMainMenu={() => handleShowMainMenu(dispatch)}
+                    handleNewGame={() => handleNewGame(dispatch)}
+                  />
+                )
+              }
+            />
+          </Routes>
         </div>
       </div>
     </Router>

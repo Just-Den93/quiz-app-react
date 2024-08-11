@@ -11,11 +11,12 @@ export function loadJsonDataFiles() {
   }));
 }
 
-export async function loadJsonDataByMode(mode) {
-  const dataFiles = loadJsonDataFiles();
+export function loadJsonDataByMode(mode) {
+  const context = require.context('../data', false, /\.json$/);
+  const dataFiles = context.keys().map((key) => context(key));
   const selectedData = dataFiles.find((file) => file.mode === mode);
   if (!selectedData) {
     throw new Error(`No data found for mode ${mode}`);
   }
-  return selectedData.categories;
+  return selectedData;
 }
