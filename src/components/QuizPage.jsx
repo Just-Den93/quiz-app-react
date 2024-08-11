@@ -1,5 +1,5 @@
+// QuizPage.jsx
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from './Header';
 import ContentContainer from './ContentContainer';
@@ -9,14 +9,14 @@ import Settings from './Settings';
 import styles from '../styles/QuizPage.module.css';
 import { fetchQuizData, markBlockAsUsed } from '../store/actions';
 
-const QuizPage = ({ showMainMenu, handleNewGame }) => {
-  const { mode } = useParams();
+const QuizPage = ({ showMainMenu, handleNewGame, mode }) => {
   const dispatch = useDispatch();
   const quizState = useSelector((state) => state.quiz[mode]);
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
 
   useEffect(() => {
     if (mode) {
+      console.log('Fetching quiz data for mode:', mode);
       dispatch(fetchQuizData(mode));
     }
   }, [mode, dispatch]);
@@ -33,13 +33,17 @@ const QuizPage = ({ showMainMenu, handleNewGame }) => {
     dispatch(markBlockAsUsed({ mode, categoryName, blockId }));
   };
 
+  if (!quizState) {
+    return <div>Данные не загружены</div>;
+  }
+
   return (
     <div className={styles.quiz_page}>
       <Header />
       <ContentContainer
-        usedBlocks={quizState?.usedBlocks || {}}
+        usedBlocks={quizState.usedBlocks || {}}
         markBlockAsUsed={markBlock}
-        data={quizState?.categories}
+        data={quizState.categories}
         mode={mode}
       />
       <EndMessage />

@@ -1,11 +1,11 @@
-// src/components/AppRoutes.jsx
-
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import QuizPage from './QuizPage';
 import QuizCard from './QuizCard';
 
-const AppRoutes = ({ fileCount, showQuizPage, startQuiz, handleShowMainMenu, handleNewGame, selectedMode }) => {
+const AppRoutes = ({ fileCount, showQuizPage, startQuiz, handleShowMainMenu, handleNewGame }) => {
+  console.log('Rendering AppRoutes');
+
   return (
     <Routes>
       <Route
@@ -21,7 +21,6 @@ const AppRoutes = ({ fileCount, showQuizPage, startQuiz, handleShowMainMenu, han
             ))
           ) : (
             <QuizPage
-              mode={selectedMode}
               showMainMenu={handleShowMainMenu}
               handleNewGame={handleNewGame}
             />
