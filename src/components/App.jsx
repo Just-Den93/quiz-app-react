@@ -5,9 +5,18 @@ import QuizCard from './QuizCard';
 import Sidebar from './Sidebar';
 import styles from '../styles/App.module.css';
 import { QuizProvider, useQuizContext } from '../context/QuizContext';
+import { loadJsonDataByMode } from '../utils/loadJsonData';
 
 function App() {
   const { showQuizPage, setShowQuizPage, selectedMode, setSelectedMode } = useQuizContext();
+  const [quizData, setQuizData] = React.useState(null);
+
+  React.useEffect(() => {
+    if (selectedMode !== null) {
+      const data = loadJsonDataByMode(selectedMode);
+      setQuizData(data);
+    }
+  }, [selectedMode]);
 
   const startQuiz = (mode) => {
     setSelectedMode(mode);
@@ -24,12 +33,14 @@ function App() {
             <Route
               path="/"
               element={
-                !showQuizPage ? (
-                  Array.from({ length: 10 }).map((_, index) => (
+                !showQuizPage && quizData ? (
+                  quizData.categories.map((category) => (
                     <QuizCard
-                      key={index}
-                      startQuiz={() => startQuiz(index + 1)}
-                      mode={index + 1}
+                      key={category.id}
+                      startQuiz={() => startQuiz(quizData.mode)}
+                      mode={quizData.mode}
+                      uuid={quizData.uuid}
+                      category={category} // передача категории для использования в QuizCard
                     />
                   ))
                 ) : null

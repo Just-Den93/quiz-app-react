@@ -6,7 +6,7 @@ import MenuModal from './MenuModal';
 import Settings from './Settings';
 import styles from '../styles/QuizPage.module.css';
 import { useQuizContext } from '../context/QuizContext';
-import { loadJsonDataByMode } from '../utils/loadJsonData'; // Импорт функции
+import { loadJsonDataByMode } from '../utils/loadJsonData';
 
 function QuizPage() {
   const { usedBlocks, setUsedBlocks, selectedMode, setShowQuizPage } = useQuizContext();
@@ -17,7 +17,7 @@ function QuizPage() {
     if (selectedMode) {
       const selectedData = loadJsonDataByMode(selectedMode);
       if (selectedData) {
-        setData(selectedData.categories);
+        setData(selectedData);
       }
     }
   }, [selectedMode]);
@@ -49,7 +49,7 @@ function QuizPage() {
       <ContentContainer
         usedBlocks={usedBlocks}
         markBlockAsUsed={markBlockAsUsed}
-        data={data}
+        data={data ? data.categories : []}
         mode={selectedMode}
       />
       <EndMessage />
