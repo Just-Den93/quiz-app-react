@@ -5,24 +5,22 @@ import EndMessage from './EndMessage';
 import MenuModal from './MenuModal';
 import Settings from './Settings';
 import styles from '../styles/QuizPage.module.css';
-import { loadJsonDataByMode } from '../utils/loadJsonData'; // Модифицированный импорт
+import { useQuizContext } from '../context/QuizContext';
+import { loadJsonDataByMode } from '../utils/loadJsonData'; // Импорт функции
 
-function QuizPage({ showMainMenu, handleNewGame, mode }) {
-  const [usedBlocks, setUsedBlocks] = useState(() => {
-    const saved = localStorage.getItem('usedBlocks');
-    return saved ? JSON.parse(saved) : {};
-  });
+function QuizPage() {
+  const { usedBlocks, setUsedBlocks, selectedMode, setShowQuizPage } = useQuizContext();
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    if (mode) {
-      const selectedData = loadJsonDataByMode(mode); // Загрузка данных по режимам
+    if (selectedMode) {
+      const selectedData = loadJsonDataByMode(selectedMode);
       if (selectedData) {
         setData(selectedData.categories);
       }
     }
-  }, [mode]);
+  }, [selectedMode]);
 
   const markBlockAsUsed = (categoryName, blockId) => {
     setUsedBlocks((prevUsedBlocks) => {
@@ -52,10 +50,10 @@ function QuizPage({ showMainMenu, handleNewGame, mode }) {
         usedBlocks={usedBlocks}
         markBlockAsUsed={markBlockAsUsed}
         data={data}
-        mode={mode} // Передача режима в ContentContainer
+        mode={selectedMode}
       />
       <EndMessage />
-      <MenuModal showSettings={showSettings} showMainMenu={showMainMenu} />
+      <MenuModal showSettings={showSettings} showMainMenu={() => setShowQuizPage(false)} />
       {isSettingsVisible && <Settings onClose={hideSettings} />}
     </div>
   );
