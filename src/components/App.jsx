@@ -1,22 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import QuizPage from './QuizPage';
 import QuizCard from './QuizCard';
 import Sidebar from './Sidebar';
 import styles from '../styles/App.module.css';
 import { QuizProvider, useQuizContext } from '../context/QuizContext';
-import { loadJsonDataByMode } from '../utils/loadJsonData';
+import { loadUniqueUuids } from '../utils/loadJsonData'; // Импорт функции
 
 function App() {
   const { showQuizPage, setShowQuizPage, selectedMode, setSelectedMode } = useQuizContext();
-  const [quizData, setQuizData] = React.useState(null);
+  const [quizData, setQuizData] = useState([]); // Добавлено состояние для хранения данных
 
-  React.useEffect(() => {
-    if (selectedMode !== null) {
-      const data = loadJsonDataByMode(selectedMode);
-      setQuizData(data);
-    }
-  }, [selectedMode]);
+  useEffect(() => {
+    const uniqueData = loadUniqueUuids(); // Загрузка данных
+    setQuizData(uniqueData); // Установка данных в состояние
+  }, []);
 
   const startQuiz = (mode) => {
     setSelectedMode(mode);
@@ -33,14 +31,14 @@ function App() {
             <Route
               path="/"
               element={
-                !showQuizPage && quizData ? (
-                  quizData.categories.map((category) => (
+                !showQuizPage ? (
+                  quizData.map((data, index) => (
                     <QuizCard
-                      key={category.id}
-                      startQuiz={() => startQuiz(quizData.mode)}
-                      mode={quizData.mode}
-                      uuid={quizData.uuid}
-                      category={category} // передача категории для использования в QuizCard
+                      key={data.uuid}
+                      startQuiz={() => startQuiz(data.mode)}
+                      mode={data.mode}
+                      uuid={data.uuid}
+                      category={data.categories[0]} // Отображаем первую категорию как пример
                     />
                   ))
                 ) : null
