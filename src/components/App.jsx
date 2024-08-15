@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import QuizPage from './QuizPage';
 import QuizCard from './QuizCard';
 import Sidebar from './Sidebar';
 import styles from '../styles/App.module.css';
-import { QuizProvider, useQuizContext } from '../context/QuizContext';
-import { loadUniqueUuids } from '../utils/loadJsonData'; // Импорт функции
+import { useQuizContext } from '../context/QuizContext';
+import { loadUniqueUuids } from '../utils/loadJsonData';
 
 function App() {
-  const { showQuizPage, setShowQuizPage, selectedMode, setSelectedMode } = useQuizContext();
-  const [quizData, setQuizData] = useState([]); // Добавлено состояние для хранения данных
+  const { showQuizPage, setShowQuizPage, setSelectedMode, setCurrentQuizId } = useQuizContext();
+  const [quizData, setQuizData] = useState([]);
 
   useEffect(() => {
-    const uniqueData = loadUniqueUuids(); // Загрузка данных
-    setQuizData(uniqueData); // Установка данных в состояние
+    const uniqueData = loadUniqueUuids();
+    setQuizData(uniqueData);
   }, []);
 
-  const startQuiz = (mode) => {
+  const startQuiz = (mode, uuid) => {
     setSelectedMode(mode);
+    setCurrentQuizId(uuid);
     setShowQuizPage(true);
     localStorage.setItem('showQuizPage', 'true');
   };
@@ -32,13 +33,13 @@ function App() {
               path="/"
               element={
                 !showQuizPage ? (
-                  quizData.map((data, index) => (
+                  quizData.map((data) => (
                     <QuizCard
                       key={data.uuid}
-                      startQuiz={() => startQuiz(data.mode)}
+                      startQuiz={() => startQuiz(data.mode, data.uuid)}
                       mode={data.mode}
                       uuid={data.uuid}
-                      category={data.categories[0]} // Отображаем первую категорию как пример
+                      category={data.categories[0]}
                     />
                   ))
                 ) : null
@@ -56,11 +57,4 @@ function App() {
   );
 }
 
-// Оборачиваем приложение в провайдер контекста
-export default function AppWrapper() {
-  return (
-    <QuizProvider>
-      <App />
-    </QuizProvider>
-  );
-}
+export default App;

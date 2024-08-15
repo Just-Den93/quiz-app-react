@@ -2,31 +2,28 @@ import React from 'react';
 import QAMode from './QAMode';
 import SelectionMode from './SelectionMode';
 import styles from '../styles/Modal.module.css';
-import { useModalLogic } from '../utils/modalUtils';
 
-// Маппинг mode на соответствующие компоненты
 const modeComponents = {
   1: QAMode,
   2: SelectionMode,
-  // Другие режимы можно добавить здесь
 };
 
-function Modal({ block, onClose, markBlockAsUsed, mode }) {
-  const {
-    timerStarted,
-    timerEnded,
-    showAnswer,
-    setTimerStarted,
-    handleTimerEnd,
-    handleShowAnswer,
-    handleSelectCategory,
-    handleForceStop,
-  } = useModalLogic(block, markBlockAsUsed, onClose);
+function Modal({
+  block,
+  onClose,
+  selectedMode,
+  timerStarted,
+  timerEnded,
+  showAnswer,
+  setTimerStarted,
+  handleTimerEnd,
+  handleShowAnswer,
+  handleSelectCategory,
+  handleForceStop,
+}) {
+  console.log('Modal opened with block:', block); // Проверка блока
+  const ModeComponent = modeComponents[selectedMode]; // Выбор компонента на основе selectedMode
 
-  // Получаем компонент, соответствующий текущему mode
-  const ModeComponent = modeComponents[mode];
-
-  // Если данных нет, просто не рендерим ничего
   if (!block) {
     return null;
   }
@@ -35,7 +32,7 @@ function Modal({ block, onClose, markBlockAsUsed, mode }) {
     <div className={`${styles.modal} ${styles.show}`} onClick={onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <span className={styles.closeButton} onClick={onClose}>&times;</span>
-        {ModeComponent && (
+        {ModeComponent ? (
           <ModeComponent
             block={block}
             showAnswer={showAnswer}
@@ -45,10 +42,10 @@ function Modal({ block, onClose, markBlockAsUsed, mode }) {
             handleTimerEnd={handleTimerEnd}
             handleShowAnswer={handleShowAnswer}
             handleSelectCategory={handleSelectCategory}
-            handleForceStop={() => {
-              handleTimerEnd(); // Завершаем таймер
-            }}
+            handleForceStop={handleForceStop}
           />
+        ) : (
+          <div>Unknown mode</div>
         )}
       </div>
     </div>

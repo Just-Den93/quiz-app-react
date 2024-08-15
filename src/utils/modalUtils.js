@@ -6,7 +6,16 @@ export function useModalLogic(block, markBlockAsUsed, onClose) {
   const [showAnswer, setShowAnswer] = useState(false);
 
   if (!block) {
-    return null;
+    return {
+      timerStarted: false,
+      timerEnded: false,
+      showAnswer: false,
+      setTimerStarted: () => {},
+      handleTimerEnd: () => {},
+      handleShowAnswer: () => {},
+      handleSelectCategory: () => {},
+      handleForceStop: () => {},
+    };
   }
 
   const handleTimerEnd = () => {
