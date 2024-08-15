@@ -1,12 +1,16 @@
 import React from 'react';
 import styles from '../styles/Item.module.css';
-import { handleClick } from '../utils/itemUtils';
 
 function Item({ block, onClick, used }) {
+  console.log(`Rendering Item with block ID: ${block.id}, used: ${used}`);
+
   return (
     <button
       className={`${styles.item} ${used ? styles.used : ''}`}
-      onClick={() => handleClick(block, onClick)}
+      onClick={() => {
+        console.log(`Item clicked with block ID: ${block.id}`);
+        onClick(block);
+      }}
     >
       {block.id + 1}
     </button>

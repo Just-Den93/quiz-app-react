@@ -3,6 +3,7 @@ import QAMode from './QAMode';
 import SelectionMode from './SelectionMode';
 import styles from '../styles/Modal.module.css';
 import { useModalLogic } from '../utils/modalUtils';
+import { useQuizContext } from '../context/QuizContext';
 
 // Маппинг mode на соответствующие компоненты
 const modeComponents = {
@@ -11,7 +12,9 @@ const modeComponents = {
   // Другие режимы можно добавить здесь
 };
 
-function Modal({ block, onClose, markBlockAsUsed, mode }) {
+function Modal({ block, onClose, markBlockAsUsed }) {
+  const { selectedMode } = useQuizContext(); // Получаем режим напрямую из контекста
+
   const {
     timerStarted,
     timerEnded,
@@ -23,8 +26,8 @@ function Modal({ block, onClose, markBlockAsUsed, mode }) {
     handleForceStop,
   } = useModalLogic(block, markBlockAsUsed, onClose);
 
-  // Получаем компонент, соответствующий текущему mode
-  const ModeComponent = modeComponents[mode];
+  // Получаем компонент, соответствующий текущему selectedMode
+  const ModeComponent = modeComponents[selectedMode];
 
   // Если данных нет, просто не рендерим ничего
   if (!block) {
