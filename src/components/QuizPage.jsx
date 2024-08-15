@@ -1,41 +1,67 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Header from './Header';
 import ContentContainer from './ContentContainer';
 import EndMessage from './EndMessage';
 import MenuModal from './MenuModal';
+import Modal from './Modal';
 import Settings from './Settings';
 import styles from '../styles/QuizPage.module.css';
 import { useQuizContext } from '../context/QuizContext';
 import { loadJsonDataByMode } from '../utils/loadJsonData';
+import { useModalLogic } from '../utils/modalUtils';
 
 function QuizPage() {
-  const { quizStates, updateQuizState, markBlockAsUsed, setShowQuizPage, selectedMode, currentQuizId } = useQuizContext();
-  const currentQuizState = quizStates[currentQuizId] || {};
+  const { quizStates, updateQuizState, setShowQuizPage, selectedMode, currentQuizId, markBlockAsUsed } = useQuizContext();
+
+  const currentQuizState = useMemo(() => quizStates[currentQuizId] || {}, [quizStates, currentQuizId]);
   const [data, setData] = useState(currentQuizState.data || null);
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
+  const [selectedBlock, setSelectedBlock] = useState(null);
 
   useEffect(() => {
-    console.log('Current Quiz ID:', currentQuizId);
-    console.log('Current Quiz State:', currentQuizState);
-
     if (!data && currentQuizId && selectedMode) {
-      console.log('Loading data for mode:', selectedMode);
       const selectedData = loadJsonDataByMode(selectedMode);
       if (selectedData) {
-        console.log('Data loaded:', selectedData);
         setData(selectedData.categories);
         updateQuizState(currentQuizId, { data: selectedData.categories });
-      } else {
-        console.log('No data found for mode:', selectedMode);
       }
     }
   }, [data, currentQuizId, selectedMode, currentQuizState, updateQuizState]);
+
+  const handleBlockSelect = (block) => {
+    console.log("Block selected:", block);
+    setSelectedBlock(block);
+  };
+
+  const handleCloseModal = () => {
+    console.log("Modal closed");
+    setSelectedBlock(null);
+  };
+
+  const handleSelectCategory = (categoryId, blockId) => {
+    console.log("Category selected:", categoryId, "Block ID:", blockId);
+    markBlockAsUsed(currentQuizId, categoryId, blockId);
+    setSelectedBlock(null);
+  };
+
+  const modalLogic = useModalLogic(selectedBlock, markBlockAsUsed, handleCloseModal);
 
   return (
     <div className={styles.quiz_page}>
       <Header />
       {data ? (
-        <ContentContainer data={data} />
+        <>
+          <ContentContainer data={data} onBlockSelect={handleBlockSelect} />
+          {selectedBlock && (
+            <Modal
+              block={selectedBlock}
+              onClose={handleCloseModal}
+              {...modalLogic}  // Передаем все значения из useModalLogic
+              selectedMode={selectedMode}
+              onSelectCategory={handleSelectCategory}
+            />
+          )}
+        </>
       ) : (
         <div>No data available.</div>
       )}
