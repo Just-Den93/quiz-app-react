@@ -6,55 +6,42 @@ import MenuModal from './MenuModal';
 import Settings from './Settings';
 import styles from '../styles/QuizPage.module.css';
 import { useQuizContext } from '../context/QuizContext';
-import { loadJsonDataByMode } from '../utils/loadJsonData'; // Импорт функции
+import { loadJsonDataByMode } from '../utils/loadJsonData';
 
 function QuizPage() {
-  const { usedBlocks, setUsedBlocks, selectedMode, setShowQuizPage } = useQuizContext();
+  const { quizStates, updateQuizState, markBlockAsUsed, setShowQuizPage, selectedMode, currentQuizId } = useQuizContext();
+  const currentQuizState = quizStates[currentQuizId] || {};
+  const [data, setData] = useState(currentQuizState.data || null);
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
-  const [data, setData] = useState(null);
 
   useEffect(() => {
-    if (selectedMode) {
+    console.log('Current Quiz ID:', currentQuizId);
+    console.log('Current Quiz State:', currentQuizState);
+
+    if (!data && currentQuizId && selectedMode) {
+      console.log('Loading data for mode:', selectedMode);
       const selectedData = loadJsonDataByMode(selectedMode);
       if (selectedData) {
+        console.log('Data loaded:', selectedData);
         setData(selectedData.categories);
+        updateQuizState(currentQuizId, { data: selectedData.categories });
+      } else {
+        console.log('No data found for mode:', selectedMode);
       }
     }
-  }, [selectedMode]);
-
-  const markBlockAsUsed = (categoryName, blockId) => {
-    setUsedBlocks((prevUsedBlocks) => {
-      const updatedUsedBlocks = { ...prevUsedBlocks };
-      if (!updatedUsedBlocks[categoryName]) {
-        updatedUsedBlocks[categoryName] = [];
-      }
-      updatedUsedBlocks[categoryName].push(blockId);
-
-      localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
-      return updatedUsedBlocks;
-    });
-  };
-
-  const showSettings = () => {
-    setIsSettingsVisible(true);
-  };
-
-  const hideSettings = () => {
-    setIsSettingsVisible(false);
-  };
+  }, [data, currentQuizId, selectedMode, currentQuizState, updateQuizState]);
 
   return (
     <div className={styles.quiz_page}>
       <Header />
-      <ContentContainer
-        usedBlocks={usedBlocks}
-        markBlockAsUsed={markBlockAsUsed}
-        data={data}
-        mode={selectedMode}
-      />
+      {data ? (
+        <ContentContainer data={data} />
+      ) : (
+        <div>No data available.</div>
+      )}
       <EndMessage />
-      <MenuModal showSettings={showSettings} showMainMenu={() => setShowQuizPage(false)} />
-      {isSettingsVisible && <Settings onClose={hideSettings} />}
+      <MenuModal showSettings={() => setIsSettingsVisible(true)} showMainMenu={() => setShowQuizPage(false)} />
+      {isSettingsVisible && <Settings onClose={() => setIsSettingsVisible(false)} />}
     </div>
   );
 }

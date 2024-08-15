@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import CategoryRow from './CategoryRow';
 import Modal from './Modal';
-import { handleItemClick, closeModal } from '../utils/contentContainerUtils';
+import { useQuizContext } from '../context/QuizContext';
 import styles from '../styles/ContentContainer.module.css';
 
-function ContentContainer({ usedBlocks, markBlockAsUsed, data, mode }) {
+function ContentContainer({ data }) {
   const [selectedBlock, setSelectedBlock] = useState(null);
+  const { currentQuizId, markBlockAsUsed, quizStates } = useQuizContext();
+  const usedBlocks = quizStates[currentQuizId]?.usedBlocks || {};
 
-  if (!data) {
-    return <div>Loading...</div>;
-  }
+  const handleItemClick = (block, categoryId) => {
+    console.log(`handleItemClick called for block ID: ${block.id}, category ID: ${categoryId}`);
+    setSelectedBlock(block);
+    markBlockAsUsed(currentQuizId, categoryId, block.id);
+  };
 
   return (
     <div id="content-container" className={styles.contentContainer}>
@@ -18,15 +22,13 @@ function ContentContainer({ usedBlocks, markBlockAsUsed, data, mode }) {
           key={category.id}
           category={category}
           usedBlocks={usedBlocks}
-          onItemClick={(block) => handleItemClick(block, category.id, setSelectedBlock)}
+          onItemClick={handleItemClick}
         />
       ))}
       {selectedBlock && (
         <Modal
           block={selectedBlock}
-          onClose={() => closeModal(setSelectedBlock)}
-          markBlockAsUsed={markBlockAsUsed}
-          mode={mode} // Передача режима в Modal
+          onClose={() => setSelectedBlock(null)}
         />
       )}
     </div>
