@@ -3,8 +3,8 @@ import styles from '../styles/Item.module.css';
 
 function Item({ block, categoryId, onBlockSelect }) {
   const handleClick = () => {
-    console.log(`Item clicked: Block ID ${block.id}, Category ID ${categoryId}`); // Отладочное сообщение
-    onBlockSelect({ ...block, categoryId }); // Передаем информацию о блоке наверх
+    console.log(`Item clicked: Block ID ${block.id}, Category ID ${categoryId}`);
+    onBlockSelect({ ...block, categoryId }); // Передаем categoryId при выборе блока
   };
 
   return (

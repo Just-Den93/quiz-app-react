@@ -11,7 +11,7 @@ function CategoryRow({ category, onBlockSelect }) {
           <Item
             key={`${category.id}-${block.id}`}
             block={block}
-            categoryId={category.id}
+            categoryId={category.id} // Передаем categoryId
             onBlockSelect={onBlockSelect}
           />
         ))}
