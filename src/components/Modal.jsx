@@ -21,8 +21,8 @@ function Modal({
   handleSelectCategory,
   handleForceStop,
 }) {
-  console.log('Modal opened with block:', block); // Проверка блока
-  const ModeComponent = modeComponents[selectedMode]; // Выбор компонента на основе selectedMode
+  console.log('Modal opened with block:', block); 
+  const ModeComponent = modeComponents[selectedMode]; 
 
   if (!block) {
     return null;
@@ -41,7 +41,7 @@ function Modal({
             timerEnded={timerEnded}
             handleTimerEnd={handleTimerEnd}
             handleShowAnswer={handleShowAnswer}
-            handleSelectCategory={handleSelectCategory}
+            handleSelectCategory={() => handleSelectCategory(block.categoryId, block.id)} // Используем categoryId
             handleForceStop={handleForceStop}
           />
         ) : (

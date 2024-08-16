@@ -39,10 +39,10 @@ function QuizPage() {
   };
 
   const handleSelectCategory = (categoryId, blockId) => {
-    console.log("Category selected:", categoryId, "Block ID:", blockId);
-    markBlockAsUsed(currentQuizId, categoryId, blockId);
-    setSelectedBlock(null);
-  };
+	console.log("Category selected:", categoryId, "Block ID:", blockId);
+	markBlockAsUsed(currentQuizId, categoryId, blockId);
+	setSelectedBlock(null); // Закрытие модального окна
+ }
 
   const modalLogic = useModalLogic(selectedBlock, markBlockAsUsed, handleCloseModal);
 
@@ -51,12 +51,12 @@ function QuizPage() {
       <Header />
       {data ? (
         <>
-          <ContentContainer data={data} onBlockSelect={handleBlockSelect} />
+          <ContentContainer data={data} onBlockSelect={handleBlockSelect} usedBlocks={currentQuizState.usedBlocks || {}} />
           {selectedBlock && (
             <Modal
               block={selectedBlock}
               onClose={handleCloseModal}
-              {...modalLogic}  // Передаем все значения из useModalLogic
+              {...modalLogic}
               selectedMode={selectedMode}
               onSelectCategory={handleSelectCategory}
             />
