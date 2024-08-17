@@ -2,6 +2,7 @@ import React from 'react';
 import QAMode from '../QAMode/QAMode';
 import SelectionMode from '../SelectionMode/SelectionMode';
 import styles from './Modal.module.css';
+import { useQuizContext } from '../../context/QuizContext';
 
 const modeComponents = {
   1: QAMode,
@@ -18,22 +19,19 @@ function Modal({
   setTimerStarted,
   handleTimerEnd,
   handleShowAnswer,
-  handleSelectCategory,
   handleForceStop,
 }) {
-<<<<<<< HEAD:src/components/Modal.jsx
-  // Проверяем, что block содержит нужные данные
-  // console.log('Modal opened with block:', block);
-  
   const ModeComponent = modeComponents[selectedMode];
-=======
-  console.log('Modal opened with block:', block); 
-  const ModeComponent = modeComponents[selectedMode]; 
->>>>>>> 9aec408a2d9a3289a31372e0cac247037ab3fb50:src/components/Modal/Modal.jsx
+  const { markBlockAsUsed } = useQuizContext();
 
   if (!block) {
     return null;
   }
+
+  const handleSelectCategory = () => {
+    markBlockAsUsed(block.categoryId, block.id);
+    onClose();
+  };
 
   return (
     <div className={`${styles.modal} ${styles.show}`} onClick={onClose}>
@@ -41,18 +39,6 @@ function Modal({
         <span className={styles.closeButton} onClick={onClose}>&times;</span>
         {ModeComponent ? (
           <ModeComponent
-<<<<<<< HEAD:src/components/Modal.jsx
-    block={block}
-    showAnswer={showAnswer}
-    setTimerStarted={setTimerStarted}
-    timerStarted={timerStarted}
-    timerEnded={timerEnded}
-    handleTimerEnd={handleTimerEnd}
-    handleShowAnswer={handleShowAnswer}
-    handleSelectCategory={() => handleSelectCategory(block.categoryId, block.id)}  // Убедимся, что block.categoryId и block.id правильно передаются
-    handleForceStop={handleForceStop}
-/>
-=======
             block={block}
             showAnswer={showAnswer}
             setTimerStarted={setTimerStarted}
@@ -60,10 +46,9 @@ function Modal({
             timerEnded={timerEnded}
             handleTimerEnd={handleTimerEnd}
             handleShowAnswer={handleShowAnswer}
-            handleSelectCategory={() => handleSelectCategory(block.categoryId, block.id)} // Используем categoryId
+            handleSelectCategory={handleSelectCategory}
             handleForceStop={handleForceStop}
           />
->>>>>>> 9aec408a2d9a3289a31372e0cac247037ab3fb50:src/components/Modal/Modal.jsx
         ) : (
           <div>Unknown mode</div>
         )}

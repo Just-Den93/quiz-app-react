@@ -1,14 +1,11 @@
 import React, { createContext, useContext, useState } from 'react';
 
-// Создаем контекст
 const QuizContext = createContext();
 
-// Хук для доступа к контексту
 export function useQuizContext() {
   return useContext(QuizContext);
 }
 
-// Провайдер контекста
 export function QuizProvider({ children }) {
   const [showQuizPage, setShowQuizPage] = useState(() => {
     const savedState = localStorage.getItem('showQuizPage');
@@ -17,6 +14,7 @@ export function QuizProvider({ children }) {
   const [selectedMode, setSelectedMode] = useState(null);
   const [currentQuizId, setCurrentQuizId] = useState(null);
   const [quizStates, setQuizStates] = useState({});
+  const [usedBlocks, setUsedBlocks] = useState({}); // Новое состояние для использованных блоков
 
   const updateQuizState = (uuid, newState) => {
     setQuizStates(prevStates => ({
@@ -28,40 +26,12 @@ export function QuizProvider({ children }) {
     }));
   };
 
-  const markBlockAsUsed = (quizId, categoryId, blockId) => {
-    if (!categoryId) {
-        console.error('categoryId не определен, невозможно отметить блок как используемый');
-        return;
-    }
-
-    // Логируем перед обновлением
-    console.log(`markBlockAsUsed called with: quizId=${quizId}, categoryId=${categoryId}, blockId=${blockId}`);
-
-    setQuizStates(prevStates => {
-        const previousState = prevStates[quizId] || {};
-        const updatedUsedBlocks = { ...previousState.usedBlocks };
-
-        if (!updatedUsedBlocks[categoryId]) {
-            updatedUsedBlocks[categoryId] = [];
-        }
-
-        if (!updatedUsedBlocks[categoryId].includes(blockId)) {
-            updatedUsedBlocks[categoryId].push(blockId);
-        }
-
-        console.log('Updated usedBlocks:', updatedUsedBlocks);  // Логируем новое состояние
-
-        localStorage.setItem(`usedBlocks-${quizId}`, JSON.stringify(updatedUsedBlocks));
-
-        return {
-            ...prevStates,
-            [quizId]: {
-                ...previousState,
-                usedBlocks: updatedUsedBlocks,
-            },
-        };
-    });
-};
+  const markBlockAsUsed = (categoryId, blockId) => {
+    setUsedBlocks(prevState => ({
+      ...prevState,
+      [categoryId]: [...(prevState[categoryId] || []), blockId],
+    }));
+  };
 
   return (
     <QuizContext.Provider value={{
@@ -73,6 +43,7 @@ export function QuizProvider({ children }) {
       setCurrentQuizId,
       quizStates,
       updateQuizState,
+      usedBlocks,
       markBlockAsUsed,
     }}>
       {children}

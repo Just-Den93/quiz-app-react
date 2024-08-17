@@ -29,29 +29,18 @@ function QuizPage() {
   }, [data, currentQuizId, selectedMode, currentQuizState, updateQuizState]);
 
   const handleBlockSelect = (block) => {
-    // console.log("Block selected:", block);
     setSelectedBlock(block);
   };
 
   const handleCloseModal = () => {
-    // console.log("Modal closed");
     setSelectedBlock(null);
   };
 
   const handleSelectCategory = (categoryId, blockId) => {
-<<<<<<< HEAD:src/components/QuizPage.jsx
     console.log("Category selected:", categoryId, "Block ID:", blockId);
-    markBlockAsUsed(currentQuizId, categoryId, blockId);  // Правильный порядок параметров
-    setSelectedBlock(null);
-};
-
-  // console.log("Before calling useModalLogic, selectedBlock:", selectedBlock); // Логирование перед вызовом useModalLogic
-=======
-	console.log("Category selected:", categoryId, "Block ID:", blockId);
-	markBlockAsUsed(currentQuizId, categoryId, blockId);
-	setSelectedBlock(null); // Закрытие модального окна
- }
->>>>>>> 9aec408a2d9a3289a31372e0cac247037ab3fb50:src/components/QuizPage/QuizPage.jsx
+    markBlockAsUsed(currentQuizId, categoryId, blockId); // Убедитесь, что функция markBlockAsUsed вызывается правильно
+    setSelectedBlock(null); // Закрытие модального окна
+  }
 
   const modalLogic = useModalLogic(selectedBlock, markBlockAsUsed, handleCloseModal);
 
@@ -60,14 +49,14 @@ function QuizPage() {
       <Header />
       {data ? (
         <>
-          <ContentContainer data={data} onBlockSelect={handleBlockSelect} usedBlocks={currentQuizState.usedBlocks || {}} />
+          <ContentContainer data={data} onBlockSelect={handleBlockSelect} />
           {selectedBlock && (
             <Modal
               block={selectedBlock}
               onClose={handleCloseModal}
               {...modalLogic}
               selectedMode={selectedMode}
-              onSelectCategory={handleSelectCategory}
+              onSelectCategory={handleSelectCategory}  // Убедитесь, что функция правильно передается
             />
           )}
         </>
