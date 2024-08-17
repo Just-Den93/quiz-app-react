@@ -29,20 +29,22 @@ function QuizPage() {
   }, [data, currentQuizId, selectedMode, currentQuizState, updateQuizState]);
 
   const handleBlockSelect = (block) => {
-    console.log("Block selected:", block);
+    // console.log("Block selected:", block);
     setSelectedBlock(block);
   };
 
   const handleCloseModal = () => {
-    console.log("Modal closed");
+    // console.log("Modal closed");
     setSelectedBlock(null);
   };
 
   const handleSelectCategory = (categoryId, blockId) => {
     console.log("Category selected:", categoryId, "Block ID:", blockId);
-    markBlockAsUsed(currentQuizId, categoryId, blockId);
+    markBlockAsUsed(currentQuizId, categoryId, blockId);  // Правильный порядок параметров
     setSelectedBlock(null);
-  };
+};
+
+  // console.log("Before calling useModalLogic, selectedBlock:", selectedBlock); // Логирование перед вызовом useModalLogic
 
   const modalLogic = useModalLogic(selectedBlock, markBlockAsUsed, handleCloseModal);
 
@@ -56,7 +58,7 @@ function QuizPage() {
             <Modal
               block={selectedBlock}
               onClose={handleCloseModal}
-              {...modalLogic}  // Передаем все значения из useModalLogic
+              {...modalLogic}
               selectedMode={selectedMode}
               onSelectCategory={handleSelectCategory}
             />

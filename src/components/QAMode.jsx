@@ -5,16 +5,16 @@ import SelectCategoryButton from './SelectCategoryButton';
 import ShowAnswerButton from './ShowAnswerButton';
 import styles from '../styles/QAMode.module.css';
 
-function QAMode({
-  block,
-  showAnswer,
-  setTimerStarted,
-  timerStarted,
-  timerEnded,
-  handleTimerEnd,
-  handleShowAnswer,
-  handleSelectCategory,
-  handleForceStop,
+function QAMode({ 
+  block, 
+  showAnswer, 
+  setTimerStarted, 
+  timerStarted, 
+  timerEnded, 
+  handleTimerEnd, 
+  handleShowAnswer, 
+  handleSelectCategory, 
+  handleForceStop 
 }) {
   if (!block) {
     return <div>Loading...</div>;
@@ -33,10 +33,12 @@ function QAMode({
           <StartTimerButton onClick={() => setTimerStarted(true)} />
         ) : !timerEnded ? (
           <Timer duration={30} onEnd={handleTimerEnd} onForceStop={handleForceStop} />
-        ) : !showAnswer ? (
-          <ShowAnswerButton onClick={handleShowAnswer} />
         ) : (
-          <SelectCategoryButton onClick={handleSelectCategory} />
+          !showAnswer ? (
+            <ShowAnswerButton onClick={handleShowAnswer} />
+          ) : (
+            <SelectCategoryButton onClick={handleSelectCategory} />
+          )
         )}
       </div>
     </div>
