@@ -28,35 +28,40 @@ export function QuizProvider({ children }) {
     }));
   };
 
-  const markBlockAsUsed = (quizId, categoryName, blockId) => {
-    if (!categoryName) {
-      console.error('categoryName не определено, невозможно отметить блок как используемый');
-      return;
+  const markBlockAsUsed = (quizId, categoryId, blockId) => {
+    if (!categoryId) {
+        console.error('categoryId не определен, невозможно отметить блок как используемый');
+        return;
     }
 
+    // Логируем перед обновлением
+    console.log(`markBlockAsUsed called with: quizId=${quizId}, categoryId=${categoryId}, blockId=${blockId}`);
+
     setQuizStates(prevStates => {
-      const previousState = prevStates[quizId] || {};
-      const updatedUsedBlocks = { ...previousState.usedBlocks };
+        const previousState = prevStates[quizId] || {};
+        const updatedUsedBlocks = { ...previousState.usedBlocks };
 
-      if (!updatedUsedBlocks[categoryName]) {
-        updatedUsedBlocks[categoryName] = [];
-      }
+        if (!updatedUsedBlocks[categoryId]) {
+            updatedUsedBlocks[categoryId] = [];
+        }
 
-      if (!updatedUsedBlocks[categoryName].includes(blockId)) {
-        updatedUsedBlocks[categoryName].push(blockId);
-      }
+        if (!updatedUsedBlocks[categoryId].includes(blockId)) {
+            updatedUsedBlocks[categoryId].push(blockId);
+        }
 
-      localStorage.setItem(`usedBlocks-${quizId}`, JSON.stringify(updatedUsedBlocks));
+        console.log('Updated usedBlocks:', updatedUsedBlocks);  // Логируем новое состояние
 
-      return {
-        ...prevStates,
-        [quizId]: {
-          ...previousState,
-          usedBlocks: updatedUsedBlocks,
-        },
-      };
+        localStorage.setItem(`usedBlocks-${quizId}`, JSON.stringify(updatedUsedBlocks));
+
+        return {
+            ...prevStates,
+            [quizId]: {
+                ...previousState,
+                usedBlocks: updatedUsedBlocks,
+            },
+        };
     });
-  };
+};
 
   return (
     <QuizContext.Provider value={{
@@ -68,7 +73,7 @@ export function QuizProvider({ children }) {
       setCurrentQuizId,
       quizStates,
       updateQuizState,
-      markBlockAsUsed, // Убедитесь, что функция передается здесь
+      markBlockAsUsed,
     }}>
       {children}
     </QuizContext.Provider>

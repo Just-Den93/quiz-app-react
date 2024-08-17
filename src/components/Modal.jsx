@@ -21,8 +21,10 @@ function Modal({
   handleSelectCategory,
   handleForceStop,
 }) {
-  console.log('Modal opened with block:', block); // Проверка блока
-  const ModeComponent = modeComponents[selectedMode]; // Выбор компонента на основе selectedMode
+  // Проверяем, что block содержит нужные данные
+  // console.log('Modal opened with block:', block);
+  
+  const ModeComponent = modeComponents[selectedMode];
 
   if (!block) {
     return null;
@@ -34,16 +36,16 @@ function Modal({
         <span className={styles.closeButton} onClick={onClose}>&times;</span>
         {ModeComponent ? (
           <ModeComponent
-            block={block}
-            showAnswer={showAnswer}
-            setTimerStarted={setTimerStarted}
-            timerStarted={timerStarted}
-            timerEnded={timerEnded}
-            handleTimerEnd={handleTimerEnd}
-            handleShowAnswer={handleShowAnswer}
-            handleSelectCategory={handleSelectCategory}
-            handleForceStop={handleForceStop}
-          />
+    block={block}
+    showAnswer={showAnswer}
+    setTimerStarted={setTimerStarted}
+    timerStarted={timerStarted}
+    timerEnded={timerEnded}
+    handleTimerEnd={handleTimerEnd}
+    handleShowAnswer={handleShowAnswer}
+    handleSelectCategory={() => handleSelectCategory(block.categoryId, block.id)}  // Убедимся, что block.categoryId и block.id правильно передаются
+    handleForceStop={handleForceStop}
+/>
         ) : (
           <div>Unknown mode</div>
         )}

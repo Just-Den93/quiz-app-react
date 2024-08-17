@@ -1,11 +1,15 @@
 import { useState } from 'react';
 
 export function useModalLogic(block, markBlockAsUsed, onClose) {
+  // console.log('useModalLogic: block received:', block); // Логирование в начале функции
+
   const [timerStarted, setTimerStarted] = useState(false);
   const [timerEnded, setTimerEnded] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
 
   if (!block) {
+    // console.warn('useModalLogic: block is null or undefined'); 
+    // Логирование, если block не определен
     return {
       timerStarted: false,
       timerEnded: false,
@@ -27,6 +31,8 @@ export function useModalLogic(block, markBlockAsUsed, onClose) {
   };
 
   const handleSelectCategory = () => {
+    // console.log("handleSelectCategory called with:", block.categoryId, block.id); 
+    // Логирование в handleSelectCategory
     markBlockAsUsed(block.categoryId, block.id);
     onClose();
   };
