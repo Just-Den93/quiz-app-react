@@ -3,8 +3,8 @@ import styles from './Item.module.css';
 import { useQuizContext } from '../../context/QuizContext';
 
 function Item({ block, categoryId, onBlockSelect }) {
-  const { usedBlocks } = useQuizContext();
-  const isUsed = usedBlocks[categoryId]?.includes(block.id);
+  const { quizStates, currentQuizId } = useQuizContext();
+  const isUsed = quizStates[currentQuizId]?.usedBlocks?.[categoryId]?.includes(block.id);
 
   const handleClick = () => {
     onBlockSelect({ ...block, categoryId });

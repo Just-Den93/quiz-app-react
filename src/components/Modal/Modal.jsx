@@ -22,14 +22,14 @@ function Modal({
   handleForceStop,
 }) {
   const ModeComponent = modeComponents[selectedMode];
-  const { markBlockAsUsed } = useQuizContext();
+  const { markBlockAsUsed, currentQuizId } = useQuizContext();
 
   if (!block) {
     return null;
   }
 
   const handleSelectCategory = () => {
-    markBlockAsUsed(block.categoryId, block.id);
+    markBlockAsUsed(currentQuizId, block.categoryId, block.id);
     onClose();
   };
 

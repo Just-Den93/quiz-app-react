@@ -14,8 +14,7 @@ export function QuizProvider({ children }) {
   const [selectedMode, setSelectedMode] = useState(null);
   const [currentQuizId, setCurrentQuizId] = useState(null);
   const [quizStates, setQuizStates] = useState({});
-  const [usedBlocks, setUsedBlocks] = useState({}); // Новое состояние для использованных блоков
-
+  
   const updateQuizState = (uuid, newState) => {
     setQuizStates(prevStates => ({
       ...prevStates,
@@ -26,11 +25,22 @@ export function QuizProvider({ children }) {
     }));
   };
 
-  const markBlockAsUsed = (categoryId, blockId) => {
-    setUsedBlocks(prevState => ({
-      ...prevState,
-      [categoryId]: [...(prevState[categoryId] || []), blockId],
-    }));
+  const markBlockAsUsed = (quizId, categoryId, blockId) => {
+    setQuizStates(prevStates => {
+      const previousState = prevStates[quizId] || {};
+      const updatedUsedBlocks = {
+        ...previousState.usedBlocks,
+        [categoryId]: [...(previousState.usedBlocks?.[categoryId] || []), blockId],
+      };
+
+      return {
+        ...prevStates,
+        [quizId]: {
+          ...previousState,
+          usedBlocks: updatedUsedBlocks,
+        },
+      };
+    });
   };
 
   return (
@@ -43,7 +53,6 @@ export function QuizProvider({ children }) {
       setCurrentQuizId,
       quizStates,
       updateQuizState,
-      usedBlocks,
       markBlockAsUsed,
     }}>
       {children}
