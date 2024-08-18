@@ -37,6 +37,7 @@ export function useModalLogic(block, onClose) {
     setTimerStarted,
     handleTimerEnd,
     handleShowAnswer,
+    handleSelectCategory: () => {},
     handleForceStop,
   };
 }

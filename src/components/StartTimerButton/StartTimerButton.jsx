@@ -1,10 +1,11 @@
 import React from 'react';
+import { LuTimer } from 'react-icons/lu'; // Импортируем иконку
 import styles from './StartTimerButton.module.css';
 
 function StartTimerButton({ onClick }) {
   return (
     <button className={styles.startTimerButton} onClick={onClick}>
-      <img src="./images/refresh-ccw-clock-svgrepo-com.svg" alt="Start Timer" className={styles.startButtonIcon} />
+      <LuTimer className={styles.startButtonIcon} /> {/* Используем иконку вместо изображения */}
     </button>
   );
 }
