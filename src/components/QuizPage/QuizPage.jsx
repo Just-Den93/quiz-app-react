@@ -11,10 +11,13 @@ import { loadJsonDataByMode } from '../../utils/loadJsonData';
 import { useModalLogic } from '../Modal/modalUtils';
 
 function QuizPage() {
-  const { quizStates, updateQuizState, setShowQuizPage, selectedMode, currentQuizId, markBlockAsUsed } = useQuizContext();
+  const { quizStates, updateQuizState, setShowQuizPage, selectedMode, currentQuizId, setQuizStates } = useQuizContext();
 
   const currentQuizState = useMemo(() => quizStates[currentQuizId] || {}, [quizStates, currentQuizId]);
-  const [data, setData] = useState(currentQuizState.data || null);
+  const [data, setData] = useState(() => {
+    const storedData = localStorage.getItem(`data-${currentQuizId}`);
+    return storedData ? JSON.parse(storedData) : currentQuizState.data || null;
+  });
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
   const [selectedBlock, setSelectedBlock] = useState(null);
 
@@ -24,6 +27,7 @@ function QuizPage() {
       if (selectedData) {
         setData(selectedData.categories);
         updateQuizState(currentQuizId, { data: selectedData.categories });
+        localStorage.setItem(`data-${currentQuizId}`, JSON.stringify(selectedData.categories));
       }
     }
   }, [data, currentQuizId, selectedMode, currentQuizState, updateQuizState]);
@@ -36,34 +40,49 @@ function QuizPage() {
     setSelectedBlock(null);
   };
 
-  const handleSelectCategory = (categoryId, blockId) => {
-    markBlockAsUsed(currentQuizId, categoryId, blockId);
-    setSelectedBlock(null); // Закрытие модального окна
+  const handleNewGame = () => {
+    // Очистка localStorage
+    localStorage.clear();
+
+    // Сброс состояния в контексте
+    setQuizStates({});
+    setSelectedBlock(null);
+
+    // Обновляем данные (вместо перехода в App)
+    const selectedData = loadJsonDataByMode(selectedMode);
+    if (selectedData) {
+      setData(selectedData.categories);
+      updateQuizState(currentQuizId, { data: selectedData.categories });
+      localStorage.setItem(`data-${currentQuizId}`, JSON.stringify(selectedData.categories));
+    }
   };
 
-  const modalLogic = useModalLogic(selectedBlock, markBlockAsUsed, handleCloseModal);
+  const modalLogic = useModalLogic(selectedBlock, handleCloseModal);
 
   return (
     <div className={styles.quiz_page}>
       <Header />
       {data ? (
         <>
-          <ContentContainer data={data} onBlockSelect={handleBlockSelect} usedBlocks={currentQuizState.usedBlocks || {}} />
+          <ContentContainer data={data} onBlockSelect={handleBlockSelect} />
           {selectedBlock && (
             <Modal
               block={selectedBlock}
               onClose={handleCloseModal}
               {...modalLogic}
               selectedMode={selectedMode}
-              onSelectCategory={handleSelectCategory}
             />
           )}
         </>
       ) : (
-        <div>No data available.</div>
+        <div>Loading data...</div>
       )}
       <EndMessage />
-      <MenuModal showSettings={() => setIsSettingsVisible(true)} showMainMenu={() => setShowQuizPage(false)} />
+      <MenuModal
+        showSettings={() => setIsSettingsVisible(true)}
+        handleNewGame={handleNewGame}
+        showMainMenu={() => setShowQuizPage(false)}
+      />
       {isSettingsVisible && <Settings onClose={() => setIsSettingsVisible(false)} />}
     </div>
   );

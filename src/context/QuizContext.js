@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const QuizContext = createContext();
 
@@ -8,13 +8,28 @@ export function useQuizContext() {
 
 export function QuizProvider({ children }) {
   const [showQuizPage, setShowQuizPage] = useState(() => {
-    const savedState = localStorage.getItem('showQuizPage');
-    return savedState === 'true';
+    return JSON.parse(localStorage.getItem('showQuizPage')) || false;
   });
   const [selectedMode, setSelectedMode] = useState(null);
-  const [currentQuizId, setCurrentQuizId] = useState(null);
-  const [quizStates, setQuizStates] = useState({});
-  
+  const [currentQuizId, setCurrentQuizId] = useState(() => {
+    return localStorage.getItem('currentQuizId');
+  });
+  const [quizStates, setQuizStates] = useState(() => {
+    return JSON.parse(localStorage.getItem('quizStates')) || {};
+  });
+
+  useEffect(() => {
+    localStorage.setItem('showQuizPage', JSON.stringify(showQuizPage));
+  }, [showQuizPage]);
+
+  useEffect(() => {
+    localStorage.setItem('currentQuizId', currentQuizId);
+  }, [currentQuizId]);
+
+  useEffect(() => {
+    localStorage.setItem('quizStates', JSON.stringify(quizStates));
+  }, [quizStates]);
+
   const updateQuizState = (uuid, newState) => {
     setQuizStates(prevStates => ({
       ...prevStates,
@@ -52,6 +67,7 @@ export function QuizProvider({ children }) {
       currentQuizId,
       setCurrentQuizId,
       quizStates,
+      setQuizStates, // Добавляем setQuizStates в контекст
       updateQuizState,
       markBlockAsUsed,
     }}>

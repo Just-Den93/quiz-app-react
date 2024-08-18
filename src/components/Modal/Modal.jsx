@@ -22,7 +22,7 @@ function Modal({
   handleForceStop,
 }) {
   const ModeComponent = modeComponents[selectedMode];
-  const { markBlockAsUsed, currentQuizId } = useQuizContext();
+  const { currentQuizId, markBlockAsUsed } = useQuizContext();
 
   if (!block) {
     return null;
