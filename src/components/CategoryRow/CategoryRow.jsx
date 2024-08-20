@@ -9,13 +9,9 @@ function CategoryRow({ category, onBlockSelect }) {
       <div className={styles.items}>
         {category.blocks.map((block) => (
           <Item
-            key={`${category.id}-${block.id}`}  // Уникальный ключ для каждого блока
+            key={`${category.id}-${block.id}`}
             block={block}
-<<<<<<< HEAD:src/components/CategoryRow.jsx
-            categoryId={category.id}  // Передача categoryId в Item
-=======
-            categoryId={category.id} // Передаем categoryId
->>>>>>> 9aec408a2d9a3289a31372e0cac247037ab3fb50:src/components/CategoryRow/CategoryRow.jsx
+            categoryId={category.id}
             onBlockSelect={onBlockSelect}
           />
         ))}
@@ -23,6 +19,5 @@ function CategoryRow({ category, onBlockSelect }) {
     </div>
   );
 }
-
 
 export default CategoryRow;

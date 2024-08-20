@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import QAMode from '../QAMode/QAMode';
 import SelectionMode from '../SelectionMode/SelectionMode';
 import styles from './Modal.module.css';
@@ -12,24 +12,21 @@ function Modal({
   block,
   onClose,
   selectedMode,
-  timerStarted,
-  timerEnded,
-  showAnswer,
-  setTimerStarted,
-  handleTimerEnd,
-  handleShowAnswer,
-  handleSelectCategory,
-  handleForceStop,
+  onSelectCategory,
 }) {
-<<<<<<< HEAD:src/components/Modal.jsx
-  // Проверяем, что block содержит нужные данные
-  // console.log('Modal opened with block:', block);
-  
   const ModeComponent = modeComponents[selectedMode];
-=======
-  console.log('Modal opened with block:', block); 
-  const ModeComponent = modeComponents[selectedMode]; 
->>>>>>> 9aec408a2d9a3289a31372e0cac247037ab3fb50:src/components/Modal/Modal.jsx
+
+  // Modal-specific states
+  const [timerStarted, setTimerStarted] = useState(false);
+  const [timerEnded, setTimerEnded] = useState(false);
+  const [showAnswer, setShowAnswer] = useState(false);
+
+  useEffect(() => {
+    // Reset states when block changes
+    setTimerStarted(false);
+    setShowAnswer(false);
+    setTimerEnded(false);
+  }, [block]);
 
   if (!block) {
     return null;
@@ -41,29 +38,16 @@ function Modal({
         <span className={styles.closeButton} onClick={onClose}>&times;</span>
         {ModeComponent ? (
           <ModeComponent
-<<<<<<< HEAD:src/components/Modal.jsx
-    block={block}
-    showAnswer={showAnswer}
-    setTimerStarted={setTimerStarted}
-    timerStarted={timerStarted}
-    timerEnded={timerEnded}
-    handleTimerEnd={handleTimerEnd}
-    handleShowAnswer={handleShowAnswer}
-    handleSelectCategory={() => handleSelectCategory(block.categoryId, block.id)}  // Убедимся, что block.categoryId и block.id правильно передаются
-    handleForceStop={handleForceStop}
-/>
-=======
             block={block}
             showAnswer={showAnswer}
             setTimerStarted={setTimerStarted}
             timerStarted={timerStarted}
             timerEnded={timerEnded}
-            handleTimerEnd={handleTimerEnd}
-            handleShowAnswer={handleShowAnswer}
-            handleSelectCategory={() => handleSelectCategory(block.categoryId, block.id)} // Используем categoryId
-            handleForceStop={handleForceStop}
+            handleTimerEnd={() => setTimerEnded(true)}
+            handleShowAnswer={() => setShowAnswer(true)}
+            handleSelectCategory={() => onSelectCategory(block.categoryId, block.id)}
+            handleForceStop={() => setTimerEnded(true)}
           />
->>>>>>> 9aec408a2d9a3289a31372e0cac247037ab3fb50:src/components/Modal/Modal.jsx
         ) : (
           <div>Unknown mode</div>
         )}

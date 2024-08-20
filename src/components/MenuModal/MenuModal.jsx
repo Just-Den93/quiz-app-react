@@ -1,9 +1,27 @@
 import React from 'react';
 import styles from './MenuModal.module.css';
 import { useMenuModal } from './menuModalUtils';
+import { useQuizContext } from '../../context/QuizContext';
 
-function MenuModal({ showSettings, handleNewGame, showMainMenu }) {
-  const { isVisible, showMenuModal, closeMenuModal } = useMenuModal();
+function MenuModal({ showSettings, showMainMenu }) {
+  const { isVisible, closeMenuModal } = useMenuModal();
+  const { currentQuizId, setQuizStates, setSelectedMode } = useQuizContext();
+
+  const handleNewGame = () => {
+    // Очищаем данные текущей викторины в localStorage
+    localStorage.removeItem(`data-${currentQuizId}`);
+    localStorage.removeItem('currentQuizId');
+
+    // Очищаем состояние в контексте
+    setQuizStates(prevStates => ({
+      ...prevStates,
+      [currentQuizId]: undefined,
+    }));
+
+    // Закрываем меню и сбрасываем режим
+    setSelectedMode(null);
+    closeMenuModal();
+  };
 
   return (
     <div

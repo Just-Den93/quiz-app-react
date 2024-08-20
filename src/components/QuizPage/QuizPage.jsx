@@ -8,7 +8,6 @@ import Settings from '../Settings/Settings';
 import styles from './QuizPage.module.css';
 import { useQuizContext } from '../../context/QuizContext';
 import { loadJsonDataByMode } from '../../utils/loadJsonData';
-import { useModalLogic } from '../Modal/modalUtils';
 
 function QuizPage() {
   const { quizStates, updateQuizState, setShowQuizPage, selectedMode, currentQuizId, markBlockAsUsed } = useQuizContext();
@@ -29,31 +28,17 @@ function QuizPage() {
   }, [data, currentQuizId, selectedMode, currentQuizState, updateQuizState]);
 
   const handleBlockSelect = (block) => {
-    // console.log("Block selected:", block);
     setSelectedBlock(block);
   };
 
   const handleCloseModal = () => {
-    // console.log("Modal closed");
     setSelectedBlock(null);
   };
 
   const handleSelectCategory = (categoryId, blockId) => {
-<<<<<<< HEAD:src/components/QuizPage.jsx
-    console.log("Category selected:", categoryId, "Block ID:", blockId);
-    markBlockAsUsed(currentQuizId, categoryId, blockId);  // Правильный порядок параметров
-    setSelectedBlock(null);
-};
-
-  // console.log("Before calling useModalLogic, selectedBlock:", selectedBlock); // Логирование перед вызовом useModalLogic
-=======
-	console.log("Category selected:", categoryId, "Block ID:", blockId);
-	markBlockAsUsed(currentQuizId, categoryId, blockId);
-	setSelectedBlock(null); // Закрытие модального окна
- }
->>>>>>> 9aec408a2d9a3289a31372e0cac247037ab3fb50:src/components/QuizPage/QuizPage.jsx
-
-  const modalLogic = useModalLogic(selectedBlock, markBlockAsUsed, handleCloseModal);
+    markBlockAsUsed(currentQuizId, categoryId, blockId);
+    setSelectedBlock(null); // Закрытие модального окна
+  };
 
   return (
     <div className={styles.quiz_page}>
@@ -65,7 +50,6 @@ function QuizPage() {
             <Modal
               block={selectedBlock}
               onClose={handleCloseModal}
-              {...modalLogic}
               selectedMode={selectedMode}
               onSelectCategory={handleSelectCategory}
             />

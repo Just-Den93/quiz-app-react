@@ -5,16 +5,16 @@ import SelectCategoryButton from '../SelectCategoryButton/SelectCategoryButton';
 import ShowAnswerButton from '../ShowAnswerButton/ShowAnswerButton';
 import styles from './QAMode.module.css';
 
-function QAMode({ 
-  block, 
-  showAnswer, 
-  setTimerStarted, 
-  timerStarted, 
-  timerEnded, 
-  handleTimerEnd, 
-  handleShowAnswer, 
-  handleSelectCategory, 
-  handleForceStop 
+function QAMode({
+  block,
+  showAnswer,
+  setTimerStarted,
+  timerStarted,
+  timerEnded,
+  handleTimerEnd,
+  handleShowAnswer,
+  handleSelectCategory,
+  handleForceStop
 }) {
   if (!block) {
     return <div>Loading...</div>;
