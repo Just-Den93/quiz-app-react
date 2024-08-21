@@ -1,7 +1,11 @@
-.controlBlock {
+.content {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  height: 100%;
 }
+
 
 .selectedInfo {
   display: flex;
@@ -10,6 +14,7 @@
   top: 20px;
   left: 20px;
 }
+
 
 .infoCategoryName {
   background-color: transparent;
@@ -21,6 +26,7 @@
   display: flex;
   align-items: center;
 }
+
 
 .selectedNumber {
   width: 30px;
@@ -35,13 +41,14 @@
   border-radius: 10px;
 }
 
+
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100%; */
-  margin: 170px 0 0;
+  /* margin: 170px 0 0; */
 }
+
 
 .selectionMode {
   display: flex;
@@ -53,11 +60,19 @@
   margin: 20px;
 }
 
+
+.buttonGroup {
+  display: flex;
+  gap: 50px;
+}
+
+
 .question {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 50px;
 }
+
 
 .options {
   display: grid;
@@ -67,47 +82,43 @@
   align-items: center;
 }
 
+
 .option {
-  background-color: #fed86b;
-  border: 2px solid #7958af;
   width: 500px;
   height: 80px;
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 18px;
-  cursor: pointer;
   transition: background-color 0.3s;
-}
-
-.option:hover {
-  background-color: #7958af;
-  color: white;
-}
-
-.selected {
-  background-color: #7958af;
-  color: white;
-}
-
-/* .startTimerButton,
-.showAnswerButton,
-.selectCategoryButton {
-  font-size: 24px;
-  padding: 10px 20px;
-  margin-bottom: 50px;
-  background-color: #7958af;
-  font-weight: 700;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-  opacity: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
 }
 
-.startButtonIcon {
-  width: 40px;
-  height: 40px;
-} */
+
+.option:nth-child(1) {
+  background-color: #e21b3c;
+}
+
+
+.option:nth-child(2) {
+  background-color: #1368ce;
+}
+
+
+.option:nth-child(3) {
+  background-color: #d89e00;
+}
+
+
+.option:nth-child(4) {
+  background-color: #26890c;
+}
+
+
+.incorrectOption {
+  background-color: #d3d3d3 !important; /* Светло-серый цвет для неправильных ответов */
+}

@@ -4,528 +4,514 @@
   "categories": [
     {
       "id": "category-1",
-      "name": "Lorem Ipsum",
+      "name": "Люди",
       "blocks": [
         {
           "id": 0,
-          "question": "Lorem Ipsum",
+          "question": "Як звати чоловіка та жінку які вирішили обманути Бога?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Ананій і Сапфіра",
+            "Петро і Марія",
+            "Іоанн і Сусанна",
+            "Павло і Лія"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Ананій і Сапфіра",
+          "text": "Дії 5:1"
         },
         {
           "id": 1,
-          "question": "Lorem Ipsum",
+          "question": "Хто відчинив двері в'язниці апостолам?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Петро",
+            "Охоронець",
+            "Ангел",
+            "Дівчинка"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Ангел",
+          "text": "Дії 5:19"
         },
         {
           "id": 2,
-          "question": "Lorem Ipsum",
+          "question": "Ім’я господаря дому, в якому зупинився незрячий Савл?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Петро",
+            "Юда",
+            "Матвій",
+            "Ананій"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Юда",
+          "text": "Дії 9:11"
         },
         {
           "id": 3,
-          "question": "Lorem Ipsum",
+          "question": "Хто осліп через ворожбитство?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Матея",
+            "Вар-Ісус",
+            "Натан",
+            "Тимон"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Вар-Ісус",
+          "text": "Дії 13:6"
         },
         {
           "id": 4,
-          "question": "Lorem Ipsum",
+          "question": "Як звати служницю, яка вийшла до фіртки , коли прийшов ап.Петро в ночі?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Марія",
+            "Рахіль",
+            "Рода",
+            "Саломія"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Рода",
+          "text": "Дії 12:13-14"
         },
         {
           "id": 5,
-          "question": "Lorem Ipsum",
+          "question": "Імʼя Ворожбита ,який хотів за срібло купити дар Святого Духа?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Симон",
+            "Капернаїм",
+            "Матвій",
+            "Филип"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Симон",
+          "text": "Дії 8:18-19"
         },
         {
           "id": 6,
-          "question": "Lorem Ipsum",
+          "question": "Ім’я дружини Фелікса намісника Риму?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Друзіла",
+            "Лівія",
+            "Клавдія",
+            "Феба"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Друзіла",
+          "text": "Дії 24:24"
         },
         {
           "id": 7,
-          "question": "Lorem Ipsum",
+          "question": "Ім’я начальника острова Меліта?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Публій",
+            "Сервій",
+            "Тит",
+            "Лукулл"
           ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 8,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Публій",
+          "text": "Дії 28:7"
         }
       ]
     },
     {
       "id": "category-2",
-      "name": "Lorem Ips",
+      "name": "Числа",
       "blocks": [
         {
           "id": 0,
-          "question": "Lorem Ipsum",
+          "question": "Скільки днів Ісус являвся учням після воскресіння?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "30 днів",
+            "40 днів",
+            "50 днів",
+            "60 днів"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "40 днів",
+          "text": "Дії 1:3"
         },
         {
           "id": 1,
-          "question": "Lorem Ipsum",
+          "question": "О котрій годині дня проповідували апостоли в день Пʼятдесятниці?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "О першій годині дня",
+            "О третій годині дня",
+            "О шостій годині дня",
+            "О дев’ятій годині дня"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "О третій годині дня",
+          "text": "Дії 2:15"
         },
         {
           "id": 2,
-          "question": "Lorem Ipsum",
+          "question": "Скільки хрестилося людей після проповіді Петра?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "1000 людей",
+            "2000 людей",
+            "3000 людей",
+            "4000 людей"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "3000 людей",
+          "text": "Дії 2:41"
         },
         {
           "id": 3,
-          "question": "Lorem Ipsum",
+          "question": "Якою по кількості була родина Йосипа ,яка прийшла у Єгипет?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "75 душ",
+            "55 душ",
+            "120 душ",
+            "90 душ"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "75 душ",
+          "text": "Дії 7:14"
         },
         {
           "id": 4,
-          "question": "Lorem Ipsum",
+          "question": "Скільки воїнів охороняли ап.Петра у в’язниці?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "4 воїни",
+            "8 воїнів",
+            "12 воїнів",
+            "16 воїнів"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "16 воїнів",
+          "text": "Дії 12:4"
         },
         {
           "id": 5,
-          "question": "Lorem Ipsum",
+          "question": "Скільки синів народилося у Мойсея Мадіамській пустелі?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Один син",
+            "Двоє синів",
+            "Троє синів",
+            "Чотири сини"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Двоє синів",
+          "text": "Дії 7:29"
         },
         {
           "id": 6,
-          "question": "Lorem Ipsum",
+          "question": "Якої вартості були книги про чари, які спалили?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "5000 драхм",
+            "10000 драхм",
+            "30000 драхм",
+            "50000 драхм"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "50000 драхм",
+          "text": "Дії 19:19"
         },
         {
           "id": 7,
-          "question": "Lorem Ipsum",
+          "question": "Скільки людей було на кораблі , на якому плив ап.Павло?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "230 людей",
+            "256 людей",
+            "276 людей",
+            "275 людей"
           ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 8,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "276 людей",
+          "text": "Дії 27:37"
         }
       ]
     },
     {
       "id": "category-3",
-      "name": "Lorem Ips",
+      "name": "Географія",
       "blocks": [
         {
           "id": 0,
-          "question": "Lorem Ipsum",
+          "question": "Звідки родом Йосип (Варнава)?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "З Кіпру",
+            "З Єрусалиму",
+            "З Антіохії",
+            "З Галилеї"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "З Кіпру",
+          "text": "Дії 4:36"
         },
         {
           "id": 1,
-          "question": "Lorem Ipsum",
+          "question": "З якого міста була Тавита?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Йоппія",
+            "Єрусалим",
+            "Кесарія",
+            "Антіохія"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Йоппія",
+          "text": "Дії 9:36"
         },
         {
           "id": 2,
-          "question": "Lorem Ipsum",
+          "question": "Назва поля, яке купив Юда, де і загинув?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Акелдама",
+            "Гетсиманія",
+            "Вефсайда",
+            "Єлеонська гора"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Акелдама",
+          "text": "Дії 1:19"
         },
         {
           "id": 3,
-          "question": "Lorem Ipsum",
+          "question": "Куди Пилип був перенесений після хрещення Етіопського вильможі?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Єрусалим",
+            "Самарія",
+            "Азот",
+            "Кесарія"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Азот",
+          "text": "Дії 39-40"
         },
         {
           "id": 4,
-          "question": "Lorem Ipsum",
+          "question": "Як називались ворота біля яких сидів кривий і просив?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Красні ворота",
+            "Золоті ворота",
+            "Східні ворота",
+            "Левові ворота"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Красні ворота",
+          "text": "Дії 3:2"
         },
         {
           "id": 5,
-          "question": "Lorem Ipsum",
+          "question": "Як називався ганок де проповідував ап.Петро?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Соломонів ганок",
+            "Ганок Храму",
+            "Ганок Давида",
+            "Східний ганок"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Соломонів ганок",
+          "text": "Дії 3:11"
         },
         {
           "id": 6,
-          "question": "Lorem Ipsum",
+          "question": "Як називалась вулиця , де зупинився незрячий Савл?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Широка",
+            "Головна",
+            "Проста",
+            "Вузька"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Проста",
+          "text": "Дії 9:11"
         },
         {
           "id": 7,
-          "question": "Lorem Ipsum",
+          "question": "Назва міста на острові Кіпр, в якому увірував проконсул Сергій, коли осліп ворожбит?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Пафа",
+            "Саламіна",
+            "Фамагуста",
+            "Лімасол"
           ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 8,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Пафа",
+          "text": "Дії 13:11"
         }
       ]
     },
     {
       "id": "category-4",
-      "name": "Lorem Ips",
+      "name": "Подія",
       "blocks": [
         {
           "id": 0,
-          "question": "Lorem Ipsum",
+          "question": "Куди пішли учні після вознесіння Ісуса?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Єрусалим",
+            "Вифлеєм",
+            "Вифанія",
+            "Антіохія"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Єрусалим",
+          "text": "Дії 1:12-14"
         },
         {
           "id": 1,
-          "question": "Lorem Ipsum",
+          "question": "Що робили перші християни зі своїми маєтками?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Продавали і приносили гроші апостолам",
+            "Залишали все в особистому користуванні",
+            "Обмінювали на інші види майна",
+            "Віддавали все на церковні потреби"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Продавали і приносили гроші апостолам",
+          "text": "Дії 4:34-35"
         },
         {
           "id": 2,
-          "question": "Lorem Ipsum",
+          "question": "Що заборонив синедріон Петру та Івану?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Проповідувати і навчати про ім’я Ісуса Христа",
+            "Продовжувати лікування хворих",
+            "Збиратися для молитви",
+            "Виконувати чудеса"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Проповідувати і навчати про ім’я Ісуса Христа",
+          "text": "Дії 4:18"
         },
         {
           "id": 3,
-          "question": "Lorem Ipsum",
+          "question": "Хто хрестився з в’язничним сторожем?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Павло і Сила",
+            "Петро і Іван",
+            "Всі домашні",
+            "Варнава і Тимофій"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Всі домашні",
+          "text": "Дії 16:33-34"
         },
         {
           "id": 4,
-          "question": "Lorem Ipsum",
+          "question": "В днях яких свят цар Ірод стратив ап.Якова?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Свято Пасхи",
+            "Свято Опрісноків",
+            "Свято П’ятидесятниці",
+            "Свято Кучок"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Свято Опрісноків",
+          "text": "Дії 12:1-3"
         },
         {
           "id": 5,
-          "question": "Lorem Ipsum",
+          "question": "Як називався рвучкий вітер, який вдарив у корабль з ап.Павлом?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Євроклідон",
+            "Ліван",
+            "Мелтем",
+            "Сірокко"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Євроклідон",
+          "text": "Дії 27:14"
         },
         {
           "id": 6,
-          "question": "Lorem Ipsum",
+          "question": "Що постановили апостоли в Єрусалимі для навернених поган?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Уникати їжі, що була жертвована ідолам, уникати крові, уникати їжі від вбитих тварин і уникати розпусти",
+            "Не дотримуватися обрядів обрізання та інших єврейських традицій",
+            "Дотримуватися моральних норм і уникати обману",
+            "Відзначати свята лише раз на рік"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Уникати їжі, що була жертвована ідолам, уникати крові, уникати їжі від вбитих тварин і уникати розпусти",
+          "text": "Дії 15:19-20"
         },
         {
           "id": 7,
-          "question": "Lorem Ipsum",
+          "question": "Що знаходилось у простирадлі, яке бачив ап.Петро у видінні?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Чотириногі всілякі, і земне гаддя, і небесні пташки",
+            "Тільки чисті тварини",
+            "Небесні ангели і птахи",
+            "Лише тварини і плоди землі"
           ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 8,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Чотириногі всілякі, і земне гаддя, і небесні пташки",
+          "text": "Дії 10:12"
         }
       ]
     },
     {
       "id": "category-5",
-      "name": "Lorem Ips",
+      "name": "Сюрприз",
       "blocks": [
         {
           "id": 0,
-          "question": "Lorem Ipsum",
+          "question": "Як назвали Варнаву і Павла в Лістрі?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Зевс і Гермес",
+            "Александр і Клеопа",
+            "Деметрій і Луцій",
+            "Аполлоній і Сократ"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Зевс і Гермес",
+          "text": "Дії 14:12"
         },
         {
           "id": 1,
-          "question": "Lorem Ipsum",
+          "question": "Хто був по походженню батько Тимофія?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Геллен",
+            "Римлянин",
+            "Єврей",
+            "Самарянин"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Геллен",
+          "text": "Дії 16:1"
         },
         {
           "id": 2,
-          "question": "Lorem Ipsum",
+          "question": "Яким ремеслом займався Акила?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Виробництво гончарних виробів",
+            "Ковальство",
+            "Виготовлення наметів",
+            "Торгівля тканинами"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Виготовлення наметів",
+          "text": "Дії 18:3"
         },
         {
           "id": 3,
-          "question": "Lorem Ipsum",
+          "question": "Хто був шляхетнішим за солунян?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Верійці",
+            "Філіппійці",
+            "Антіохійці",
+            "Ефесяни"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Верійці",
+          "text": "Дії 17:10-11"
         },
         {
           "id": 4,
-          "question": "Lorem Ipsum",
+          "question": "Чим наповнилися первосвященники із садукейської течії, перед тим як посадили апостолів до в'язниці?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Заздрістю",
+            "Гнівом",
+            "Радістю",
+            "Страхом"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Заздрістю",
+          "text": "Дії 5:17"
         },
         {
           "id": 5,
-          "question": "Lorem Ipsum",
+          "question": "Яку пророчу книгу читав Етіопський вильможа?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Книга пророка Єремії",
+            "Книга пророка Ісаї",
+            "Книга пророка Єзекіїля",
+            "Книга пророка Даниїла"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Книга пророка Ісаї",
+          "text": "Дії 8:30"
         },
         {
           "id": 6,
-          "question": "Lorem Ipsum",
+          "question": "Чого не мав ап.Петро згідно своїх слів?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Духа Святого",
+            "Знання Писання",
+            "Місця для молитви",
+            "Золота і срібла"
           ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Золота і срібла",
+          "text": "Дії 10:12"
         },
         {
           "id": 7,
-          "question": "Lorem Ipsum",
+          "question": "Що сталося з темрявою на острові Кіпр, коли Павло засудив Еліму ворожбита?",
           "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
+            "Темрява огорнула всю місцевість",
+            "Ворожбит став сліпим на деякий час",
+            "З’явився знак на небі",
+            "Острів потрапив у шторм"
           ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 8,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
+          "correct answer": "Темрява огорнула всю місцевість",
+          "text": "Дії 13:11"
         }
       ]
     }
   ]
 }
+
