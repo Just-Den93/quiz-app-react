@@ -1,10 +1,10 @@
-.item {
+.box {
   height: 70px;
   width: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #7958af;
+  background-color: #7958af; /* Цвет блоков */
   color: white;
   margin: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
@@ -16,6 +16,6 @@
   flex-shrink: 0;
 }
 
-.item.used {
-  background-color: lightgray;
+.used {
+  background-color: lightgray; /* Использованный блок */
 }

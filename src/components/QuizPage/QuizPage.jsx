@@ -42,7 +42,6 @@ function QuizPage() {
 
   return (
     <div className={styles.quiz_page}>
-      <Header />
       {data ? (
         <>
           <ContentContainer data={data} onBlockSelect={handleBlockSelect} usedBlocks={currentQuizState.usedBlocks || {}} />
