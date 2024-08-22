@@ -11,7 +11,7 @@ function CategoryRow({ category, onBlockSelect }) {
           key={`${category.id}-${block.id}`}
           block={block}
           categoryId={category.id}
-          onBlockSelect={onBlockSelect}
+          onBlockSelect={() => onBlockSelect(block, category)}
         />
       ))}
     </>

@@ -1,67 +1,96 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { loadJsonDataByMode } from '../utils/loadJsonData';
 
-// Создаем контекст
 const QuizContext = createContext();
 
-// Хук для доступа к контексту
 export function useQuizContext() {
   return useContext(QuizContext);
 }
 
-// Провайдер контекста
 export function QuizProvider({ children }) {
   const [showQuizPage, setShowQuizPage] = useState(() => {
     const savedState = localStorage.getItem('showQuizPage');
     return savedState === 'true';
   });
-  const [selectedMode, setSelectedMode] = useState(null);
-  const [currentQuizId, setCurrentQuizId] = useState(null);
-  const [quizStates, setQuizStates] = useState({});
+  const [selectedMode, setSelectedMode] = useState(() => {
+    const mode = localStorage.getItem('selectedMode');
+    return mode;
+  });
+  const [currentQuizId, setCurrentQuizId] = useState(() => {
+    return localStorage.getItem('currentQuizId');
+  });
+  const [quizStates, setQuizStates] = useState(() => {
+    const savedStates = localStorage.getItem('quizStates');
+    return savedStates ? JSON.parse(savedStates) : {};
+  });
+  const [data, setData] = useState(() => {
+    const savedData = localStorage.getItem('data');
+    return savedData ? JSON.parse(savedData) : null;
+  });
+
+  useEffect(() => {
+    if (selectedMode && currentQuizId && !data) {
+      const selectedData = loadJsonDataByMode(selectedMode);
+      if (selectedData) {
+        setData(selectedData.categories);
+        updateQuizState(currentQuizId, { data: selectedData.categories });
+        localStorage.setItem('data', JSON.stringify(selectedData.categories));
+      }
+    }
+  }, [selectedMode, currentQuizId, data]);
+
+  useEffect(() => {
+    if (selectedMode !== null) {
+      localStorage.setItem('selectedMode', selectedMode);
+    }
+  }, [selectedMode]);
 
   const updateQuizState = (uuid, newState) => {
-    setQuizStates(prevStates => ({
-      ...prevStates,
-      [uuid]: {
-        ...prevStates[uuid],
-        ...newState,
-      },
-    }));
+    setQuizStates(prevStates => {
+      const updatedStates = {
+        ...prevStates,
+        [uuid]: {
+          ...prevStates[uuid],
+          ...newState,
+        },
+      };
+      localStorage.setItem('quizStates', JSON.stringify(updatedStates));
+      return updatedStates;
+    });
   };
 
   const markBlockAsUsed = (quizId, categoryId, blockId) => {
     if (!categoryId) {
-        console.error('categoryId не определен, невозможно отметить блок как используемый');
-        return;
+      console.error('categoryId не определен, невозможно отметить блок как используемый');
+      return;
     }
 
-    // Логируем перед обновлением
-    console.log(`markBlockAsUsed called with: quizId=${quizId}, categoryId=${categoryId}, blockId=${blockId}`);
-
     setQuizStates(prevStates => {
-        const previousState = prevStates[quizId] || {};
-        const updatedUsedBlocks = { ...previousState.usedBlocks };
+      const previousState = prevStates[quizId] || {};
+      const updatedUsedBlocks = { ...previousState.usedBlocks };
 
-        if (!updatedUsedBlocks[categoryId]) {
-            updatedUsedBlocks[categoryId] = [];
-        }
+      if (!updatedUsedBlocks[categoryId]) {
+        updatedUsedBlocks[categoryId] = [];
+      }
 
-        if (!updatedUsedBlocks[categoryId].includes(blockId)) {
-            updatedUsedBlocks[categoryId].push(blockId);
-        }
+      if (!updatedUsedBlocks[categoryId].includes(blockId)) {
+        updatedUsedBlocks[categoryId].push(blockId);
+      }
 
-        console.log('Updated usedBlocks:', updatedUsedBlocks);  // Логируем новое состояние
+      const updatedStates = {
+        ...prevStates,
+        [quizId]: {
+          ...previousState,
+          usedBlocks: updatedUsedBlocks,
+        },
+      };
 
-        localStorage.setItem(`usedBlocks-${quizId}`, JSON.stringify(updatedUsedBlocks));
+      localStorage.setItem('quizStates', JSON.stringify(updatedStates));
+      localStorage.setItem(`usedBlocks-${quizId}`, JSON.stringify(updatedUsedBlocks));
 
-        return {
-            ...prevStates,
-            [quizId]: {
-                ...previousState,
-                usedBlocks: updatedUsedBlocks,
-            },
-        };
+      return updatedStates;
     });
-};
+  };
 
   return (
     <QuizContext.Provider value={{
@@ -74,6 +103,7 @@ export function QuizProvider({ children }) {
       quizStates,
       updateQuizState,
       markBlockAsUsed,
+      data,
     }}>
       {children}
     </QuizContext.Provider>

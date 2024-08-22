@@ -10,19 +10,18 @@ const modeComponents = {
 
 function Modal({
   block,
+  categoryName,
   onClose,
   selectedMode,
   onSelectCategory,
 }) {
   const ModeComponent = modeComponents[selectedMode];
 
-  // Modal-specific states
   const [timerStarted, setTimerStarted] = useState(false);
   const [timerEnded, setTimerEnded] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
 
   useEffect(() => {
-    // Reset states when block changes
     setTimerStarted(false);
     setShowAnswer(false);
     setTimerEnded(false);
@@ -39,6 +38,7 @@ function Modal({
         {ModeComponent ? (
           <ModeComponent
             block={block}
+            categoryName={categoryName}
             showAnswer={showAnswer}
             setTimerStarted={setTimerStarted}
             timerStarted={timerStarted}
