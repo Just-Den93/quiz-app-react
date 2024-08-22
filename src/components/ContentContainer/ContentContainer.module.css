@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
   box-sizing: border-box;
 }
@@ -7,12 +8,19 @@
   grid-template-columns: 150px repeat(9, 1fr);
   grid-template-rows: auto;
   gap: 10px;
+=======
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
   padding: 20px;
   border-radius: 10px;
   width: 100%;
   max-width: 1200px;
   margin: auto;
 }
+<<<<<<< HEAD
 
 .header {
   text-align: center;
@@ -75,3 +83,5 @@
 .used {
   background-color: lightgray;
 }
+=======
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe

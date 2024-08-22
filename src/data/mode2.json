@@ -4,6 +4,7 @@
   "categories": [
     {
       "id": "category-1",
+<<<<<<< HEAD
       "name": "Люди",
       "blocks": [
         {
@@ -101,11 +102,114 @@
           ],
           "correct answer": "Публій",
           "text": "Дії 28:7"
+=======
+      "name": "Lorem Ipsum",
+      "blocks": [
+        {
+          "id": 0,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 1,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 2,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 3,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 4,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 5,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 6,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 7,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 8,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
         }
       ]
     },
     {
       "id": "category-2",
+<<<<<<< HEAD
       "name": "Числа",
       "blocks": [
         {
@@ -203,11 +307,114 @@
           ],
           "correct answer": "276 людей",
           "text": "Дії 27:37"
+=======
+      "name": "Lorem Ips",
+      "blocks": [
+        {
+          "id": 0,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 1,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 2,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 3,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 4,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 5,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 6,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 7,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 8,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
         }
       ]
     },
     {
       "id": "category-3",
+<<<<<<< HEAD
       "name": "Географія",
       "blocks": [
         {
@@ -305,11 +512,114 @@
           ],
           "correct answer": "Пафа",
           "text": "Дії 13:11"
+=======
+      "name": "Lorem Ips",
+      "blocks": [
+        {
+          "id": 0,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 1,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 2,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 3,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 4,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 5,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 6,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 7,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 8,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
         }
       ]
     },
     {
       "id": "category-4",
+<<<<<<< HEAD
       "name": "Подія",
       "blocks": [
         {
@@ -407,11 +717,114 @@
           ],
           "correct answer": "Чотириногі всілякі, і земне гаддя, і небесні пташки",
           "text": "Дії 10:12"
+=======
+      "name": "Lorem Ips",
+      "blocks": [
+        {
+          "id": 0,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 1,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 2,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 3,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 4,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 5,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 6,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 7,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 8,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
         }
       ]
     },
     {
       "id": "category-5",
+<<<<<<< HEAD
       "name": "Сюрприз",
       "blocks": [
         {
@@ -509,9 +922,115 @@
           ],
           "correct answer": "Темрява огорнула всю місцевість",
           "text": "Дії 13:11"
+=======
+      "name": "Lorem Ips",
+      "blocks": [
+        {
+          "id": 0,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 1,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 2,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 3,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 4,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 5,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 6,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 7,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+        },
+        {
+          "id": 8,
+          "question": "Lorem Ipsum",
+          "options": [
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum",
+            "Lorem Ipsum"
+          ],
+          "answer": "Ipsum Lorem"
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
         }
       ]
     }
   ]
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe

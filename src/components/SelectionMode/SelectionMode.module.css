@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .content {
   display: flex;
   flex-direction: column;
@@ -7,6 +8,13 @@
 }
 
 
+=======
+.controlBlock {
+  display: flex;
+  justify-content: center;
+}
+
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
 .selectedInfo {
   display: flex;
   align-items: center;
@@ -15,7 +23,10 @@
   left: 20px;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
 .infoCategoryName {
   background-color: transparent;
   color: #7958af;
@@ -27,7 +38,10 @@
   align-items: center;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
 .selectedNumber {
   width: 30px;
   height: 30px;
@@ -41,6 +55,7 @@
   border-radius: 10px;
 }
 
+<<<<<<< HEAD
 
 .wrapper {
   display: flex;
@@ -50,6 +65,16 @@
 }
 
 
+=======
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100%; */
+  margin: 170px 0 0;
+}
+
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
 .selectionMode {
   display: flex;
   flex-direction: column;
@@ -60,6 +85,7 @@
   margin: 20px;
 }
 
+<<<<<<< HEAD
 
 .buttonGroup {
   display: flex;
@@ -67,13 +93,18 @@
 }
 
 
+=======
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
 .question {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 50px;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
 .options {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -82,13 +113,20 @@
   align-items: center;
 }
 
+<<<<<<< HEAD
 
 .option {
+=======
+.option {
+  background-color: #fed86b;
+  border: 2px solid #7958af;
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
   width: 500px;
   height: 80px;
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 18px;
+<<<<<<< HEAD
   transition: background-color 0.3s;
   display: flex;
   align-items: center;
@@ -122,3 +160,41 @@
 .incorrectOption {
   background-color: #d3d3d3 !important; /* Светло-серый цвет для неправильных ответов */
 }
+=======
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.option:hover {
+  background-color: #7958af;
+  color: white;
+}
+
+.selected {
+  background-color: #7958af;
+  color: white;
+}
+
+/* .startTimerButton,
+.showAnswerButton,
+.selectCategoryButton {
+  font-size: 24px;
+  padding: 10px 20px;
+  margin-bottom: 50px;
+  background-color: #7958af;
+  font-weight: 700;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+}
+
+.startButtonIcon {
+  width: 40px;
+  height: 40px;
+} */
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe

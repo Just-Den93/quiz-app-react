@@ -1,5 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+<<<<<<< HEAD
 import { loadJsonDataByMode } from '../utils/loadJsonData';
+=======
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
 
 const QuizContext = createContext();
 
@@ -9,6 +12,7 @@ export function useQuizContext() {
 
 export function QuizProvider({ children }) {
   const [showQuizPage, setShowQuizPage] = useState(() => {
+<<<<<<< HEAD
     const savedState = localStorage.getItem('showQuizPage');
     return savedState === 'true';
   });
@@ -16,10 +20,16 @@ export function QuizProvider({ children }) {
     const mode = localStorage.getItem('selectedMode');
     return mode;
   });
+=======
+    return JSON.parse(localStorage.getItem('showQuizPage')) || false;
+  });
+  const [selectedMode, setSelectedMode] = useState(null);
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
   const [currentQuizId, setCurrentQuizId] = useState(() => {
     return localStorage.getItem('currentQuizId');
   });
   const [quizStates, setQuizStates] = useState(() => {
+<<<<<<< HEAD
     const savedStates = localStorage.getItem('quizStates');
     return savedStates ? JSON.parse(savedStates) : {};
   });
@@ -78,17 +88,56 @@ export function QuizProvider({ children }) {
       }
 
       const updatedStates = {
+=======
+    return JSON.parse(localStorage.getItem('quizStates')) || {};
+  });
+
+  useEffect(() => {
+    localStorage.setItem('showQuizPage', JSON.stringify(showQuizPage));
+  }, [showQuizPage]);
+
+  useEffect(() => {
+    localStorage.setItem('currentQuizId', currentQuizId);
+  }, [currentQuizId]);
+
+  useEffect(() => {
+    localStorage.setItem('quizStates', JSON.stringify(quizStates));
+  }, [quizStates]);
+
+  const updateQuizState = (uuid, newState) => {
+    setQuizStates(prevStates => ({
+      ...prevStates,
+      [uuid]: {
+        ...prevStates[uuid],
+        ...newState,
+      },
+    }));
+  };
+
+  const markBlockAsUsed = (quizId, categoryId, blockId) => {
+    setQuizStates(prevStates => {
+      const previousState = prevStates[quizId] || {};
+      const updatedUsedBlocks = {
+        ...previousState.usedBlocks,
+        [categoryId]: [...(previousState.usedBlocks?.[categoryId] || []), blockId],
+      };
+
+      return {
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
         ...prevStates,
         [quizId]: {
           ...previousState,
           usedBlocks: updatedUsedBlocks,
         },
       };
+<<<<<<< HEAD
 
       localStorage.setItem('quizStates', JSON.stringify(updatedStates));
       localStorage.setItem(`usedBlocks-${quizId}`, JSON.stringify(updatedUsedBlocks));
 
       return updatedStates;
+=======
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
     });
   };
 
@@ -101,9 +150,15 @@ export function QuizProvider({ children }) {
       currentQuizId,
       setCurrentQuizId,
       quizStates,
+<<<<<<< HEAD
       updateQuizState,
       markBlockAsUsed,
       data,
+=======
+      setQuizStates, // Добавляем setQuizStates в контекст
+      updateQuizState,
+      markBlockAsUsed,
+>>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
     }}>
       {children}
     </QuizContext.Provider>
