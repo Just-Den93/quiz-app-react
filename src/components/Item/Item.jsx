@@ -12,11 +12,7 @@ function Item({ block, categoryId, onBlockSelect }) {
 
   return (
     <button
-<<<<<<< HEAD
       className={`${styles.box} ${isUsed ? styles.used : ''}`}
-=======
-      className={`${styles.item} ${isUsed ? styles.used : ''}`}
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
       onClick={handleClick}
     >
       {block.id + 1}

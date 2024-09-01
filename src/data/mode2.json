@@ -4,7 +4,6 @@
   "categories": [
     {
       "id": "category-1",
-<<<<<<< HEAD
       "name": "Люди",
       "blocks": [
         {
@@ -17,7 +16,7 @@
             "Павло і Лія"
           ],
           "correct answer": "Ананій і Сапфіра",
-          "text": "Дії 5:1"
+          "text": "А один чоловік, на ймення `Ананій`, із своєю дружиною `Сапфірою`, продав був маєтка (Дії 5:1)"
         },
         {
           "id": 1,
@@ -29,7 +28,7 @@
             "Дівчинка"
           ],
           "correct answer": "Ангел",
-          "text": "Дії 5:19"
+          "text": "Але `Ангол` Господній вночі відчинив для них двері в'язничні, і, вивівши їх, проказав (Дії 5:19)"
         },
         {
           "id": 2,
@@ -41,23 +40,23 @@
             "Ананій"
           ],
           "correct answer": "Юда",
-          "text": "Дії 9:11"
+          "text": "Господь же до нього: Устань, і піди на вулицю, що Простою зветься, і пошукай в домі `Юдовім` Савла на ймення, тарсянина, ось бо він молиться (Дії 9:11)"
         },
         {
           "id": 3,
           "question": "Хто осліп через ворожбитство?",
           "options": [
             "Матея",
-            "Вар-Ісус",
+            "Варісус",
             "Натан",
             "Тимон"
           ],
-          "correct answer": "Вар-Ісус",
-          "text": "Дії 13:6"
+          "correct answer": "Варісус",
+          "text": "А коли перейшли аж до Пафи ввесь острів, то знайшли ворожбита одного, лжепророка юдеянина, йому на ім'я `Варісус` (Дії 13:6)"
         },
         {
           "id": 4,
-          "question": "Як звати служницю, яка вийшла до фіртки , коли прийшов ап.Петро в ночі?",
+          "question": "Як звати служницю, яка вийшла до фіртки, коли прийшов ап.Петро в ночі?",
           "options": [
             "Марія",
             "Рахіль",
@@ -65,11 +64,11 @@
             "Саломія"
           ],
           "correct answer": "Рода",
-          "text": "Дії 12:13-14"
+          "text": "І як Петро в фіртку брами постукав, то вийшла послухати служниця, що звалася `Рода`, та голос Петрів розпізнавши, вона з радощів не відчинила воріт, а прибігши, сказала, що Петро при воротях стоїть! (Дії 12:13-14)"
         },
         {
           "id": 5,
-          "question": "Імʼя Ворожбита ,який хотів за срібло купити дар Святого Духа?",
+          "question": "Імʼя Ворожбита, який хотів за срібло купити дар Святого Духа?",
           "options": [
             "Симон",
             "Капернаїм",
@@ -77,7 +76,7 @@
             "Филип"
           ],
           "correct answer": "Симон",
-          "text": "Дії 8:18-19"
+          "text": "Як побачив же `Симон`, що через накладання апостольських рук Святий Дух подається, то приніс він їм гроші, і сказав: Дайте й мені таку владу, щоб той, на кого покладу свої руки, одержав би Духа Святого! (Дії 8:18-19)"
         },
         {
           "id": 6,
@@ -89,7 +88,7 @@
             "Феба"
           ],
           "correct answer": "Друзіла",
-          "text": "Дії 24:24"
+          "text": "А по декількох днях прийшов Фелікс із дружиною своєю `Друзіллою`, що була юдеянка, і покликав Павла, та слухав від нього про віру в Ісуса Христа (Дії 24:24)"
         },
         {
           "id": 7,
@@ -101,115 +100,12 @@
             "Лукулл"
           ],
           "correct answer": "Публій",
-          "text": "Дії 28:7"
-=======
-      "name": "Lorem Ipsum",
-      "blocks": [
-        {
-          "id": 0,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 1,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 2,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 3,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 4,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 5,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 6,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 7,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 8,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
+          "text": "Навкруги ж того місця знаходились, добра начальника острова, на ім'я `Публія`, він прийняв нас, і три дні ласкаво гостив (Дії 28:7)"
         }
       ]
     },
     {
       "id": "category-2",
-<<<<<<< HEAD
       "name": "Числа",
       "blocks": [
         {
@@ -222,7 +118,7 @@
             "60 днів"
           ],
           "correct answer": "40 днів",
-          "text": "Дії 1:3"
+          "text": "А по муці Своїй Він ставав перед ними живий із засвідченнями багатьма, і `сорок днів` їм з'являвся та про Божеє Царство казав (Дії 1:3)"
         },
         {
           "id": 1,
@@ -234,7 +130,7 @@
             "О дев’ятій годині дня"
           ],
           "correct answer": "О третій годині дня",
-          "text": "Дії 2:15"
+          "text": "Бо не п'яні вони, як ви думаєте, бо `третя година дня` (Дії 2:15)"
         },
         {
           "id": 2,
@@ -246,11 +142,11 @@
             "4000 людей"
           ],
           "correct answer": "3000 людей",
-          "text": "Дії 2:41"
+          "text": "Отож ті, хто прийняв його слово, охристилися. І пристало до них того дня `душ тисяч зо три`! (Дії 2:41)"
         },
         {
           "id": 3,
-          "question": "Якою по кількості була родина Йосипа ,яка прийшла у Єгипет?",
+          "question": "Якою по кількості була родина Йосипа, яка прийшла у Єгипет?",
           "options": [
             "75 душ",
             "55 душ",
@@ -258,7 +154,7 @@
             "90 душ"
           ],
           "correct answer": "75 душ",
-          "text": "Дії 7:14"
+          "text": "Тоді Йосип послав, щоб покликати Якова, батька свого, та всю родину свою `сімдесят і п'ять душ` (Дії 7:14)"
         },
         {
           "id": 4,
@@ -270,7 +166,7 @@
             "16 воїнів"
           ],
           "correct answer": "16 воїнів",
-          "text": "Дії 12:4"
+          "text": "І, схопивши його, посадив до в'язниці, і передав `чотирьом чвіркам вояків`, щоб його стерегли, бажаючи вивести людям його по Пасці (Дії 12:4)"
         },
         {
           "id": 5,
@@ -282,7 +178,7 @@
             "Чотири сини"
           ],
           "correct answer": "Двоє синів",
-          "text": "Дії 7:29"
+          "text": "І втік Мойсей через слово оце, і стався приходьком у землі мадіямській, де зродив `двох синів` (Дії 7:29)"
         },
         {
           "id": 6,
@@ -294,11 +190,11 @@
             "50000 драхм"
           ],
           "correct answer": "50000 драхм",
-          "text": "Дії 19:19"
+          "text": "І багато-хто з тих, що займалися чарами, позносили книги свої та й перед усіма попалили. І злічили ціну їх, і вийшло на срібло `п'ятдесят тисяч драхм` (Дії 19:19)"
         },
         {
           "id": 7,
-          "question": "Скільки людей було на кораблі , на якому плив ап.Павло?",
+          "question": "Скільки людей було на кораблі, на якому плив ап.Павло?",
           "options": [
             "230 людей",
             "256 людей",
@@ -306,115 +202,12 @@
             "275 людей"
           ],
           "correct answer": "276 людей",
-          "text": "Дії 27:37"
-=======
-      "name": "Lorem Ips",
-      "blocks": [
-        {
-          "id": 0,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 1,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 2,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 3,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 4,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 5,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 6,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 7,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 8,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
+          "text": "А всіх душ нас було в кораблі `двісті сімдесят шість` (Дії 27:37)"
         }
       ]
     },
     {
       "id": "category-3",
-<<<<<<< HEAD
       "name": "Географія",
       "blocks": [
         {
@@ -427,7 +220,7 @@
             "З Галилеї"
           ],
           "correct answer": "З Кіпру",
-          "text": "Дії 4:36"
+          "text": "Так, Йосип, що Варнавою що в перекладі є син потіхи був прозваний від апостолів, Левит, `родом кіпрянин` (Дії 4:36)"
         },
         {
           "id": 1,
@@ -439,7 +232,7 @@
             "Антіохія"
           ],
           "correct answer": "Йоппія",
-          "text": "Дії 9:36"
+          "text": "А в `Йоппії` була одна учениця, на ймення Тавіта, що в перекладі Сарною зветься. Вона повна була добрих вчинків та милостині, що чинила (Дії 9:36)"
         },
         {
           "id": 2,
@@ -451,11 +244,11 @@
             "Єлеонська гора"
           ],
           "correct answer": "Акелдама",
-          "text": "Дії 1:19"
+          "text": "І стало відоме це всім, хто замешкує в Єрусалимі, тому й поле те назване їхньою мовою `Акелдама`, що є: Поле крови (Дії 1:19)"
         },
         {
           "id": 3,
-          "question": "Куди Пилип був перенесений після хрещення Етіопського вильможі?",
+          "question": "Куди Пилип був перенесений після хрещення Ефіопського вильможі?",
           "options": [
             "Єрусалим",
             "Самарія",
@@ -463,7 +256,7 @@
             "Кесарія"
           ],
           "correct answer": "Азот",
-          "text": "Дії 39-40"
+          "text": "А коли вони вийшли з води, Дух Господній Пилипа забрав, і скопець уже більше не бачив його. І він їхав, радіючи, шляхом своїм. А Пилип опинився в `Азоті`, і, переходячи, звіщав Євангелію всім містам, аж поки прийшов у Кесарію (Дії 8:39-40)"
         },
         {
           "id": 4,
@@ -475,7 +268,7 @@
             "Левові ворота"
           ],
           "correct answer": "Красні ворота",
-          "text": "Дії 3:2"
+          "text": "І несено там чоловіка одного, що кривий був з утроби своєї матері. Його садовили щоденно в воротях храму, що `Красними` звалися, просити милостині від тих, хто до храму йшов (Дії 3:2)"
         },
         {
           "id": 5,
@@ -487,11 +280,11 @@
             "Східний ганок"
           ],
           "correct answer": "Соломонів ганок",
-          "text": "Дії 3:11"
+          "text": "А тому, що тримався він Петра та Івана, увесь народ зачудований збігся до них на той ґанок, який `Соломоновим зветься` (Дії 3:11)"
         },
         {
           "id": 6,
-          "question": "Як називалась вулиця , де зупинився незрячий Савл?",
+          "question": "Як називалась вулиця, де зупинився незрячий Савл?",
           "options": [
             "Широка",
             "Головна",
@@ -499,7 +292,7 @@
             "Вузька"
           ],
           "correct answer": "Проста",
-          "text": "Дії 9:11"
+          "text": "Господь же до нього: Устань, і піди на вулицю, що `Простою зветься`, і пошукай в домі Юдовім Савла на ймення, тарсянина, ось бо він молиться (Дії 9:11)"
         },
         {
           "id": 7,
@@ -511,115 +304,12 @@
             "Лімасол"
           ],
           "correct answer": "Пафа",
-          "text": "Дії 13:11"
-=======
-      "name": "Lorem Ips",
-      "blocks": [
-        {
-          "id": 0,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 1,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 2,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 3,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 4,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 5,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 6,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 7,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 8,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
+          "text": "І, як від `Пафа` Павло й ті, хто з ним був, відпливли́, то вони прибулии в Памфілійську Пергію. А Іван, відлучившись від них, повернувся до Єрусалиму (Дії 13:13)"
         }
       ]
     },
     {
       "id": "category-4",
-<<<<<<< HEAD
       "name": "Подія",
       "blocks": [
         {
@@ -632,7 +322,7 @@
             "Антіохія"
           ],
           "correct answer": "Єрусалим",
-          "text": "Дії 1:12-14"
+          "text": "Тоді вони повернулись до `Єрусалиму` з гори, що Оливною зветься, і що знаходиться поблизько Єрусалиму, на віддаль дороги суботнього дня. А прийшовши, увійшли вони в горницю, де й перебували: Петро та Іван, та Яків та Андрій, Пилип та Фома, Варфоломій та Матвій, Яків Алфеїв та Симон Зилот, та Юда Яковів. Вони всі однодушно були на невпинній молитві, із жінками, і з Марією, матір'ю Ісусовою, та з братами Його (Дії 1:12-14)"
         },
         {
           "id": 1,
@@ -644,7 +334,7 @@
             "Віддавали все на церковні потреби"
           ],
           "correct answer": "Продавали і приносили гроші апостолам",
-          "text": "Дії 4:34-35"
+          "text": "`Та й клали в ногах у апостолів`, і роздавалося кожному, хто потребу в чім мав (Дії 4:34-35)"
         },
         {
           "id": 2,
@@ -656,7 +346,7 @@
             "Виконувати чудеса"
           ],
           "correct answer": "Проповідувати і навчати про ім’я Ісуса Христа",
-          "text": "Дії 4:18"
+          "text": "І, закликавши їх, наказали їм `не говорити, і взагалі не навчати` про Ісусове Ймення (Дії 4:18)"
         },
         {
           "id": 3,
@@ -668,7 +358,7 @@
             "Варнава і Тимофій"
           ],
           "correct answer": "Всі домашні",
-          "text": "Дії 16:33-34"
+          "text": "І сторож забрав їх того ж часу вночі, їхні рани обмив, і охристився негайно він сам та його `всі домашні`. І він їх запровадив до дому свого, і поживу поставив, і радів із усім домом своїм, що ввірував у Бога (Дії 16:33-34)"
         },
         {
           "id": 4,
@@ -680,7 +370,7 @@
             "Свято Кучок"
           ],
           "correct answer": "Свято Опрісноків",
-          "text": "Дії 12:1-3"
+          "text": "А Цар Ірод тоді підніс руки, щоб декого з Церкви гнобити. І мечем він стяв Якова, брата Іванового. А бачивши, що подобалося це юдеям, він задумав схопити й Петра. Були ж `дні Опрісноків` (Дії 12:1-3)"
         },
         {
           "id": 5,
@@ -692,7 +382,7 @@
             "Сірокко"
           ],
           "correct answer": "Євроклідон",
-          "text": "Дії 27:14"
+          "text": "Але незабаром ударив на них рвачкий вітер, що зветься `евроклідон` (Дії 27:14)"
         },
         {
           "id": 6,
@@ -704,7 +394,7 @@
             "Відзначати свята лише раз на рік"
           ],
           "correct answer": "Уникати їжі, що була жертвована ідолам, уникати крові, уникати їжі від вбитих тварин і уникати розпусти",
-          "text": "Дії 15:19-20"
+          "text": "Тому думаю я, щоб не турбувати поган, що до Бога навертаються, але написати до них, `щоб стримувались від занечищення ідольського, та від блуду, і задушенини, і від крови` (Дії 15:19-20)"
         },
         {
           "id": 7,
@@ -716,115 +406,12 @@
             "Лише тварини і плоди землі"
           ],
           "correct answer": "Чотириногі всілякі, і земне гаддя, і небесні пташки",
-          "text": "Дії 10:12"
-=======
-      "name": "Lorem Ips",
-      "blocks": [
-        {
-          "id": 0,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 1,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 2,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 3,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 4,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 5,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 6,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 7,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 8,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
+          "text": "У ній же знаходились `чотириногі всілякі, і земне гаддя, і небесні пташки` (Дії 10:12)"
         }
       ]
     },
     {
       "id": "category-5",
-<<<<<<< HEAD
       "name": "Сюрприз",
       "blocks": [
         {
@@ -837,7 +424,7 @@
             "Аполлоній і Сократ"
           ],
           "correct answer": "Зевс і Гермес",
-          "text": "Дії 14:12"
+          "text": "І Варнаву вони звали `Зевсом`, а `Гермесом` Павла, бо він провід мав у слові (Дії 14:12)"
         },
         {
           "id": 1,
@@ -849,7 +436,7 @@
             "Самарянин"
           ],
           "correct answer": "Геллен",
-          "text": "Дії 16:1"
+          "text": "І прибув він у Дервію й Лістру. І ото був там один учень, на ім'я Тимофій, син наверненої однієї юдеянки, а батько був `геллен` (Дії 16:1)"
         },
         {
           "id": 2,
@@ -861,7 +448,7 @@
             "Торгівля тканинами"
           ],
           "correct answer": "Виготовлення наметів",
-          "text": "Дії 18:3"
+          "text": "А що був він того ж ремесла, то в них позостався та працював; ремесло ж їхнє було `виробляти намети` (Дії 18:3)"
         },
         {
           "id": 3,
@@ -873,7 +460,7 @@
             "Ефесяни"
           ],
           "correct answer": "Верійці",
-          "text": "Дії 17:10-11"
+          "text": "А брати відіслали негайно вночі Павла й Силу до `Верії`. І, прибувши вони, пішли в синагогу юдейську. Ці були шляхетніші за солунян, і слова прийняли з повним запалом, і Писання досліджували день-у-день, чи так воно є (Дії 17:10-11)"
         },
         {
           "id": 4,
@@ -885,7 +472,7 @@
             "Страхом"
           ],
           "correct answer": "Заздрістю",
-          "text": "Дії 5:17"
+          "text": "А первосвященик, уставши, та й усі, хто був із ним, хто належав до саддукейської єресі, `переповнились заздрощами` (Дії 5:17)"
         },
         {
           "id": 5,
@@ -897,7 +484,7 @@
             "Книга пророка Даниїла"
           ],
           "correct answer": "Книга пророка Ісаї",
-          "text": "Дії 8:30"
+          "text": "Пилип же підбіг і почув, що той читає `пророка Ісаю`, та й спитав: Чи розумієш, що ти читаєш? (Дії 8:30)"
         },
         {
           "id": 6,
@@ -909,7 +496,7 @@
             "Золота і срібла"
           ],
           "correct answer": "Золота і срібла",
-          "text": "Дії 10:12"
+          "text": "УТа промовив Петро: „`Срібла й золота` в мене нема, але що я маю, даю тобі: У Ім'я Ісуса Христа Назаряни́на — устань та й ходи!“ (Дії 3:6)"
         },
         {
           "id": 7,
@@ -921,116 +508,9 @@
             "Острів потрапив у шторм"
           ],
           "correct answer": "Темрява огорнула всю місцевість",
-          "text": "Дії 13:11"
-=======
-      "name": "Lorem Ips",
-      "blocks": [
-        {
-          "id": 0,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 1,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 2,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 3,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 4,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 5,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 6,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 7,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
-        },
-        {
-          "id": 8,
-          "question": "Lorem Ipsum",
-          "options": [
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum",
-            "Lorem Ipsum"
-          ],
-          "answer": "Ipsum Lorem"
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
+          "text": "І тепер ось на тебе Господня рука, ти станеш сліпий, і сонця бачити не будеш до часу! І миттю `обняв того морок та темрява`, і став він ходити навпомацки та шукати поводатора (Дії 13:11)"
         }
       ]
     }
   ]
-<<<<<<< HEAD
 }
-
-=======
-}
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe

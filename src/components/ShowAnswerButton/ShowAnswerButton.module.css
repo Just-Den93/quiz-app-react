@@ -1,7 +1,8 @@
 .showAnswerButton {
   font-size: 24px;
   padding: 10px 20px;
-  background-color: #7958af;
+  /* background-color: #7958af; */
+  background-color: #03564a;
   font-weight: 700;
   color: white;
   border: none;
@@ -13,4 +14,9 @@
   margin-bottom: 50px;
   display: flex;
   align-items: center;
+}
+
+.showAnswerButton:hover {
+  /* background-color: #68469c; */
+  background-color: #02423a;
 }

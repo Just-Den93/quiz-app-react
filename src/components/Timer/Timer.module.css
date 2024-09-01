@@ -11,11 +11,13 @@
   font-size: 72px;
   transition: opacity 0.3s ease;
   font-weight: 800;
-  color: #7958af;
+  /* color: #7958af; */
+  color: #03564a;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fed86b; /* Yellow background */
+  /* background-color: #fed86b; */
+  background-color: #e1baa7;
   border-radius: 10px;
   /* padding: 10px 20px; */
   margin-bottom: 30px;

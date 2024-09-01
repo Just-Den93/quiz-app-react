@@ -19,7 +19,8 @@
 }
 
 .modalContent {
-  background-color: #fed86b;
+  /* background-color: #fed86b; */
+  background-color: #e1baa7;
   margin: auto;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -33,15 +34,15 @@
   overflow-y: auto;
 }
 
-.selectedInfo {
+/* .selectedInfo {
   display: flex;
   align-items: center;
   position: absolute;
   top: 20px;
   left: 20px;
-}
+} */
 
-.infoCategoryName {
+/* .infoCategoryName {
   background-color: transparent;
   color: #7958af;
   font-size: 18px;
@@ -63,7 +64,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-}
+} */
 
 .closeButton {
   color: #aaa;
@@ -76,7 +77,8 @@
 
 .closeButton:hover,
 .closeButton:focus {
-  color: #000;
+  /* color: #000; */
+  color: #03564a;
   text-decoration: none;
   cursor: pointer;
 }
@@ -108,7 +110,7 @@
   margin-top: 20px;
 } */
 
-.startTimerButton,
+/* .startTimerButton,
 .showAnswerButton,
 .selectCategoryButton {
   font-size: 24px;
@@ -124,7 +126,7 @@
   opacity: 1;
   display: flex;
   align-items: center;
-}
+} */
 
 .showAnswerButton,
 .selectCategoryButton {

@@ -4,7 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #7958af; /* Цвет блоков */
+  /* background-color: #7958af; */
+  background-color: #03564a;
   color: white;
   margin: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);

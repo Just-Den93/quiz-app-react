@@ -5,21 +5,23 @@ import { useQuizContext } from '../../context/QuizContext';
 
 function MenuModal({ showSettings, showMainMenu }) {
   const { isVisible, closeMenuModal } = useMenuModal();
-  const { currentQuizId, setQuizStates, setSelectedMode } = useQuizContext();
+  const { currentQuizId, setQuizStates } = useQuizContext();
 
   const handleNewGame = () => {
     // Очищаем данные текущей викторины в localStorage
     localStorage.removeItem(`data-${currentQuizId}`);
-    localStorage.removeItem('currentQuizId');
 
-    // Очищаем состояние в контексте
+    // Сброс состояния в контексте только для текущей викторины
     setQuizStates(prevStates => ({
       ...prevStates,
-      [currentQuizId]: undefined,
+      [currentQuizId]: {
+        ...prevStates[currentQuizId],
+        usedBlocks: {},
+        data: null, // Или другой метод сброса данных викторины
+      },
     }));
 
-    // Закрываем меню и сбрасываем режим
-    setSelectedMode(null);
+    // Закрываем меню, но не трогаем selectedMode и currentQuizId
     closeMenuModal();
   };
 
@@ -47,8 +49,4 @@ function MenuModal({ showSettings, showMainMenu }) {
   );
 }
 
-<<<<<<< HEAD
 export default MenuModal;
-=======
-export default MenuModal;
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .content {
   display: flex;
   flex-direction: column;
@@ -7,14 +6,6 @@
   height: 100%;
 }
 
-
-=======
-.controlBlock {
-  display: flex;
-  justify-content: center;
-}
-
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
 .selectedInfo {
   display: flex;
   align-items: center;
@@ -23,13 +14,10 @@
   left: 20px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
 .infoCategoryName {
   background-color: transparent;
-  color: #7958af;
+  /* color: #7958af; */
+  color: #03564a;
   font-size: 18px;
   font-weight: bold;
   margin-right: 5px;
@@ -38,14 +26,11 @@
   align-items: center;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
 .selectedNumber {
   width: 30px;
   height: 30px;
-  background-color: #7958af;
+  /* background-color: #7958af; */
+  background-color: #03564a;
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -55,26 +40,12 @@
   border-radius: 10px;
 }
 
-<<<<<<< HEAD
-
 .wrapper {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   margin: 170px 0 0;
 }
 
-
-=======
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* height: 100%; */
-  margin: 170px 0 0;
-}
-
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
 .selectionMode {
   display: flex;
   flex-direction: column;
@@ -85,26 +56,36 @@
   margin: 20px;
 }
 
-<<<<<<< HEAD
-
 .buttonGroup {
   display: flex;
   gap: 50px;
 }
 
-
-=======
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
 .question {
-  font-size: 24px;
+  color: #03564a;
+  font-size: 30px;
   font-weight: bold;
   margin-bottom: 50px;
+  position: relative;
 }
 
-<<<<<<< HEAD
+.textAnimating .letter {
+  display: inline-block;
+  opacity: 0;
+  transform: rotateX(90deg);
+  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.38s ease;
+}
 
-=======
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
+.textAnimating .letter.in {
+  opacity: 1;
+  transform: rotateX(0deg);
+}
+
+.textAnimating .letter.out {
+  opacity: 0;
+  transform: rotateX(90deg);
+}
+
 .options {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -113,20 +94,12 @@
   align-items: center;
 }
 
-<<<<<<< HEAD
-
 .option {
-=======
-.option {
-  background-color: #fed86b;
-  border: 2px solid #7958af;
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
   width: 500px;
   height: 80px;
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 18px;
-<<<<<<< HEAD
   transition: background-color 0.3s;
   display: flex;
   align-items: center;
@@ -136,65 +109,29 @@
   color: white;
 }
 
-
 .option:nth-child(1) {
   background-color: #e21b3c;
 }
-
 
 .option:nth-child(2) {
   background-color: #1368ce;
 }
 
-
 .option:nth-child(3) {
   background-color: #d89e00;
 }
-
 
 .option:nth-child(4) {
   background-color: #26890c;
 }
 
-
 .incorrectOption {
-  background-color: #d3d3d3 !important; /* Светло-серый цвет для неправильных ответов */
-}
-=======
-  cursor: pointer;
-  transition: background-color 0.3s;
+  background-color: #d3d3d3 !important;
 }
 
-.option:hover {
-  background-color: #7958af;
-  color: white;
+.letter {
+  display: inline-block;
+  position: relative;
+  transform: translateZ(25px);
+  transform-origin: 50% 50% 25px;
 }
-
-.selected {
-  background-color: #7958af;
-  color: white;
-}
-
-/* .startTimerButton,
-.showAnswerButton,
-.selectCategoryButton {
-  font-size: 24px;
-  padding: 10px 20px;
-  margin-bottom: 50px;
-  background-color: #7958af;
-  font-weight: 700;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-  opacity: 1;
-  display: flex;
-  align-items: center;
-}
-
-.startButtonIcon {
-  width: 40px;
-  height: 40px;
-} */
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe

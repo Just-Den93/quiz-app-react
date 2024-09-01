@@ -1,22 +1,42 @@
-<<<<<<< HEAD
-.category {
-  grid-column: 1;
-  text-align: center;
-  font-weight: bold;
-  font-size: 18px;
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.item {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #7958af;
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  border-radius: 10px; /* Сохранение оригинального стиля категории */
-=======
+  margin: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  font-size: 50px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.item.used {
+  background-color: lightgray;
+}
+
 .categoryRow {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   width: 100%;
+  justify-content: center;
 }
 
 .categoryName {
@@ -26,7 +46,8 @@
   text-align: center;
   padding: 10px;
   color: #fff;
-  background-color: #7958af;
+  /* background-color: #7958af; */
+  background-color: #03564a;
   height: 70px;
   display: flex;
   align-items: center;
@@ -34,6 +55,11 @@
   font-size: 20px;
   border-radius: 10px;
   margin-right: 20px;
+  transition: background-color 0.3s ease; /* Плавный переход цвета */
+}
+
+.usedCategory {
+  background-color: lightgray; /* Новый цвет для измененной категории */
 }
 
 .items {
@@ -41,5 +67,4 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 10px;
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
 }

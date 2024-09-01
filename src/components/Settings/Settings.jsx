@@ -4,9 +4,13 @@ import styles from './Settings.module.css';
 function Settings({ onClose }) {
   return (
     <div className={styles.settings}>
-      <div className={styles.content}>
-        <h2>Settings</h2>
-        <p>Content for settings will be displayed here.</p>
+      <div className={styles.sidebar}>
+        <button className={styles.tab}>
+          <span className={styles.tabText}>Тема</span>
+        </button>
+        <button className={styles.tab}>
+          <span className={styles.tabText}>Параметри</span>
+        </button>
       </div>
       <button className={styles.closeButton} onClick={onClose}>Close</button>
     </div>

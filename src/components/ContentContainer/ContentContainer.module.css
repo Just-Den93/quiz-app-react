@@ -1,26 +1,33 @@
-<<<<<<< HEAD
-* {
-  box-sizing: border-box;
-}
-
-.wrapper {
-  display: grid;
-  grid-template-columns: 150px repeat(9, 1fr);
-  grid-template-rows: auto;
-  gap: 10px;
-=======
 .contentContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  box-sizing: border-box; /* убедитесь, что размеры считаются корректно */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 200px repeat(8, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
   padding: 20px;
   border-radius: 10px;
   width: 100%;
   max-width: 1200px;
   margin: auto;
 }
-<<<<<<< HEAD
 
 .header {
   text-align: center;
@@ -29,23 +36,11 @@
   background-color: #a18ac7;
   color: white;
   height: 50px;
-  width: 100%; /* Полностью покрываем доступную ширину в grid */
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-}
-
-.easy {
-  grid-column: 2 / 5; /* Покрываем блоки 1, 2, 3 */
-}
-
-.medium {
-  grid-column: 5 / 8; /* Покрываем блоки 4, 5, 6 */
-}
-
-.hard {
-  grid-column: 8 / 11; /* Покрываем блоки 7, 8, 9 */
 }
 
 .category {
@@ -83,5 +78,3 @@
 .used {
   background-color: lightgray;
 }
-=======
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe

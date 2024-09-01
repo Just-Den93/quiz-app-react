@@ -27,8 +27,4 @@ QuizCard.propTypes = {
   mode: PropTypes.number.isRequired, // Добавлен тип реквизита для режима
 };
 
-<<<<<<< HEAD
 export default QuizCard;
-=======
-export default QuizCard;
->>>>>>> 8740623cfc973399b6f1c5cf32225d0f4f3458fe

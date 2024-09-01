@@ -10,33 +10,57 @@
 }
 
 .sidebar {
-  width: 25%;
+  width: 250px;
+  background-color: white;
+  border-right: 1px solid #ccc;
   display: flex;
   flex-direction: column;
-  background-color: #f0f0f0;
-  padding: 10px;
+  align-items: flex-end;
+  padding: 20px 0;
 }
 
-.switchButton {
+.tab {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #4A148C;
+  color: white;
+  border: none;
+  border-radius: 10px 0 0 10px;
+  margin-right: 3px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  width: 220px;
+  margin-bottom: 10px;
+}
+
+.tabText {
+  color: white;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.button {
   font-size: 18px;
   padding: 10px;
-  margin: 5px 0;
+  margin: 10px 0;
   background-color: #7958af;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  text-align: left;
+  width: 150px;
+  transition: background-color 0.3s;
 }
 
-.content {
-  width: 75%;
-  padding: 20px;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+.button:hover {
+  background-color: #68469c;
 }
 
 .closeButton {
