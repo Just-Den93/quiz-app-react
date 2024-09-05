@@ -87,6 +87,8 @@ function SelectionMode({
       return 25;
     } else if (length <= 22) {
       return 22;
+    } else if (length >= 100) {
+      return 16;
     } else {
       return 18; // Оставляем размер шрифта по умолчанию
     }
