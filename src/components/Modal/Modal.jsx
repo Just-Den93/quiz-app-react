@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import QAMode from '../QAMode/QAMode';
 import SelectionMode from '../SelectionMode/SelectionMode';
+import WarningMessage from '../WarningMessage/WarningMessage'; // Импортируем WarningMessage
 import styles from './Modal.module.css';
 
 const modeComponents = {
@@ -14,6 +15,9 @@ function Modal({
   onClose,
   selectedMode,
   onSelectCategory,
+  isBlockUsed, // Получаем флаг использования блока
+  onTryAgain,
+  onContinue,
 }) {
   const ModeComponent = modeComponents[selectedMode];
 
@@ -35,21 +39,25 @@ function Modal({
     <div className={`${styles.modal} ${styles.show}`} onClick={onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <span className={styles.closeButton} onClick={onClose}>&times;</span>
-        {ModeComponent ? (
-          <ModeComponent
-            block={block}
-            categoryName={categoryName}
-            showAnswer={showAnswer}
-            setTimerStarted={setTimerStarted}
-            timerStarted={timerStarted}
-            timerEnded={timerEnded}
-            handleTimerEnd={() => setTimerEnded(true)}
-            handleShowAnswer={() => setShowAnswer(true)}
-            handleSelectCategory={() => onSelectCategory(block.categoryId, block.id)}
-            handleForceStop={() => setTimerEnded(true)}
-          />
+
+        {/* Показываем WarningMessage, если блок был использован */}
+        {isBlockUsed ? (
+          <WarningMessage onTryAgain={onTryAgain} onContinue={onContinue} />
         ) : (
-          <div>Unknown mode</div>
+          ModeComponent && (
+            <ModeComponent
+              block={block}
+              categoryName={categoryName}
+              showAnswer={showAnswer}
+              setTimerStarted={setTimerStarted}
+              timerStarted={timerStarted}
+              timerEnded={timerEnded}
+              handleTimerEnd={() => setTimerEnded(true)}
+              handleShowAnswer={() => setShowAnswer(true)}
+              handleSelectCategory={() => onSelectCategory(block.categoryId, block.id)}
+              handleForceStop={() => setTimerEnded(true)}
+            />
+          )
         )}
       </div>
     </div>

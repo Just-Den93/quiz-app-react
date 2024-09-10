@@ -78,9 +78,10 @@ function SelectionMode({
   };
 
   const handleSelectCategoryInternal = () => {
-    handleSelectCategory(block.categoryId, block.id);
+    handleSelectCategory(block.categoryId, block.id); // Сообщаем QuizPage о нажатии кнопки
   };
 
+  // Функция для определения размера шрифта в зависимости от длины текста
   const getOptionFontSize = (text) => {
     const length = text.length;
     if (length <= 10) {
@@ -90,11 +91,11 @@ function SelectionMode({
     } else if (length >= 100) {
       return 16;
     } else {
-      return 18; // Оставляем размер шрифта по умолчанию
+      return 18;
     }
   };
 
-  // Добавляем функцию для определения размера шрифта ответа
+  // Функция для определения размера шрифта для ответа
   const getAnswerFontSize = (text) => {
     const length = text.length;
     if (length <= 90) {
@@ -106,27 +107,25 @@ function SelectionMode({
     }
   };
 
+  // Форматирование текста с подсветкой в бэктиках
   const formatTextWithHighlights = (text) => {
-    const regex = /`([^`]+)`/g; // Регулярное выражение для поиска слов в бэктиках
+    const regex = /`([^`]+)`/g;
     const parts = [];
     let lastIndex = 0;
     let match;
 
     while ((match = regex.exec(text)) !== null) {
-      // Добавляем текст до следующего совпадения
       if (lastIndex < match.index) {
         parts.push(<span key={lastIndex}>{text.slice(lastIndex, match.index)}</span>);
       }
-      // Добавляем текст в бэктиках с нужным стилем
       parts.push(
         <span key={match.index} style={{ backgroundColor: '#e21b3c', color: 'white', padding: '0 4px' }}>
           {match[1]}
         </span>
       );
-      lastIndex = match.index + match[0].length; // Обновляем последний индекс
+      lastIndex = match.index + match[0].length;
     }
 
-    // Добавляем оставшийся текст после последнего совпадения
     if (lastIndex < text.length) {
       parts.push(<span key={lastIndex}>{text.slice(lastIndex)}</span>);
     }
@@ -147,10 +146,7 @@ function SelectionMode({
       <div className={styles.wrapper}>
         <div className={styles.selectionMode}>
           {answerShown ? (
-            <div
-              className={styles.question}
-              style={{ fontSize: `${getAnswerFontSize(block.text)}px` }} // Применяем размер шрифта для ответа
-            >
+            <div className={styles.question} style={{ fontSize: `${getAnswerFontSize(block.text)}px` }}>
               {formatTextWithHighlights(block.text)}
             </div>
           ) : (
@@ -158,11 +154,7 @@ function SelectionMode({
           )}
           <div className={styles.options}>
             {block.options.map((option, index) => (
-              <div
-                key={index}
-                className={`${styles.option} ${highlightedOptions[index]}`}
-                style={{ fontSize: `${getOptionFontSize(option)}px` }}
-              >
+              <div key={index} className={`${styles.option} ${highlightedOptions[index]}`} style={{ fontSize: `${getOptionFontSize(option)}px` }}>
                 {option}
               </div>
             ))}
@@ -170,23 +162,25 @@ function SelectionMode({
         </div>
       </div>
       <div className={styles.controlBlock}>
-        {!timerStarted ? (
-          <StartTimerButton onClick={handleStartTimerInternal} />
-        ) : !timerEnded ? (
-          <Timer
-            key={block.id}
-            duration={30}
-            onEnd={handleTimerEnd}
-            onForceStop={handleForceStopInternal}
-          />
-        ) : !answerShown ? (
-          <div className={styles.buttonGroup}>
-            <ShowAnswerButton onClick={handleShowAnswerInternal} />
-            {!hintUsed && <HintButton onClick={handleHintInternal} />}
-          </div>
-        ) : (
-          <SelectCategoryButton onClick={handleSelectCategoryInternal} />
-        )}
+        <div className={styles.timerSpace}>
+          {!timerStarted ? (
+            <StartTimerButton onClick={handleStartTimerInternal} />
+          ) : !timerEnded ? (
+            <Timer
+              key={block.id}
+              duration={30}
+              onEnd={handleTimerEnd}
+              onForceStop={handleForceStopInternal}
+            />
+          ) : !answerShown ? (
+            <div className={styles.buttonGroup}>
+              <ShowAnswerButton onClick={handleShowAnswerInternal} />
+              {!hintUsed && <HintButton onClick={handleHintInternal} />}
+            </div>
+          ) : (
+            <SelectCategoryButton onClick={handleSelectCategoryInternal} />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -17,8 +17,7 @@
     justify-content: center;
     width: 275px;
   }
- 
+
   .hintButton:hover {
-    /* background-color: #68469c; */
-    background-color: #02423a;
+    filter: saturate(2);
   }

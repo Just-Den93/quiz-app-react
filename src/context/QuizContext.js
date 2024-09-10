@@ -12,17 +12,21 @@ export function QuizProvider({ children }) {
     const savedState = localStorage.getItem('showQuizPage');
     return savedState === 'true';
   });
+
   const [selectedMode, setSelectedMode] = useState(() => {
     const mode = localStorage.getItem('selectedMode');
     return mode || null;
   });
+
   const [currentQuizId, setCurrentQuizId] = useState(() => {
     return localStorage.getItem('currentQuizId');
   });
+
   const [quizStates, setQuizStates] = useState(() => {
     const savedStates = localStorage.getItem('quizStates');
     return savedStates ? JSON.parse(savedStates) : {};
   });
+
   const [data, setData] = useState(() => {
     const savedData = localStorage.getItem('data');
     return savedData ? JSON.parse(savedData) : null;
@@ -33,7 +37,8 @@ export function QuizProvider({ children }) {
       const selectedData = loadJsonDataByMode(selectedMode);
       const savedData = localStorage.getItem('data');
 
-      if (selectedData && JSON.stringify(selectedData.categories) !== savedData) {
+      // Проверяем, существует ли `selectedData` и имеет ли он категорию
+      if (selectedData && selectedData.categories && JSON.stringify(selectedData.categories) !== savedData) {
         // Если данные отличаются, обновляем локальное состояние и localStorage
         setData(selectedData.categories);
         updateQuizState(currentQuizId, { data: selectedData.categories });
@@ -59,7 +64,7 @@ export function QuizProvider({ children }) {
   }, [currentQuizId]);
 
   const updateQuizState = (uuid, newState) => {
-    setQuizStates(prevStates => {
+    setQuizStates((prevStates) => {
       const updatedStates = {
         ...prevStates,
         [uuid]: {
@@ -78,7 +83,7 @@ export function QuizProvider({ children }) {
       return;
     }
 
-    setQuizStates(prevStates => {
+    setQuizStates((prevStates) => {
       const previousState = prevStates[quizId] || {};
       const updatedUsedBlocks = { ...previousState.usedBlocks };
 

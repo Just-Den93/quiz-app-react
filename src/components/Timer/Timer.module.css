@@ -3,40 +3,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-top: 20px; */
-  /* margin-bottom: 50px; */
+  min-height: 120px;
+  cursor: pointer; /* Всегда курсор "указатель" */
 }
 
 .timer {
   font-size: 72px;
   transition: opacity 0.3s ease;
   font-weight: 800;
-  /* color: #7958af; */
   color: #03564a;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: #fed86b; */
   background-color: #e1baa7;
   border-radius: 10px;
-  /* padding: 10px 20px; */
   margin-bottom: 30px;
   position: relative;
+  /* user-select: none; */
 }
 
 .digit,
 .colon {
-  background: rgba(255, 255, 255, 0.7); /* Translucent white background */
+  background: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон */
   border-radius: 10px;
   padding: 10px 0;
   margin: 0 5px;
   display: inline-block;
   width: 80px;
   text-align: center;
+  /* user-select: none; */
 }
 
 .colon {
-  background: transparent; /* No background for the colon */
+  background: transparent; /* Без фона для двоеточия */
   width: auto;
   padding: 0 10px;
 }
@@ -47,11 +46,12 @@
   left: 0;
   width: 100%;
   height: 78%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
   border: none;
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 2px;
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -59,6 +59,7 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   cursor: pointer;
+  /* user-select: none; */
 }
 
 .timerContainer:hover .forceStopButton {

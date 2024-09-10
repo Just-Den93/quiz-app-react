@@ -20,7 +20,7 @@ function Timer({ duration, onEnd, onForceStop }) {
       </div>
       {hovered && (
         <button className={styles.forceStopButton} onClick={handleForceStop}>
-          Спинити
+          СПИНИТИ
         </button>
       )}
     </div>

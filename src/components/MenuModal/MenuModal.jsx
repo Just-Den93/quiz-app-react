@@ -2,26 +2,31 @@ import React from 'react';
 import styles from './MenuModal.module.css';
 import { useMenuModal } from './menuModalUtils';
 import { useQuizContext } from '../../context/QuizContext';
+import NewGameButton from '../NewGameButton/NewGameButton';
+import ContinueButton from '../ContinueButton/ContinueButton';
+import SettingsButton from '../SettingsButton/SettingsButton';
+import MainMenuButton from '../MainMenuButton/MainMenuButton';
 
 function MenuModal({ showSettings, showMainMenu }) {
   const { isVisible, closeMenuModal } = useMenuModal();
   const { currentQuizId, setQuizStates } = useQuizContext();
 
   const handleNewGame = () => {
-    // Очищаем данные текущей викторины в localStorage
+    // Очищаем все данные текущей викторины в localStorage
     localStorage.removeItem(`data-${currentQuizId}`);
+    localStorage.removeItem(`usedBlocks-${currentQuizId}`);
+    localStorage.removeItem('quizStates');  // Очищаем состояние викторины в localStorage
 
-    // Сброс состояния в контексте только для текущей викторины
-    setQuizStates(prevStates => ({
+    // Сбрасываем состояние викторины в контексте приложения
+    setQuizStates((prevStates) => ({
       ...prevStates,
       [currentQuizId]: {
-        ...prevStates[currentQuizId],
         usedBlocks: {},
-        data: null, // Или другой метод сброса данных викторины
+        data: null,
       },
     }));
 
-    // Закрываем меню, но не трогаем selectedMode и currentQuizId
+    // Закрываем меню
     closeMenuModal();
   };
 
@@ -32,18 +37,10 @@ function MenuModal({ showSettings, showMainMenu }) {
       style={{ display: isVisible ? 'flex' : 'none', opacity: isVisible ? 1 : 0 }}
     >
       <div className={styles.menuModalContent}>
-        <button id="new-game-button" className={styles.menuButton} onClick={handleNewGame}>
-          Нова гра
-        </button>
-        <button id="continue-button" className={styles.menuButton} onClick={closeMenuModal}>
-          Продовжити
-        </button>
-        <button id="settings-button" className={styles.menuButton} onClick={showSettings}>
-          Налаштування
-        </button>
-        <button id="main-menu-button" className={styles.menuButton} onClick={showMainMenu}>
-          Головне меню
-        </button>
+        <NewGameButton onNewGame={handleNewGame} /> {/* Передаем обработчик для новой игры */}
+        <ContinueButton onClick={closeMenuModal} />
+        <SettingsButton onClick={showSettings} />
+        <MainMenuButton onClick={showMainMenu} />
       </div>
     </div>
   );

@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  user-select: none; /* Отключает выделение текста */
 }
 
 .selectedInfo {
@@ -43,7 +44,23 @@
 .wrapper {
   display: flex;
   justify-content: center;
-  margin: 170px 0 0;
+  padding-top: 170px;
+  height: 280px;
+  min-height: 400px; /* Минимальная высота для предотвращения скачков */
+}
+
+.controlBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.timerSpace {
+  min-height: 140px; /* Фиксированное пространство под таймер */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .selectionMode {
@@ -54,12 +71,13 @@
   height: 40%;
   text-align: center;
   margin: 20px;
-  width: 50%;
+  /* width: 50%; */
 }
 
 .buttonGroup {
   display: flex;
   gap: 50px;
+  margin-top: 20px; /* Дополнительное расстояние между кнопками и таймером */
 }
 
 .question {
@@ -97,7 +115,7 @@
 }
 
 .option {
-  width: 500px;
+  width: 460px;
   height: 80px;
   border-radius: 5px;
   padding: 10px 20px;

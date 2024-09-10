@@ -1,18 +1,17 @@
 .endMessage {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.9); /* Полупрозрачный черный фон */
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  display: flex;
+  z-index: 20; /* Обязательно выше конфетти */
 }
 
 .endMessageContent {
-  width: calc(100% - 690px);
   text-align: center;
   padding: 40px;
   height: 350px;
@@ -22,22 +21,27 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #7958af;
-  border: 10px solid #fff;
+  background-color: #e1baa7;
+  border: 10px solid #03564a;
   border-radius: 30px;
-  color: #fff;
+  color: #03564a;
+  position: relative;
+  z-index: 30; /* Поверх анимации конфетти */
 }
 
 .greetings {
   font-size: 40px;
-  text-align: center;
+  margin: 60px 40px 60px;
   font-weight: bold;
-  padding: 20px;
-  border-radius: 10px;
 }
 
-.restartCircle {
-  background-color: white;
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.awardIconContainer {
+  background-color: #03564a;
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -45,33 +49,11 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: -60px;
-  left: calc(50% - 60px);
+  top: -60px; /* Чтобы круг с наградой находился на верхней части блока */
+  left: calc(50% - 60px); /* Центрируем круг */
 }
 
-.restartCircle img {
-  width: 70px;
-  height: 70px;
-}
-
-.restartButton {
-  font-size: 24px;
-  padding: 10px 20px;
-  background-color: #fff;
-  color: #7958af;
-  font-weight: 700;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-  opacity: 0;
-  visibility: hidden;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-}
-
-.restartButton.show {
-  visibility: visible;
-  opacity: 1;
+.awardIcon {
+  font-size: 70px;
+  color: #e1baa7;
 }

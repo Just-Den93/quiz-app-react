@@ -17,6 +17,5 @@
 }
 
 .showAnswerButton:hover {
-  /* background-color: #68469c; */
-  background-color: #02423a;
+  filter: saturate(2);
 }

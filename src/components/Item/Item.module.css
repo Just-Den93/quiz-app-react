@@ -17,6 +17,15 @@
   flex-shrink: 0;
 }
 
+.box:hover {
+  filter: saturate(2);
+}
+
 .used {
   background-color: lightgray; /* Использованный блок */
 }
+
+.used:hover {
+  filter: saturate(2);
+}
+
