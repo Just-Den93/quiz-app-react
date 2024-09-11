@@ -3,6 +3,7 @@ import QAMode from '../QAMode/QAMode';
 import SelectionMode from '../SelectionMode/SelectionMode';
 import WarningMessage from '../WarningMessage/WarningMessage'; // Импортируем WarningMessage
 import styles from './Modal.module.css';
+import { resetModalState, handleModalActions } from './modalUtils';
 
 const modeComponents = {
   1: QAMode,
@@ -26,9 +27,7 @@ function Modal({
   const [showAnswer, setShowAnswer] = useState(false);
 
   useEffect(() => {
-    setTimerStarted(false);
-    setShowAnswer(false);
-    setTimerEnded(false);
+    resetModalState(setTimerStarted, setShowAnswer, setTimerEnded); // Используем вынесенную функцию
   }, [block]);
 
   if (!block) {
@@ -52,10 +51,10 @@ function Modal({
               setTimerStarted={setTimerStarted}
               timerStarted={timerStarted}
               timerEnded={timerEnded}
-              handleTimerEnd={() => setTimerEnded(true)}
-              handleShowAnswer={() => setShowAnswer(true)}
+              handleTimerEnd={() => handleModalActions.setTimerEnded(setTimerEnded)} // Используем вынесенную функцию
+              handleShowAnswer={() => handleModalActions.setShowAnswer(setShowAnswer)} // Используем вынесенную функцию
               handleSelectCategory={() => onSelectCategory(block.categoryId, block.id)}
-              handleForceStop={() => setTimerEnded(true)}
+              handleForceStop={() => handleModalActions.forceStop(setTimerEnded)} // Используем вынесенную функцию
             />
           )
         )}

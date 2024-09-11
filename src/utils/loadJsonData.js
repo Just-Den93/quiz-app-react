@@ -1,4 +1,3 @@
-// src/utils/loadJsonData.js
 export function loadJsonDataFiles() {
   const context = require.context('../data', false, /\.json$/);
   return context.keys().map(key => ({
@@ -10,8 +9,15 @@ export function loadJsonDataFiles() {
 export function loadUniqueUuids() {
   const dataFiles = loadJsonDataFiles();
   const uniqueUuids = Array.from(new Set(dataFiles.map(file => file.uuid)));
+
   return uniqueUuids.map(uuid => {
-    return dataFiles.find(file => file.uuid === uuid);
+    const quizData = dataFiles.find(file => file.uuid === uuid);
+    return {
+      uuid: quizData.uuid,
+      mode: quizData.mode,
+      name: quizData["quiz name"],  // Используем правильное поле "quiz name"
+      categories: quizData.categories,
+    };
   });
 }
 

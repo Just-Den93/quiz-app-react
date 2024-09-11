@@ -1,43 +1,85 @@
-import { useState, useEffect } from 'react';
+// src/utils/quizPageUtils.js
 
-export function useQuizPageLogic() {
-  const [usedBlocks, setUsedBlocks] = useState(() => {
-    const saved = localStorage.getItem('usedBlocks');
-    return saved ? JSON.parse(saved) : {};
-  });
+// Подсчет общего количества блоков
+export const getTotalBlocks = (data) => {
+  return data?.reduce((acc, category) => acc + category.blocks.length, 0) || 0;
+};
 
-  const [isSettingsVisible, setIsSettingsVisible] = useState(false);
+// Подсчет количества использованных блоков
+export const getUsedBlocksCount = (currentQuizState) => {
+  return Object.values(currentQuizState.usedBlocks || {}).reduce(
+    (acc, categoryBlocks) => acc + categoryBlocks.length,
+    0
+  );
+};
 
-  const markBlockAsUsed = (categoryName, blockId) => {
-    setUsedBlocks((prevUsedBlocks) => {
-      const updatedUsedBlocks = { ...prevUsedBlocks };
-      if (!updatedUsedBlocks[categoryName]) {
-        updatedUsedBlocks[categoryName] = [];
-      }
-      updatedUsedBlocks[categoryName].push(blockId);
+// Обработка выбора блока
+export const handleBlockSelect = (
+  block, category, currentQuizState, setSelectedBlock, setSelectedCategory, setIsBlockUsed
+) => {
+  setSelectedBlock(block);
+  setSelectedCategory(category);
 
-      localStorage.setItem('usedBlocks', JSON.stringify(updatedUsedBlocks));
-      return updatedUsedBlocks;
-    });
-  };
+  if (currentQuizState.usedBlocks?.[category.id]?.includes(block.id)) {
+    setIsBlockUsed(true); // Блок уже использован
+  } else {
+    setIsBlockUsed(false); // Блок не использован
+  }
+};
 
-  useEffect(() => {
-    localStorage.setItem('usedBlocks', JSON.stringify(usedBlocks));
-  }, [usedBlocks]);
+// Обработка закрытия модального окна
+export const handleCloseModal = (setSelectedBlock, setSelectedCategory, setIsBlockUsed) => {
+  setSelectedBlock(null);
+  setSelectedCategory(null);
+  setIsBlockUsed(false); // Сброс состояния
+};
 
-  const showSettings = () => {
-    setIsSettingsVisible(true);
-  };
+// Обработка завершения игры
+export const handleNewGame = (currentQuizId, setQuizStates, setConfettiRunning, setShowEndMessage) => {
+  localStorage.removeItem(`data-${currentQuizId}`);
+  localStorage.removeItem(`usedBlocks-${currentQuizId}`);
+  localStorage.removeItem('quizStates');
 
-  const hideSettings = () => {
-    setIsSettingsVisible(false);
-  };
+  setQuizStates((prevStates) => ({
+    ...prevStates,
+    [currentQuizId]: {
+      usedBlocks: {},
+      data: null,
+    },
+  }));
 
-  return {
-    usedBlocks,
-    isSettingsVisible,
-    markBlockAsUsed,
-    showSettings,
-    hideSettings,
-  };
-}
+  setConfettiRunning(false);
+  setShowEndMessage(false);
+};
+
+// Обработка возврата в главное меню
+export const handleMainMenu = (
+  currentQuizId, setQuizStates, setShowQuizPage, setConfettiRunning, clearState = false
+) => {
+  if (clearState) {
+    localStorage.removeItem(`data-${currentQuizId}`);
+    setQuizStates((prevStates) => ({
+      ...prevStates,
+      [currentQuizId]: {
+        usedBlocks: {},
+        data: null,
+      },
+    }));
+  }
+  setShowQuizPage(false);
+  setConfettiRunning(false);
+};
+
+// Обработка выбора категории и запуска конфетти
+export const handleSelectCategory = (
+  categoryId, blockId, currentQuizId, markBlockAsUsed, totalBlocks, usedBlocksCount, setConfettiRunning, setShowEndMessage, handleCloseModal
+) => {
+  markBlockAsUsed(currentQuizId, categoryId, blockId);
+
+  if (usedBlocksCount === totalBlocks - 1) {
+    setConfettiRunning(true);
+    setShowEndMessage(true);
+  }
+
+  handleCloseModal();
+};

@@ -32,14 +32,17 @@ export function QuizProvider({ children }) {
     return savedData ? JSON.parse(savedData) : null;
   });
 
+  const [completedGames, setCompletedGames] = useState(() => {
+    const savedGames = localStorage.getItem('completedGames');
+    return savedGames ? JSON.parse(savedGames) : 0;
+  });
+
   useEffect(() => {
     if (selectedMode && currentQuizId) {
       const selectedData = loadJsonDataByMode(selectedMode);
       const savedData = localStorage.getItem('data');
 
-      // Проверяем, существует ли `selectedData` и имеет ли он категорию
       if (selectedData && selectedData.categories && JSON.stringify(selectedData.categories) !== savedData) {
-        // Если данные отличаются, обновляем локальное состояние и localStorage
         setData(selectedData.categories);
         updateQuizState(currentQuizId, { data: selectedData.categories });
         localStorage.setItem('data', JSON.stringify(selectedData.categories));
@@ -62,6 +65,10 @@ export function QuizProvider({ children }) {
       localStorage.setItem('currentQuizId', currentQuizId);
     }
   }, [currentQuizId]);
+
+  useEffect(() => {
+    localStorage.setItem('completedGames', completedGames.toString());
+  }, [completedGames]);
 
   const updateQuizState = (uuid, newState) => {
     setQuizStates((prevStates) => {
@@ -95,6 +102,15 @@ export function QuizProvider({ children }) {
         updatedUsedBlocks[categoryId].push(blockId);
       }
 
+      const allBlocksUsed = data.every(category =>
+        updatedUsedBlocks[category.id] &&
+        updatedUsedBlocks[category.id].length === category.blocks.length
+      );
+
+      if (allBlocksUsed) {
+        setCompletedGames((prevGames) => prevGames + 1); // Увеличиваем количество завершенных игр
+      }
+
       const updatedStates = {
         ...prevStates,
         [quizId]: {
@@ -123,6 +139,7 @@ export function QuizProvider({ children }) {
       updateQuizState,
       markBlockAsUsed,
       data,
+      completedGames,
     }}>
       {children}
     </QuizContext.Provider>

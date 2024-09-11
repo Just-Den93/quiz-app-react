@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './WarningMessage.module.css';
-import TryAgainButton from '../TryAgainButton/TryAgainButton';
-import ContinueButton from '../ContinueButton/ContinueButton';
+import TryAgainButton from '../ButtonComponents/TryAgainButton/TryAgainButton';
+import ContinueButton from '../ButtonComponents/ContinueButton/ContinueButton';
 import { IoWarning } from "react-icons/io5";
 
 function WarningMessage({ onTryAgain, onContinue }) {

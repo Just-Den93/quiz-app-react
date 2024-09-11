@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import StartTimerButton from '../StartTimerButton/StartTimerButton';
+import StartTimerButton from '../ButtonComponents/StartTimerButton/StartTimerButton';
 import Timer from '../Timer/Timer';
-import SelectCategoryButton from '../SelectCategoryButton/SelectCategoryButton';
-import ShowAnswerButton from '../ShowAnswerButton/ShowAnswerButton';
+import SelectCategoryButton from '../ButtonComponents/SelectCategoryButton/SelectCategoryButton';
+import ShowAnswerButton from '../ButtonComponents/ShowAnswerButton/ShowAnswerButton';
 import styles from './QAMode.module.css';
+import { resetQAState, handleQAActions } from './QAModeUtils';
 
 function QAMode({
   block,
@@ -21,26 +22,8 @@ function QAMode({
   const [localTimerStarted, setLocalTimerStarted] = useState(false); // Локальное состояние для контроля таймера
 
   useEffect(() => {
-    // Сброс состояния при изменении блока или при открытии модального окна
-    setForceStopped(false);
-    setAnswerShown(false);
-    setLocalTimerStarted(false);
+    resetQAState(setForceStopped, setAnswerShown, setLocalTimerStarted); // Используем вынесенную функцию для сброса состояния
   }, [block]);
-
-  const handleForceStopInternal = () => {
-    handleForceStop();
-    setForceStopped(true);
-  };
-
-  const handleShowAnswerInternal = () => {
-    handleShowAnswer();
-    setAnswerShown(true); // Обновляем локальное состояние после показа ответа
-  };
-
-  const handleStartTimerInternal = () => {
-    setTimerStarted(true);
-    setLocalTimerStarted(true);
-  };
 
   if (!block) {
     return <div>Loading...</div>;
@@ -56,11 +39,16 @@ function QAMode({
       {showAnswer && <p className={styles.subAnswer}>{block.subAnswer}</p>}
       <div className={styles.controlBlock}>
         {!localTimerStarted ? (
-          <StartTimerButton onClick={handleStartTimerInternal} />
+          <StartTimerButton onClick={() => handleQAActions.startTimer(setTimerStarted, setLocalTimerStarted)} />
         ) : !timerEnded ? (
-          <Timer duration={30} onEnd={handleTimerEnd} onForceStop={handleForceStopInternal} forceStopped={forceStopped} />
+          <Timer
+            duration={30}
+            onEnd={handleTimerEnd}
+            onForceStop={() => handleQAActions.forceStop(handleForceStop, setForceStopped)}
+            forceStopped={forceStopped}
+          />
         ) : !answerShown ? (
-          <ShowAnswerButton onClick={handleShowAnswerInternal} />
+          <ShowAnswerButton onClick={() => handleQAActions.showAnswer(handleShowAnswer, setAnswerShown)} />
         ) : (
           <SelectCategoryButton onClick={handleSelectCategory} />
         )}

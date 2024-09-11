@@ -1,17 +1,7 @@
-export function handleShowQuizPage(setShowQuizPage) {
+// Функция для начала викторины
+export function startQuizHandler(mode, uuid, setSelectedMode, setCurrentQuizId, setShowQuizPage) {
+  setSelectedMode(mode);
+  setCurrentQuizId(uuid);
   setShowQuizPage(true);
   localStorage.setItem('showQuizPage', 'true');
-}
-
-export function handleShowMainMenu(setShowQuizPage) {
-  setShowQuizPage(false);
-  localStorage.setItem('showQuizPage', 'false');
-}
-
-export function handleNewGame(setShowQuizPage) {
-  localStorage.removeItem('usedBlocks');
-  setShowQuizPage(false);
-  setTimeout(() => {
-    setShowQuizPage(true);
-  }, 0);
 }
